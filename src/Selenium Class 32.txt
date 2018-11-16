@@ -1,0 +1,181 @@
+Selenium Class 32: Handling Elements Part-4
+-------------------------------------------
+Part-1:
+----------
+1) Handling Browser
+2) Handling edit box
+-----------------------
+Part-2:
+3) Handling Text Area, Error Message, Popup Window
+4) Handling Button
+5) Handling Link
+----------------------------------
+Part-3:
+6) Handling Radio Button
+7) Handling Drop down Box
+8) Handling Check box
+9) Handling Image, Image Button, and Image Link
+------------------------------------
+Part-4:
+10) Handling Web Table/HTML Table
+11) Handling Frames...
+---------------------------------------------------------
+Selenium WebDriver Java Language Binding - 2.23 and Mozilla Firefox 12, and Firebug & Firepath 1.9 
+-------------------------------------------
+10) Handling Web Table/HTML Table
+-------------------------------------------
+> Check Displayed Status
+
+> Get/Return Cell Value
+> Return Rows Count
+> Return Cells Count
+
+Selenium WebDriver Test Steps:
+WebDriver driver = new FirefoxDriver();
+driver.manage().window().maximize();
+driver.get("file:///C:/Users/GCREDDY/Desktop/HTMLExamples/htmlTable.html");
+boolean displayStatus = driver.findElement(By.id("students")).isDisplayed();
+System.out.println(displayStatus);//true
+
+WebElement studentsTable = driver.findElement(By.id("students"));
+
+List <WebElement> rows = studentsTable.findElements(By.tagName("tr"));
+int rowcount = rows.size();
+System.out.println("Rows Count is: " +rowcount);
+
+List <WebElement> cells = studentsTable.findElements(By.tagName("td"));
+int cellCount = cells.size();
+System.out.println("Cells Count is: " + cellCount);
+
+System.out.println("Colums Count is: "+ cells.size()/rows.size());
+
+String cellValue = driver.findElement(By.xpath(".//*[@id='students']/tbody/tr[2]/td[2]")).getText();
+System.out.println(cellValue);
+
+driver.close();
+}
+}
+-------------------------------------------
+Using Chrome browser:
+
+//Instantiate the Chrome Browser driver
+System.setProperty("webdriver.chrome.driver", "E:/chromedriver.exe");
+//Create Chrome Browser driver
+WebDriver driver = new ChromeDriver();
+driver.manage().window().maximize();
+driver.get("file:///C:/Users/GCREDDY/Desktop/HTMLExamples/htmlTable.html");
+boolean displayStatus = driver.findElement(By.id("students")).isDisplayed();
+System.out.println(displayStatus);//true
+
+WebElement studentsTable = driver.findElement(By.id("students"));
+
+List <WebElement> rows = studentsTable.findElements(By.tagName("tr"));
+int rowcount = rows.size();
+System.out.println("Rows Count is: " +rowcount);
+
+List <WebElement> cells = studentsTable.findElements(By.tagName("td"));
+int cellCount = cells.size();
+System.out.println("Cells Count is: " + cellCount);
+
+System.out.println("Colums Count is: "+ cells.size()/rows.size());
+
+String cellValue = driver.findElement(By.xpath(".//*[@id='students']/tbody/tr[2]/td[2]")).getText();
+System.out.println(cellValue);
+
+driver.close();
+}
+}
+-------------------------------------------
+11) Handling Frames...
+-------------------------------------------
+> HTML Frames are used to divide the Browser window into multiple sections, where each section
+can load a separate HTML document
+
+> Frames are Sections of Web page displed on Top window
+
+> Whenever we access the page then focus on the top window.
+---------------------------------------------------------------
+Note: If It is Manual Testing, we no need to focus on Frames, we can access Elements in any frame directly.
+
+In Test Automation using Selenium WebDriver, first we need to switch to a frame then we can access elements in that frame.
+-------------------------------------------------
+Switch from Top window to a Frame is done in two ways,
+
+i) Using Frame Index
+ii) Using Frame Name
+--------------------------------------------
+i) Using Frame Index
+
+Syntax:
+driver.switchTo().frame(int index);
+
+ii) Using Frame Name
+driver.switchTo().frame("String Frame Name");
+-------------------------------------------
+WebDriver driver = new FirefoxDriver();
+driver.get("http://seleniumhq.github.io/selenium/docs/api/java/index.html");
+driver.manage().window().maximize();
+//Switch from the Top window to 3rd Frame using Frame Index
+driver.switchTo().frame(2);
+driver.findElement(By.linkText("org.openqa.selenium")).click();
+-------------------------------------------
+WebDriver driver = new FirefoxDriver();
+driver.get("http://seleniumhq.github.io/selenium/docs/api/java/index.html");
+driver.manage().window().maximize();
+//Switch from the Top window to 3rd Frame using Frame Name
+driver.switchTo().frame("classFrame");
+driver.findElement(By.linkText("org.openqa.selenium")).click();
+-------------------------------------------
+Test Requirement:
+
+> Launch the Web Page that has multiple Frames,
+> Operate an Element in the 3rd Frame,
+> Operate an Element in the 1st Frame
+--------------------------------------
+Steps for selenium WebDriver test Script:
+
+> Launch the Web Page that has multiple Frames,
+> Switch from top window to 3rd Frame
+> Access an Element
+> Back to Top window (default)
+> Switch from Top window to 1st Frame
+> Access an Element
+-------------------------------------------
+WebDriver driver = new FirefoxDriver();
+driver.get("http://seleniumhq.github.io/selenium/docs/api/java/index.html");
+driver.manage().window().maximize();
+//Switch from the Top window to 3rd Frame using Frame Name
+driver.switchTo().frame("classFrame");
+driver.findElement(By.linkText("org.openqa.selenium")).click();
+
+driver.switchTo().defaultContent();
+
+driver.switchTo().frame("packageListFrame");
+driver.findElement(By.linkText("com.thoughtworks.selenium")).click();
+-------------------------------------------
+WebDriver driver = new FirefoxDriver();
+driver.get("http://seleniumhq.github.io/selenium/docs/api/java/index.html");
+driver.manage().window().maximize();
+//Switch from the Top window to 3rd Frame using Frame Index
+driver.switchTo().frame(2);
+driver.findElement(By.linkText("org.openqa.selenium")).click();
+
+driver.switchTo().defaultContent();
+
+driver.switchTo().frame(0);
+driver.findElement(By.linkText("com.thoughtworks.selenium")).click();
+driver.close();
+-------------------------------------------
+Assignment: How to handle iFrame Element...
+
+An iFrame is an HTML document that is embedded inside another document,
+An iFrame can be used to insert a piece of content from another source into a web page
+-------------------------------------------
+// Handle inline Elements...
+
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.co.in/");
+driver.manage().window().maximize();
+driver.findElement(By.xpath(".//*[@id='gbwa']/div[1]/a")).click();
+driver.findElement(By.xpath(".//*[@id='gb5']/span[1]")).click();
+-------------------------------------------

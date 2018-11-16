@@ -1,0 +1,384 @@
+Selenium Class 42: TestNG Framework for Selenium Part-3
+-------------------------------------------------------
+4) Executing multiple Program/Class using XML
+5) Grouping Test Cases...
+6) Parallel Testing
+-------------------------------------------------------
+4) Executing multiple Program/Class using XML
+
+XML File for executing multiple programs/classes
+
+<suite name = "Suite Name">
+<test name = "Test Name">
+<classes>
+<class name = "package.class1name"/>
+<class name = "package.class2name"/>
+</classes>
+</test name >
+</suite name>
+--------------------------------------------------
+Tags in XML File...
+
+suite,
+test,
+classes,
+class
+
+Writing Tags
+
+<suite name = "Suite Name">
+</suite name>
+Or
+<suite name = "Suite Name"/>
+-------------------------------------------------------
+Navigation to create an XML File in Eclipse / TestNG for executing multiple programs/classes.
+
+In Eclipse IDE,
+Select Java Project/Package > Right Click> New > Others...
+> Enter "TestNG" > Select "TestNG Class"
+> Enter Source and Package names
+> Enter XML File Name > Finish
+-------------------------------------------------------
+Class1:
+
+login
+addVendor
+addProduct
+addCurrency
+logout
+-----------------------------
+Class2:
+
+login
+deleteVendor
+deleteProduct
+deleteCurrency
+logout
+-----------------------------
+Class1 and Class2:
+
+login
+addVendor
+addProduct
+addCurrency
+logout
+
+login
+deleteVendor
+deleteProduct
+deleteCurrency
+logout
+-----------------------------------------------------------
+public class April1 {
+@BeforeClass
+public void login() {
+System.out.println("Login is Successful"); 
+}
+@Test (priority = 1)
+public void addVendor() {
+System.out.println("Add Vendor is Successful"); 
+}
+@Test (priority = 2)
+public void addProduct() {
+System.out.println("Add Product is Successful"); 
+}
+@Test (priority = 3)
+public void addCurrency() {
+System.out.println("Add Currency is Successful"); 
+}
+@AfterClass
+public void logout() {
+System.out.println("Logout is Successful"); 
+}
+}
+------------------------------------------------------------
+public class April2 {
+@BeforeClass
+public void login() {
+System.out.println("Login is Successful"); 
+}
+@Test (priority = 4)
+public void deleteVendor() {
+System.out.println("Delete Vendor is Successful"); 
+}
+@Test (priority = 5)
+public void deleteProduct() {
+System.out.println("Delete Product is Successful"); 
+}
+@Test (priority = 6)
+public void deleteCurrency() {
+System.out.println("Delete Currency is Successful"); 
+}
+@AfterClass
+public void logout() {
+System.out.println("Logout is Successful"); 
+}
+}
+-------------------------------------------------------
+class /s
+Group of Classes - Test
+Group of Tests - Suite
+
+- 2 Classes
+- Test
+- Suite
+--------------------------------
+1 Suite
+2 Tests
+10 Classes (1 Test-5 Classes, 2 Test -5 Classes)
+--------------------------------------------
+@BeforeTest
+@AfterTest
+-----------------
+Class1 and Class2:
+
+login
+addVendor
+addProduct
+addCurrency
+deleteVendor
+deleteProduct
+deleteCurrency
+logout
+------------------------------------------------
+public class April1 {
+@BeforeTest
+public void login() {
+System.out.println("Login is Successful"); 
+}
+@Test (priority = 1)
+public void addVendor() {
+System.out.println("Add Vendor is Successful"); 
+}
+@Test (priority = 2)
+public void addProduct() {
+System.out.println("Add Product is Successful"); 
+}
+@Test (priority = 3)
+public void addCurrency() {
+System.out.println("Add Currency is Successful"); 
+}
+@AfterTest
+public void logout() {
+System.out.println("Logout is Successful"); 
+}
+}
+----------------------------------------------------------------------
+public class April2 {
+@Test (priority = 4)
+public void deleteVendor() {
+System.out.println("Delete Vendor is Successful"); 
+}
+@Test (priority = 5)
+public void deleteProduct() {
+System.out.println("Delete Product is Successful"); 
+}
+@Test (priority = 6)
+public void deleteCurrency() {
+System.out.println("Delete Currency is Successful"); 
+}
+}
+-----------------------------------------------------------------------
+5) Grouping Test Cases / Cases
+
+XML File for Grouping Test Cases...
+
+<suite name = "Suite Name">
+<test name = "Test Name">
+<groups>
+<run>
+<include name = "Group Name"/>
+</run>
+
+<classes>
+<class name ="package.className"/>
+</classes>
+</groups>
+</test>
+</suite>
+-----------------------------------------------
+Tags in 1st File... (Executing multiple Programs/Classes...)
+suite,
+test,
+classes,
+class
+
+Tags in 2nd File....(Grouping Test Cases...)
+suite,
+test,
+groups,
+run,
+include,
+classes,
+class
+---------------------------------------------------------
+<suite name="Suite" parallel="false">
+  <test name="Test">
+    <classes>
+      <class name="xyza.April3"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+---------------------------------------------------------
+Test Case Groups...
+1) Sanity Group
+
+login,
+search,
+prepaidRecarge,
+logout
+
+2) Regression Group
+
+login,
+advancedSearch,
+billPayment
+prepaidRecharge,
+logout
+
+Class File:
+
+<suite name="Suite" parallel="false">
+  <test name="Test">
+  <groups>
+  <run>
+  <include name ="regression"/>
+  </run>
+      <classes>
+      <class name="xyza.April3"/>
+    </classes>
+    </groups>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+-----------------------------------------
+public class April3 {
+@Test (groups = {"sanity", "regression"}, priority=1)
+public void login() {
+System.out.println("Login is Successful");  
+}
+@Test (groups = {"sanity", "regression"}, priority=6)
+public void logout() {
+System.out.println("Logout is Successful");  
+}
+@Test (groups = {"sanity"}, priority=2)
+public void search() {
+System.out.println("Search is Successful");  
+}
+@Test (groups = {"regression"}, priority=3)
+public void advancedSearch() {
+System.out.println("Advanced Search is Successful");  
+}
+@Test (groups = {"regression"}, priority=4)
+public void billPayment() {
+System.out.println("Bill Payment is Successful");  
+}
+@Test (groups = {"sanity", "regression"}, priority=5)
+public void prepaidRecharge() {
+System.out.println("Prepaid Recharge is Successful");  
+}
+}
+-------------------------------------------------------------
+6) Parallel Test Execution
+----------------------------------------------------------
+Parallel Testing using Selenium Grid (* Multiple Computers...)
+Parallel Testing using Testing Framework (TestNG) (* Single Computer but multiple Threads)
+----------------------------------------
+Thread - A Thread is concurrent unit of Execution...
+
+1) Parallel Test Execution (Methods)
+
+XML File for Parallel Testing
+
+<suite name = "Suite Name" parallel = "methods" thread-count ='2'>
+<test name = "Test Name">
+<classes>
+<class name = package.className"/>
+</classes>
+</test>
+</suite>
+-----------------------------------------------------
+XML File:
+<suite name="Suite" parallel="methods" thread-count='2'>
+  <test name="Test">
+    <classes>
+      <class name="xyza.April4"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+-------------------------------------------------------------
+Class File:
+
+public class April4 {
+@Test
+public void testCase1() {
+long id = Thread.currentThread().getId();  
+System.out.println("Test Case 1 Successfult " + "Thread Count is "+ id);  
+}
+@Test
+public void testCase2() {
+long id = Thread.currentThread().getId();  
+System.out.println("Test Case 2 Successfult " + "Thread Count is "+ id);  
+}
+@Test
+public void testCase3() {
+long id = Thread.currentThread().getId();  
+System.out.println("Test Case 3 Successfult " + "Thread Count is "+ id);  
+}
+@Test
+public void testCase4() {
+long id = Thread.currentThread().getId();  
+System.out.println("Test Case 4 Successfult " + "Thread Count is "+ id);  
+}
+}
+-------------------------------------------------------------
+2) Parallel Test Execution (Classes)
+
+<suite name="Suite" parallel="classes" thread-count='2'>
+  <test name="Test">
+    <classes>
+      <class name="xyza.April4"/>
+      <class name="xyza.April5"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+---------------------------------------------------
+Class 1 File:
+
+public class April4 {
+@Test 
+public void testCase1() {
+long id = Thread.currentThread().getId();  
+System.out.println("Test Case 1 Successful " + "Thread Count is "+ id);  
+}
+@Test 
+public void testCase2() {
+long id = Thread.currentThread().getId();  
+System.out.println("Test Case 2 Successful " + "Thread Count is "+ id);
+}
+@Test 
+public void testCase3() {
+long id = Thread.currentThread().getId();  
+System.out.println("Test Case 3 Successful " + "Thread Count is "+ id); 
+}
+}
+------------------------------------------------------------------
+Class File 2: 
+
+public class April5 {
+@Test
+public void testCase4() {
+long id = Thread.currentThread().getId();  
+System.out.println("Test Case 4 Successful " + "Thread Count is "+ id);  
+}
+@Test 
+public void testCase5() {
+long id = Thread.currentThread().getId();  
+System.out.println("Test Case 5 Successful " + "Thread Count is "+ id);  
+}
+@Test 
+public void testCase6() {
+long id = Thread.currentThread().getId();  
+System.out.println("Test Case 6 Successful " + "Thread Count is "+ id);  
+}
+}
+------------------------------------------------------------

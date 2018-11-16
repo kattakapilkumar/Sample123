@@ -1,0 +1,164 @@
+Selenium Class 14: Arrays in Java, Java IO Operations
+-----------------------------------------------------------
+i) Arrays in Java
+ii) Input and Output (IO) Operations
+--------------------------------------------------------------
+i) Java Arrays
+----------------------------------------------------------------
+> In Java, Array is Object that holds a fixed number of values of a single type
+> The length of Array is established when the Array is created.
+> Array length is fixed, index starts from zero.
+-----------------------------------------------------------
+Declaration of Arrays
+
+1st Method
+
+Syntax:
+
+dataType arrayName[]; //Declare Array/Create Array
+arrayName = new dataType[size]; //Define Size
+arrayname[index] = value; //Assign value
+.
+.
+.
+-------------------------
+Example:
+
+int a[];
+a= new int[3];
+a[0]=10;
+a[1]=20;
+a[2]=30;
+System.out.println(a[1] + a[2]);//50
+-----------------------------
+Assign values to elements that more than the length of Array (Run-time Error)
+int a[];
+a= new int[3];
+a[0]=10;
+a[1]=20;
+a[2]=30;
+a[10]=40;
+System.out.println(a[1] + a[2]);//50
+-----------------------------
+Assign Values to some Elements only
+
+int a[];
+a= new int[3];
+a[1]=20;
+System.out.println(a[1]);//20
+-----------------------------
+int a[];
+a= new int[3];
+a[0]=10;
+a[1]=20;
+a[2]=1.23;
+System.out.println(a[1]);//20
+------------------------------------------
+2nd Method
+
+dataType[] arrayName = new dataType[size]; //Create Array with length
+arrayName[index] = value;//Assign Value
+.
+.
+------------------------
+int [] a = new int[3];
+a[0]=10;
+a[1]=20;
+a[2]=30;
+System.out.println(a[1]+a[2]);//50
+-----------------------------------------------------------
+3rd Method
+dataType[] arrayName = {value1, value2, value3, value4};//Create Array and Assign values
+
+exmaple:
+int a[] ={10, 20, 30, 40, 50};
+System.out.println(a[1] + a[3]);//60
+------------------------------------------------
+In VBScript
+
+Dim a[4]
+a[0] = 10 'Integer
+a[1] = "India" 'String
+a[2] =12.34 'Double
+a[3] = #10/10/2010#
+
+In Java
+
+int [] a = {1, 2, 3, 4};
+---------------------------------------------------------
+Creating different Types of Arrays
+
+int [] a = {10, 20, 30, 40, 50};//Array of Integers
+char [] b = {'A', 'B', 'z', '1', '*'}; //Array of Characters
+String [] c = {"UFT", "Selenium", "RFT", "123"};//Array of Strings
+double [] d = {1.234, 2.345, 3.456, 67.89};//Array of Decimal point values
+boolean [] e = {true, false, false, true};//Array of Boolean / Logical Values
+System.out.println(a[2]);//30
+System.out.println(d[3]);//67.89
+---------------------------------------------------------
+Copy values form one Array to another (Copy Array)
+
+int [] array1 = {1, 2, 3, 4, 5};
+int [] array2 = array1;
+System.out.println(array1.length);//5
+System.out.println(array2.length);//5
+
+System.out.println(array2[2]);//3
+------------------------------------
+int [] array1 = {1, 2, 3, 4, 5};
+int [] array2 = array1;
+/*System.out.println(array1.length);//5
+System.out.println(array2.length);//5
+
+System.out.println(array2[2]);//3
+*/
+//Print all elements an Array using for loop
+for (int i=0; i <array2.length; i++){
+System.out.println(array2[i]);
+}
+
+//print all elements an Array using Enhanced for loop
+for (int num: array2){
+System.out.println(num);
+-----------------------------------------------------------
+//Copy Particular Element
+
+int [] array1={1, 2,3,4,5};
+int [] array2 = {array1[2]};
+System.out.println(array2[0]);//3
+--------------------------------------
+int [] array2 = new int [4];
+array2[2] = array1[2];
+System.out.println(array2[2]);//3
+System.out.println(array2[0]);//Integer default value
+-----------------------------------------------------------
+Assignment to Vijaya: Print Two dimensional Array using nested for loop
+
+int [] [] array = {{10, 20, 30, 40}, {15, 25, 35, 45}};
+----------------------------------------------------------------
+Advantages and Disadvantages of Arrays
+
+Advantages:
+> Using Arrays we can optimize code, data can be retrived easily.
+> We can get required data using index position
+
+Disadvantages:
+> We can store fixed number of elements only, It doesn't change its size during execution.
+--------------------------------------------------------------
+Java Array is Static Data Structure, and Java Array List is Dynamic Data Structure,
+
+In VBScript:
+
+Dim a, b(4), c(), d (4,5)
+--------------------------------
+a- Scalar Variable
+b- Array Variable
+c - Dynamic Array
+d- Two dimensional Array
+------------------------------------
+VBScript			Java			Perl
+------------------------------------------------------------------------------
+Scalar Variables		Scalar Variables/Variables	Scalar Variables/Variables		
+Array Variables		Arrays			Array Variables
+Dictionary Object		Array List			Associated Arrays / Hash Variables
+----------------------------------------------------------------------------------------------------------

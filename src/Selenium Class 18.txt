@@ -1,0 +1,311 @@
+Selenium Class 18: Java Methods - User defined Methods
+---------------------------------------------------------------
+Java Methods
+	Predefined Methods
+		String Methods
+		Array Methods
+		Number Methods
+		Character Methods etc...
+
+	User defined Methods
+		Methods with return value (Performing Operations, and returning values)
+			Call Methods by invoking Object (Non Static Methods)
+			Call Methods without invoking Object (Static Methods)
+
+		Methods returns nothing (Performing Operations only)
+			Call Methods by invoking Object (Non Static Methods)
+			Call Methods without invoking Object (Static Methods)
+------------------------------------------------------------------------
+User defined Methods - examples
+
+1) Write methods (with return value)
+	a) Call the methods by invoking object (Non-static methods)
+
+Syntax:
+
+acessModifier returnType methodName (Parameters...){
+Statements
+---------------
+-------------
+------------
+return Statement...
+}
+
+Note: methods take Parameters but Parameters are optional, if we don't want use Parameters then write ()...
+And use Data Type for these type methods,
+Ex:
+(String Username, String Password)
+(int val1, int val2, int val3)
+------------------------------------
+Call methods
+
+Create Object...
+ClassName objectName = new Classname();
+
+Call methods...
+dataType variableName = objectname.method(values for Parameters...);
+Or
+system.out.println(objectname.method(values for Parameters...);
+-------------------------------------------------
+Example:
+public class JavaMethods {
+// Create a Non-static method with Parameters....
+public int add1(int num1, int num2){
+int result = num1 + num2;
+return result;
+}
+//Create a Non static method without Parameters....
+public int add2(){
+int num1 =10, num2 =20;
+int res = num1 + num2;
+return res;
+}
+public static void main(String[] args) {
+//Create Object 
+JavaMethods	obj = new JavaMethods();
+
+//Call Methods
+int x = obj.add1(11, 22);
+int y = obj.add2();
+
+System.out.println(x);//33
+System.out.println(y);//30
+
+//OR
+System.out.println(obj.add1(14, 25));//39
+System.out.println(obj.add2());//30
+}
+}
+---------------------------------------------------------------------------
+1) Writing Methods (Methods with return value)
+	b) Call methods without invoking Object (Static Method)
+
+Syntax:
+
+accessModifier nonAcessModifier / static retun Type methodName (parameters...){
+Statements
+-------------
+-------------
+--------------
+return statement;
+}
+-----------------------------------------------
+Call Static Methods
+dataType variableName = ClassName.method(values for Parameters...);
+
+Note: we can call this type of methods without ClassName also / directly.
+---------------------------------------------------------------------
+Example:
+
+public class JavaMethods {
+//Create a Static Method with Return value and Parameters....
+public static int multiply1(int a, int b){
+int result = a * b;
+return result;
+}
+//Create a Static Method with Return value and No Parameters....
+public static int multiply2(){
+int a =10, b =20;
+int result = a*b;
+return result;
+}
+public static void main(String[] args) {
+int res1 = JavaMethods.multiply1(7, 9);
+int res2 = JavaMethods.multiply2();
+
+System.out.println(res1);
+System.out.println(res2);
+//Or
+System.out.println(JavaMethods.multiply1(1, 2));
+System.out.println(JavaMethods.multiply2());
+}
+}
+--------------------------------------------------------------------
+Call Methods within the Methods....
+
+i) Call Static method within Static Method
+public static int sub2(){
+int a=10, b =7;
+int val =sub1(); 
+int result = (a-b) + val;
+return result;
+}	
+-------------------------------
+ii) Call Static within Non Static Method
+
+public int add2(){
+int c=100;
+Sample obj = new Sample();
+int d = sub2();
+int res = (obj.add()) + c +d;
+return res;
+}
+-------------------------------------------------
+iii) Call Non static method within Non Static Method
+public int add2(){
+int c=100;
+Sample obj = new Sample();
+int d = sub2();
+int res = (obj.add()) + c +d;
+return res;
+}
+--------------------------------------------------------
+iv) Call Non Static Method within Static method
+
+public static int sub1(){
+int a=100, b =30;
+Sample obj = new Sample();
+int val =obj.add(); 
+int result = (a-b) - val;
+return result;
+}
+------------------------------------------------------------
+Executing Methods...
+
+Sample obj2 = new Sample();
+int x = obj2.add();
+int y = obj2.add2();
+System.out.println(x);//30
+System.out.println(y);//173
+	
+System.out.println(sub1());//40
+System.out.println(sub2());//43
+--------------------------------------------------------------
+2) Writing Methods (Methods return Nothing)
+	a) Call Methods by invoking object (Non static method)
+
+Syntax:
+
+accessModifier returnsNothing methodName(Parameters....){
+Statements
+-------------
+----------
+--------
+}
+
+Example:
+
+public class Sample2 {
+//Create a Non Static Method and returns Nothing
+public void comparison(){
+int a=10, b=20;
+
+if (a>b){
+System.out.println("A is a Big Number");
+}
+else
+{
+System.out.println("B is a Big Number");
+}
+}
+
+public static void main(String[] args) {
+//Create Object
+Sample2 abc = new Sample2();
+abc.comparison();
+}
+}
+-------------------------------------------------------
+2) Writing Methods (Methods return Nothing)
+	b) Call Methods without invoking object (Static method)
+
+Syntax:
+
+accessModifier static returnsNothing methodName(Parameters){
+Statements
+-----------
+------------
+-------------
+}
+
+Example:
+public class Sample2 {
+//Create a Static Method and returns Nothing
+public static void comparison(){
+int a=100, b=20;
+
+if (a>b){
+System.out.println("A is a Big Number");
+}
+else
+{
+System.out.println("B is a Big Number");
+}
+}
+
+public static void main(String[] args) {
+Sample2.comparison();
+comparison();
+}
+}
+---------------------------------------------------
+Usage of user defined methods
+i) Internal use (Create and Call Methods within the same class/program)
+ii) External use (Call Methods from another class/program)
+-------------------------------------
+Class 1:
+public class Class1 {
+public int add(int a, int b){
+int result = a+b;
+return result;
+}
+public static void main(String[] args) {
+Class1 obj1 = new Class1();
+int res= obj1.add(10, 20);
+System.out.println(res);
+}
+}
+----------------------------------
+Class 2:
+public class Class2 extends Class1 {
+
+public static void main(String[] args) {
+Class2 obj2 = new Class2();
+int x= obj2.add(12, 23);
+System.out.println(x);
+}
+}
+---------------------------------------------------
+public class Class2 extends Class1 {
+public int sub(){
+int a=100, b=45;
+int result = a-b;
+return result;
+}
+public static void main(String[] args) {
+Class2 obj2 = new Class2();
+int x= obj2.add(12, 23);
+System.out.println(x);//35
+
+int y = obj2.sub();
+System.out.println(y);//55
+}
+}
+----------------------------------------
+public class Class1 {
+public static int add(int a, int b){
+int result = a+b;
+return result;
+}
+public static void main(String[] args) {
+int x= add(10, 30);
+System.out.println(x);//40
+}
+}
+--------------------------------------------
+public class Class2 {
+
+public static void main(String[] args) {
+int y = Class1.add(1, 2);
+System.out.println(y);
+}
+}
+---------------------------------
+public class Class2 extends Class1 {
+
+public static void main(String[] args) {
+int y = Class2.add(1, 2);
+System.out.println(y);
+}
+}
+-----------------------------------------------------------------------

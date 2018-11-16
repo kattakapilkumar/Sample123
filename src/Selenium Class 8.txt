@@ -1,0 +1,191 @@
+Selenium Class 8: Java Environment Setup & Verify
+--------------------------------------------------------
+1) Uses of Java
+2) Java Syntax
+3) Java Environment Setup & Verify
+-------------------------------------------------------------
+1) Uses of Java
+
+Java is used to develop,
+	Desktop Applications (Ex: Acrobat Reader)
+	Web Applications (Ex: snapdeal.com)
+	Enterprise Applications (Ex: Banking Applications, Insurance Applications, ERP Apps etc...)
+	Mobile Applications
+	Embedded Systems 
+	Smart Cards
+	Games Applications
+	Scientific Applications etc...
+------------------------------
+Test Automation (with Selenium)
+-------------------------------------------------------------
+2) Java Syntax
+
+i) Java is a Case Sensitive Language
+Note: All Java keywords are small letters (Ex: if, for, public, static, main etc...)
+ii) First Letter of Class Name should be in upper case
+smrithi
+Smrithi //Correct
+seleniumtesting //Incorrect
+Seleniumtesting //Correct
+SeleniumTesting //Correct
+
+iii) Method names should start with lower case
+iv) Java program file name should exactly match with class name
+v) Java program execution starts from main method, which is mandatory in every Java program.
+vi) Every Statement / Step should end with semi colon
+vii) Code blocks (Conditional, Loop, Method ...) enclosed with {}
+viii) Java supports Explicit Declaration of Data Types
+In Java
+
+int sno=123; //Correct
+char x ='A';
+boolean y = true;
+--------------------
+sro =102; //incorrect
+---------------------
+In VBScript
+
+Dim city
+city=100
+---
+---
+city = "Hyderabad"
+----
+------
+city = 12.34
+Note: VBScript supports Implicit declaration of Data Types only
+
+ix) Java Supports Explicit Declaration of Variables
+
+int a, b, c;
+a=10;
+d=20;//Incorrect
+
+In VBScript
+Dim a, b
+a=10 //Correct
+d=20 //Correct
+
+Note: VBScript supports Implicit & Explicit declaration of Variables
+-----------------------------------------------------------------------------------
+3) Java Environment Setup & Verify
+
+In order to write and execute Java programs then Java Environment is required,
+
+Three important Steps in Computer Programming,
+
+i) Write a Program / Write a program in any Editor
+ii) Compile the Program
+iii) Run the Program
+-----------------------------
+A) Steps for writing & executing Java programs using Command Line Interface
+
+i) Download Java Software (JDK) and Install
+ii) Set Environment variable (path variable) 
+iii) Write Java program in Notepad and save as .java
+iv) Compile the .java file in Windows command prompt and Run
+----------------------------------------------------------
+B) Steps for writing & executing Java programs using Eclipse IDE
+
+i) Download Java Software (JDK) and Install
+ii) Download Eclipse IDE and Extract
+iii) Write Java Program in Eclipse Editor and Run
+------------------------------------------------------------------------------
+Download Java Software (JDK) from either java.com or oracle.com, and Install
+Note: Download Java Software based on your Operating Environment
+
+After Java Installation you can get Java folder in C:\Program Files
+------------------------------------------------------------------
+Set Environment Variable (path) 
+Navigation:
+First copy jdk bin directory path,
+
+Select "Computer" and right click
+> Properties
+> Advanced System Settings
+> Environment Variables
+> Select path variable from "System" Variables
+> Edit
+> Paste Java bin directory path in variable value field
+> OK
+> OK
+> OK
+> Close
+---------------------------------------------------------------
+Write and Execute a Java Program
+
+Step 1: Write a Program
+
+public class Sample {
+public static void main (String [] args) {
+System.out.println("hello Java World");
+}
+}
+Save as .java file with Class name
+Sample.java
+------------------------------------------
+Step 2: Compile the Program
+
+> Launch Command prompt
+> Change to Java Program file directory
+> Type javac File Name / Sample.java
+
+Note: It creates Java Class File (.clsss file)
+------------------------------------------------
+Step 3: Run / Execute the Program
+
+> Launch Command prompt
+> Type java File name without extension
+Ex: 
+java Sample
+
+Note: It displays the Output on the Console (Operating Environment).
+--------------------------------------------------------------
+B) Steps for writing & executing Java programs using Eclipse IDE
+
+i) Download Java Software (JDK) and Install - Over
+ii) Download Eclipse IDE and Extract
+iii) Write Java Program in Eclipse Editor and Run
+-----------------------------------------------------
+Create Java Project
+	Create Java Package
+		Create Java Class
+Write Java Code/program in the Java Class and Execute
+---------------------------------------------------------------
+Eclipse IDE:
+
+> Eclipse IDE is a platform to write & execute Computer programs like Java, Perl, Python, Ruby, PHP Etc...
+> Eclipse IDE is Open Source Software
+> It provides Editor for writing programs, Syntax Guidance, Context Help, and Auto Compilation etc...
+----------------------------------------------------------------------------------------------
+Navigation to write & execute java programs in Eclipse IDE,
+
+> Launch Eclipse IDE
+> Create Java Project
+> Create Java Package
+> Create Java Class
+
+Write Java Program & Run
+------------------------------------------------------------------
+Configure Eclipse IDE 
+--------------------------------------------------------------
+Sample Program:
+
+package abcd;
+
+public class Sample {
+public static void main(String[] args) {
+int a, b;
+a=100;
+b=100;
+
+if (a > b) {
+System.out.println("A is a Big Number");	
+}
+else 
+{
+System.out.println("B is a Big Number");	
+}
+}
+}
+--------------------------------------------------------------

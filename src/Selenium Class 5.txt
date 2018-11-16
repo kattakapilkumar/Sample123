@@ -1,0 +1,148 @@
+Selenium Class 5: Selenium Test Process / Selenium Test Life Cycle
+--------------------------------------------------------------------------
+Phases in Selenium Test process:
+
+i) Test Planning
+ii) Generate Basic Tests / Test cases
+iii) Enhancing Tests / Test Cases
+iv) Running Test cases & Debugging Test Cases
+v) Analyzing Test Result and Report Defects
+--------------------------------------------------------------------------
+i) Test Planning
+--------------------------------------------------------------------------
+> Get Environment (UI Design Technology, and Database) from development Team
+> Analyze the AUT (Application Under Test) in terms of Object / Element identification
+	Using Selenium IDE Recording Feature analyze the Elements
+	Or
+	Using Element inspectors analyze our AUT Elements (if use Selenium WebDriver)
+		Mozilla Firefox browser - Page Inspector (built-in), add on - Firebug and Firepath
+		Chrome or IE browsers - Developer Tools (F12)....
+> Select Test Cases for Automation
+	Test Cases that can be executed on Every Software Build (ex: Smoke / Sanity Tests/Test Cases)
+	Test Cases that can be executed on every modified Build (Regression Test cases)	
+	Test Cases that can be executed using multiple sets of Test Data (Data Driven Test Cases)	
+> Select Selenium Tools and Others for Automation, and Configure
+Selenium WebDriver, Java, Eclipse IDE, TestNG, Mozilla, Chrome, IE browser drivers.....
+Steps:
+	> Download & Install Java (JDK) Software from either java.com or oracle.com (OS Based Software)
+	> Download & Extract Eclipse IDE (To write Programs/Test Script)
+	> Set Environment Variable (Path) (To access Java software from any directory of the System)
+	> Download Selenium WebDriver Java Language binding from seleniumhq.org and Add Webdriver
+	   jar files to Java Project in Eclipse IDE
+	> Download and Install TestNG Framework from Eclipse IDE
+	> Download browser drivers (Firefox, Chrome, and IE) and instantiate in Test Cases,
+------------------------------------------------------------------------------
+ii) Generate Basic Tests / Test Cases
+------------------------------------------------------------------------------	
+In UFT
+	Object Repository based Test Design (Recording, Keyword Driven Methodology)
+	Descriptive Programming (Non -Object Repository) (Static Programming, Dynamic Programming)
+
+In Selenium 
+	a) Selenium IDE
+		Using Recording feature or Type Test Steps using Selenese / Selenium IDE Commands and Element Locators
+	b) Selenium WebDriver
+		Using Element Locators and WebDriver API Commands / Methods
+-----------------------------------------------------------------------------------------
+iii) Enhancing Test Cases
+
+1) Verification Point/s 
+
+In UFT: Using Checkpoints feature in UFT or VBScript Conditional statements
+In Selenium IDE: Using "verify or assert" Commands
+In Selenium WebDriver: Using Programming Control Flow statements or TestNG Framework verification methods (TestNG/JUnit)
+-----------------------------
+2) Parameterization
+
+> Replacing constant values with Parameters 
+> Passing single value or multiple values is called as Parameterization
+
+> Executing Tests / Test cases with multiple sets of Test Data is called Data Driven Testing
+
+> We use Parameterization feature in Data Driven Testing
+
+In UFT/QTP: Using Data Table (UFT tool feature), or using VBScript Automation objects
+In Selenium IDE: No Support
+In Selenium WebDriver: Programming File handling feature (Flat files/ excel Files etc...)
+-------------------------------------------
+3) Synchronization
+
+In UFT: Using Synchronization point or Wait Command or increase Tool default time
+
+In Selenium IDE: using Synchronization Timeout feature (Setting)
+In Selenium WebDriver: Using Programming wait feature or WebDriver Command with option
+	Conditional Synchronization
+	Unconditional Synchronization
+-------------------------------------------
+4) Error Handling
+Handling expected and unexpected errors
+
+In UFT: using Recovery scenarios (tool feature) or VBScript features
+IN Selenium WebDriver: using Programming features (ex: Exception handling in Java)
+------------------------------------------------
+5) Adding Comments
+
+To make the Code readable and to disable the code from execution,
+
+In UFT: we can use VBScript comments syntax
+In Selenium IDE: using Selenium IDE Tool comments syntax/feature
+in Selenium WebDriver: Using programming syntax (if we use Java then use java commands syntax...)
+----------------------------------------------------------------
+iv) Running & Debugging Test Cases
+----------------------------------------------------------------
+
+Run -> Debug -> Run ->.....
+* Running Test Cases is a mandatory task in Software Testing, 
+But debugging Test cases is an optional task in Test Automation,
+
+Running Tests / Test Cases:
+> Run Single Test
+> Batch Testing
+
+In UFT conducting Batch Testing:
+Using "Test Batch Runner" tool or AOM script or ALM/QC tool we can conduct batch Testing
+
+In Selenium IDE: Using Test suite feature/command
+* After creating Test Cases then you can form Test suite in selenium IDE,
+
+In Selenium WebDriver: Using Programming (File Handling) and Testing Framework "Dataprovider" Annotation (TestNG)
+---------------------------------------
+Debugging Test Cases
+
+Note: Debugging feature is NA in Manual Testing; it is only for Test Automation or Automated Testing,
+
+What is Debugging?
+
+Locating and Isolating Errors through step by step execution,
+-------------------------------------------------
+When Debugging is required?
+
+Scenario 1: Test case is not showing any errors and providing desired Output -Not Required
+Scenario 2: Test case is showing errors - Optional
+Scenario 3: Test case is not showing any errors and Not providing desired Output - Required
+
+Whenever Test Case is not showing any error and Not providing desired /correct Output there only Debugging is required,
+-----------------------------------------------------
+v) Analyzing Test Result and Report Defects
+----------------------------------------------------
+a) Analyzing Test Results
+
+Selenium WebDriver doesn't have built in Result Reporting facility, using programming control flow statements or Testing Framework verification methods we can Report Result.
+---------------------------------------------
+Status of Test Result in Software Testing
+
+1) Pass (if expected result = actual result)
+2) Fail (if expected result != actual result)
+3) Warning (Whenever Test Script /Case is not executing properly...)
+4) Done (If there is no verification point/s)
+------------------------------------------------
+b) Reporting Defects
+
+* After analyzing Test Results, if we find any deviation from expected then Reporting Defects...
+
+Functional Test Automation				Defect Management
+----------------------------------------------------------------------------------------------
+Selenium						Excel (Defect Report Template)
+-------------------------------------------------------------------------------------------------------
+Selenium 						Bugzilla / Jira
+------------------------------------------------------------------------------------------------------

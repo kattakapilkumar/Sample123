@@ -1,0 +1,193 @@
+Selenium Class 26: Web Elements and Operations on Web Elements
+--------------------------------------------------------------------------
+i) Web Elements
+ii) Operations on Web Elements
+-----------------------------------------------------------------------
+i) Web Elements
+
+Browser,
+Page
+--------------------------
+Edit Box,
+Text Box,
+Link,
+Button,
+Image, Image Link, Image Button
+Text Area, Error Message
+Check Box,
+Radio Button,
+Drop Down Box
+List Box
+Combo Box (Edit Box and Drop Down)
+Web Table/HTML Table
+Frame Etc...
+---------------------------------------------------
+ii) Operations on Web Elements
+
+1) Browser
+
+> Launch Browser
+> Navigate to particular URL
+> Close Browser
+> Close all Opened Browsers
+------------------------------------
+> Navigate From one url to another
+> Navigate Back
+> Navigate Forward
+> Minimize the Browser
+> Maximize the Browser
+> Full Screen the Browser
+> Refresh the Browser
+> Capture the Browser URL
+> Select Home Page
+------------------------------------------------
+2) Page
+
+> Get Page Title
+> Get Page Source
+> Get Page URL
+------------------------------------------------
+3) Operations on Edit Box
+
+> Check the Existence of Edit Box
+> Check the Enabled Status
+> Enter a Value
+> Edit the Existing value
+> Clear the Value
+> Get / Return the Value
+-------------------------------------------------
+4) Operations on Link
+
+Text Link...
+Image Link...
+
+Text Link...
+ Internal Link
+ External Link
+-----------------------------
+> Check the Existence of the Link
+> Check Enabled Status
+> Click
+> Return Link Name
+-----------------------------------------
+5) Image 
+
+a) General Image - 
+ Check the Existence of the Image
+ Check the Enabled Status of the Image
+ Return Image Name etc...
+
+b) Image Link
+ > Check the Existence of the Image Link
+ > Check Enabled Status
+ > Click
+ > Return Image Link Name
+c) Image Button
+ > Check the Existence of the Image Button
+ > Check the Enabled status of the Image Button
+ > Click/Submit
+ > Return Image Button Name....
+---------------------------------------------------------
+6) Operations on Check box
+
+> Check the Existence of the Check box
+> Check the Enabled of the Check box
+> Check the Selected of the Check box
+
+> Select
+> Unselect
+-------------------------------------------------------
+7) Operations on Button
+
+> Check the Existence of the button
+> Check the Enabled Status
+> Click
+> Return Button Name...
+--------------------------------------------------------------
+8) Operations on Radio Button
+
+> Check the Existence of the Radio Button
+> Check the Enabled Status of the Radio Button
+> Check the selected Status of the Radio Button
+> Select
+-----------------------------------------------------
+9) Operations on Drop down Box
+
+> Check the Existence of the Drop down Box
+> Check the Enabled Status of the Drop down Box
+> Select an Item
+> Return Items Count...
+------------------------------------------------
+10) Operations on List Box
+
+> Check the Existence of the List Box
+> Check the Enabled Status of the List Box
+> Select one or more items
+> Return Items Count...
+--------------------------------------------------------
+11) Operations on Combo Box
+
+> Check the Existence of the Combo Box
+> Check the Enabled Status of the Combo Box
+> Select an Item..
+> Return Items Count....
+> Enter a Value...
+---------------------------------------------------
+12) Operations on Web Table or HTML Table
+
+> Check the Existence of the Web Table
+> Return a Cell Value...
+> Return Rows Count
+> Return Column Count...
+-------------------------------------------------------
+13) Operations on Frame
+
+Note: 
+If It is Manual Testing, we can directly operate elements those available in any frame
+In Automated Testing using Selenium, we need to switch from Top window to a particular frame and operate elements...
+-----------------------------------------------------------
+In our Web Application total 3 Frames,
+
+Test Operations are,
+
+> Launch the Page and Operate an Element in 3rd Frame
+> Operate an Element in 2nd Frame
+> Operate an Element in 1st Frame
+
+Manual Testing:
+Launch the Web Page, first operate an element in 3rd frame, operate an element in 2nd frame, and operate an element in 1st frame.
+
+Automated Testing using Selenium:
+
+> Launch the Web Application
+> Switch from Top Window to 3rd Frame
+> Operate an Element
+> Switch from 3rd Frame to Top Window (Back to Default)
+> Switch from Top Window to 2nd Frame
+> Operate an Element
+> Switch from 2nd Frame to Top Window (Back to Default)
+> Switch from Top window to 1st Frame
+> Operate an Element
+---------------------------------------
+Selenium WebDriver...
+1) Introduction to Selenium WebDriver
+2) Selenium WebDriver Environment Setup
+3) Write first Selenium WebDriver Test Case
+4) Web Elements and Operations on Web Elements
+-----------------------
+5) Element Locators in Selenium
+6) Selenium WebDriver Commands
+---------------------
+7) Handling Elements in Selenium Part-1
+8) Handling Elements in Selenium Part-2
+9) Handling Elements in Selenium Part-3
+------------------------------
+10) Writing Selenium WebDriver Test Case Part-1
+11) Writing Selenium WebDriver Test Case Part-2
+12) Writing Selenium WebDriver Test Case Part-3
+-----------------------------------------------------
+Selenium IDE - 1 Class
+TestNG Testing Framework - 4 Classes
+Selenium Live Project - 5 Classes
+Total 18 Classes...
+-----------------------------------------------------?

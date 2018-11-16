@@ -1,0 +1,192 @@
+Selenium Class 2: Introduction to Selenium Part-2
+-------------------------------------------------------
+i) What is Selenium?
+ii) History of the Selenium Project
+iii) Selenium Components / Selenium's Tools Suite
+	Selenium IDE
+	Selenium RC
+	Selenium WebDriver **
+	Selenium Grid
+--------------------------------
+iv) Platforms supported by Selenium
+v) Selenium License
+vi) Testing Frameworks and Other Tools used in Selenium
+vii) Advantages of Selenium
+viii) Disadvantages of Selenium
+ix) Selenium Vs. UFT/QTP
+x) Selenium Environment Setup
+-------------------------------------------------------
+c) Selenium WebDriver 
+
+> Selenium WebDriver having Programming Interface only but no IDE,
+> Selenium WebDriver is a powerful tool in the Selenium suite
+
+Selenium IDE- It has IDE only but no programming Interface
+Selenium WebDriver- It has Programming Interface only, but no IDE
+UFT/QTP - It has both IDE as well as Programming Interface
+--------------------------------------
+> Selenium WebDriver is used to create and execute / run Test cases,
+> We / Testers/Users use Element Locators and WebDriver API Commands / Methods to create Test Cases,
+
+> Selenium WebDriver supports various Browsers, Operating environments, and programming languages to create Test Scripts / Test Cases /Programs
+
+Google Chrome, Mozilla Firefox, MS IE / Edge, safari, Opera etc...
+MS Windows, Linux, Macintosh etc...
+Java, Python, C#, Perl, PHP, and Ruby
+----------------------------------------
+Create Test Cases:
+
+Types of Test Steps in Selenium WebDriver:
+
+Object Calls / Test Object Statements
+In UFT / QTP 
+Browser("Google").Close
+Dialog("Login").Button("OK").Click
+
+Object Property value
+Button	text	OK
+Browser   name	Google
+
+Selenium WebDriver:
+Element Calls / Element Steps:
+
+driver.close();
+2nd *WebDriver Doesn't support
+
+
+Element Locator Value
+Edit box	id	username
+------------------------------------------------
+Click "Gmail" Link in the Google Home Page,
+
+In UFT:
+
+Browser("Google").Page("Google").Link("Gmail").Click
+
+In Selenium WebDriver:
+
+driver.findElement(linkText("Gmail")).Click;
+-------------------------------------------------------------------
+Element Calls / Element Statements / Object Calls / Test Object Statements
+Click "Gmail" Link in the Google Home Page,
+1) Identify "Gmail" Link in Google Home Page, - Using Element Locators
+2) Click on "Gmail" Link, - WebDriver Commands / Methods
+-------------------------------------------------
+1) Element Calls / Element Statements
+2) Declarations (Variables, Constants etc...)
+3) Verification Points....
+4) Parameterization Steps
+5) Synchronization steps
+6) File handling steps
+7) Error handling steps....
+Etc...
+-----------------------------------------------------------
+Drawbacks of Selenium WebDriver:
+> Selenium WebDriver has no IDE, so takes more time and efforts to create Test Cases,
+> No built Result Report facility 
+> No other tool Integration for Test Management
+> Difficult to configure selenium WebDriver when it compares to other tools
+---------------------------------------------
+d) Selenium Grid
+
+Selenium Grid is not for Test Case Design, only for Test Execution,
+
+* Selenium Grid doesn't support Selenium IDE Test Case execution,
+Selenium Grid (in Selenium 1.0) supports Selenium RC Test Cases execution only,
+Selenium Grid (in Selenium 2.0) supports Selenium RC, and Selenium WebDriver Test Cases execution,
+Selenium Grid (in Selenium 3.0) supports Selenium WebDriver Test Cases execution only,
+
+Selenium Grid supports Parallel Testing (It can execute test cases against different browsers and machines/computers
+in Parallel,
+
+100 Test Cases - 4 hours
+---------------------------------------------------------------------
+iv) Platforms supported by Selenium
+-------------------------------------------------------------------
+1) Browsers:
+
+Google Chrome,
+Mozilla Firefox,
+Internet Explorer / MS Edge
+Opera,
+Safari Etc...
+
+2) Operating Systems
+
+MS Windows
+Linux
+Macintosh Etc...
+
+3) Programming Languages
+
+Java
+Python
+Perl
+Ruby
+C#
+PHP
+
+4) Application Environment
+
+Computer Software and Mobile Software,
+
+Computer Software
+
+i) CUI based Applications - Doesn't support
+ii) Desktop Applications - Doesn't support
+iii) Web Applications - Yes
+
+Mobile Software
+
+i) Native Applications - No
+ii) Web Applications / Web Apps - Yes
+iii) Hybrid Applications -No
+-------------------------------
+Note 1: Using latest plug in we can work with native and Hybrid Applications also.
+Note 2: Selenium IDE doesn't support various Browsers, and programming.
+-----------------------------------------------------------------------------
+v) Selenium License
+
+> Selenium is an Open Source Software, anybody can download and use with free of cost,
+> Selenium Projects were released under Apache 2.0 License,
+
+i) Anybody can download and use Selenium projects with free of cost
+ii)  Anybody can modify the source code and use, and distribute the code.
+* Selling modified code is not allowed.
+------------------------------------------------------------------------------
+vii) Advantages of Selenium
+
+1) It is an Open Source Software
+2) It supports various Operating Environments,
+3) It supports various Programming platforms,
+4) It supports various Browser Environments,
+5) It supports Parallel Testing
+6) It uses less Hardware resources for Test Automation
+Etc....
+---------------------------- ----------------------------
+viii) Disadvantages of Selenium
+
+1) It supports Web Applications only...
+2) No Reliable Technical Support from anybody,
+3) New Features may not work properly,
+4) Less Support for Image based Testing,
+5) No Other Tool integration for Test management
+6) No built in Result Reporting facility
+Etc...
+--------------------------------------------------------------
+vi) Testing Frameworks and Other Tools used in Selenium
+
+Test Frameworks,
+Selection of Testing Framework depends and Programming platform,
+Java - JUnit or TestNG 
+C#.NET - NUnit
+* Priti - What are the supported Testing Frameworks for Python, Ruby, PHP, and Perl.
+* What are the Usees of Maven, ANT tools in Selenium (Test Automation using Selenium)
+* What is the Use of Jenkins in Selenium,
+---------------------------------------------------------------
+ix) Selenium Vs. UFT/QTP
+> Selenium and UFT are important tools in Functional and Regression Testing (Test Automation)
+Selenium							UFT/QTP
+--------------------------------------------------------------------------------------------------------------------
+1) It is Open Source Software					It is Vendor / Commercial Tool 
+----------------------------------------------------------------------------------------------------------------------

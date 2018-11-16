@@ -1,0 +1,176 @@
+Selenium Class 31: Handling Elements in Selenium Part-3
+-------------------------------------------------------
+ Handling Elements in Selenium Part-1:
+
+1) Handling Browser
+2) Handling Edit Box
+------------------------------
+Handling Elements in Selenium Part-2:
+
+3) Handling Text Area, Error Message, Popup Window
+4) Handling Button
+5) Handling Link
+---------------------------------
+6) Handling Radio Button
+7) Handling Drop down box
+8) Handling Check box
+9) Handling Image, Image Button, Image Link
+10) Handling Web Table / HTML Table
+11) Handling Frames...
+-------------------------------------------------------
+6) Handling Radio Button
+-------------------------------------------------------
+Operating Radio Button
+
+> Check Displayed Status
+> Check Enabled Status
+> Check Selected Status
+
+> Select / Click 
+--------------------------------------------
+Selenium WebDriver Test script:
+WebDriver driver = new FirefoxDriver();
+driver.get("http://www.gcrit.com/build3/create_account.php?osCsid=7u1anl9ha5gejotirul66opl33");
+boolean a = driver.findElement(By.xpath(".//*[@id='bodyContent']/form/div/div[2]/table/tbody/tr[1]/td[2]/input[1]")).isDisplayed();
+System.out.println(a);//true
+
+a = driver.findElement(By.xpath(".//*[@id='bodyContent']/form/div/div[2]/table/tbody/tr[1]/td[2]/input[1]")).isEnabled();
+System.out.println(a);//true
+
+a = driver.findElement(By.xpath(".//*[@id='bodyContent']/form/div/div[2]/table/tbody/tr[1]/td[2]/input[1]")).isSelected();
+System.out.println(a);//false
+
+driver.findElement(By.xpath(".//*[@id='bodyContent']/form/div/div[2]/table/tbody/tr[1]/td[2]/input[1]")).click();
+
+a = driver.findElement(By.xpath(".//*[@id='bodyContent']/form/div/div[2]/table/tbody/tr[1]/td[2]/input[1]")).isSelected();
+System.out.println(a);//true
+--------------------------------------
+//Create Web Element and perform multiple operations on the Element
+
+public static void main(String[] args) {
+boolean status;
+WebDriver driver = new FirefoxDriver();
+driver.get("http://www.gcrit.com/build3/create_account.php?osCsid=7u1anl9ha5gejotirul66opl33");
+WebElement radioButton = driver.findElement(By.xpath(".//*[@id='bodyContent']/form/div/div[2]/table/tbody/tr[1]/td[2]/input[1]"));
+
+status = radioButton.isDisplayed();
+System.out.println(status);//true
+
+status = radioButton.isEnabled();
+System.out.println(status);//true
+
+status = radioButton.isSelected();
+System.out.println(status);//false
+
+radioButton.click();
+
+status = radioButton.isSelected();
+System.out.println(status);//true
+
+driver.close();
+-------------------------------------------------------
+7) Handling Drop Down Box
+-------------------------------------------------------
+> Check Displayed Status
+> Check Enabled Status
+
+> Select an Item
+
+> Return Items Count
+------------------------------------
+Selenium WebDriver script
+
+public static void main(String[] args) {
+boolean status;
+WebDriver driver = new FirefoxDriver();
+driver.get("http://www.gcrit.com/build3/create_account.php?osCsid=7u1anl9ha5gejotirul66opl33");
+System.out.println(driver.findElement(By.name("country")).isDisplayed());//true
+System.out.println(driver.findElement(By.name("country")).isEnabled());//true
+
+Select dropdown = new Select(driver.findElement(By.name("country")));
+
+//dropdown.selectByIndex(1);
+dropdown.selectByVisibleText("India");
+
+List <WebElement> e = dropdown.getOptions();
+System.out.println(e.size());
+
+driver.close();
+-------------------------------------------------------
+8) Handling Check Box
+-------------------------------------------------------
+> Check Displayed Status
+> Check Enabled Status
+> Check Selected Status
+
+> Select
+> Unselect
+--------------------------------------
+Selenium WebDriver Script:
+
+public static void main(String[] args) {
+boolean status;
+WebDriver driver = new FirefoxDriver();
+driver.get("file:///C:/Users/gcreddy/Desktop/HTMLExamples/MultipleCheckbox.html");
+boolean displayedStatus = driver.findElement(By.xpath("html/body/input[3]")).isDisplayed();
+boolean enabledStatus = driver.findElement(By.xpath("html/body/input[3]")).isEnabled();
+boolean selectedStatus = driver.findElement(By.xpath("html/body/input[3]")).isSelected();
+System.out.println(displayedStatus);//true
+System.out.println(enabledStatus);//true
+System.out.println(selectedStatus);//false
+
+driver.findElement(By.xpath("html/body/input[3]")).click();
+
+boolean selectedStatus2 = driver.findElement(By.xpath("html/body/input[3]")).isSelected();
+System.out.println(selectedStatus2);//true
+
+driver.findElement(By.xpath("html/body/input[3]")).click();
+
+boolean selectedStatus3 = driver.findElement(By.xpath("html/body/input[3]")).isSelected();
+System.out.println(selectedStatus3);//false
+--------------------------------------------
+// Create Web Element and perform operations one by one
+
+public static void main(String[] args) {
+boolean status;
+WebDriver driver = new FirefoxDriver();
+driver.get("file:///C:/Users/gcreddy/Desktop/HTMLExamples/MultipleCheckbox.html");
+WebElement checkBox = driver.findElement(By.xpath("html/body/input[3]"));
+
+boolean displayedStatus= checkBox.isDisplayed();
+boolean enabledStatus = checkBox.isEnabled();
+boolean selectedStatus1= checkBox.isSelected();
+
+System.out.println(displayedStatus);//true
+System.out.println(enabledStatus);//true
+System.out.println(selectedStatus1);//false
+
+checkBox.click();
+
+boolean selectedStatus2= checkBox.isSelected();
+System.out.println(selectedStatus2);//true
+
+checkBox.click();
+boolean selectedStatus3= checkBox.isSelected();
+System.out.println(selectedStatus3);//false
+driver.close();
+-------------------------------------------------------
+8) Image, Image Button, Image Link
+-------------------------------------------------------
+public static void main(String[] args) throws InterruptedException {
+boolean status;
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.co");
+String imageTitle = driver.findElement(By.id("hplogo")).getAttribute("title");
+System.out.println(imageTitle);
+
+Thread.sleep(5000);
+
+driver.navigate().to("http://newtours.demoaut.com/");
+driver.findElement(By.name("login")).click();
+
+Thread.sleep(5000);
+
+driver.navigate().to("http://www.seleniumhq.org/");
+driver.findElement(By.xpath(".//*[@id='choice']/tbody/tr/td[2]/center/a/img")).click();
+-------------------------------------------------------

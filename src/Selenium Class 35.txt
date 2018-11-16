@@ -1,0 +1,181 @@
+Selenium Class 35: Writing Selenium Test Cases Part-3
+------------------------------------------------------------
+Test Cases...
+1) Verify Internal and External links in a web application
+2) Verify Element existence in a web page...
+3) Login to an Application with static and dynamic input...
+4) Customer Registration with an Application....
+--------------------------------------------------------------
+5) Verify Customer Login to gcrShop user Interface...
+--------------------------------------------------------------
+Test Steps:
+i) Launch the Browser
+ii) Navigate to "www.gcrit.com/build3/"
+iii) Enter "Email Address"
+iv) Enter "Password"
+v) Click "Sign In" Button
+
+Verification Point/s:
+
+Verify the Existence of "Logoff" Link, if exists then pass otherwise fail.
+
+Input Data:
+Email Address: asdfzxc123b@gmail.com
+Password: abcdxyz321
+----------------------------------------------
+Selenium WebDriver Test Steps...
+
+WebDriver driver = new FirefoxDriver();
+driver.manage().window().maximize();
+driver.get("http://www.gcrit.com/build3/");
+driver.findElement(By.linkText("login")).click();
+driver.findElement(By.name("email_address")).sendKeys("asdfzxc123b@gmail.com");
+driver.findElement(By.name("password")).sendKeys("abcdxyz321");
+driver.findElement(By.id("tdb5")).click();
+
+if (driver.findElement(By.linkText("Log Off")).isDisplayed()){
+System.out.println("Log Off Link is Exists - Passed"); 
+}
+else{
+System.out.println("Log Off Link is Not Exists - Failed"); 
+}
+driver.close(); 
+}
+}
+---------------------------------------------------
+WebDriver driver = new FirefoxDriver();
+driver.manage().window().maximize();
+driver.get("http://www.gcrit.com/build3/");
+driver.findElement(By.linkText("login")).click();
+driver.findElement(By.name("email_address")).sendKeys("asdfzxc123b@gmail.com");
+driver.findElement(By.name("password")).sendKeys("abcdxyz321a");
+driver.findElement(By.id("tdb5")).click();
+try
+{
+if (driver.findElement(By.linkText("Log Off")).isDisplayed()){
+System.out.println("Log Off Link is Exists - Passed"); 
+}
+}
+catch (NoSuchElementException e){
+System.out.println("Log Off Link is Not Exists - Failed"); 
+}
+driver.close(); 
+}
+}
+--------------------------------------------------------------
+6) Verify "Admin Loin" Functionality in gcrShop Admin Interface (www.gcrit.com/build3/admin
+--------------------------------------------------------------
+Test Steps:
+i) Launch the Browser
+ii) Navigate to "www.gcrit.com/build3/admin/"
+iii) Enter "Username"
+iv) Enter "Password"
+v) Click "Login" Button
+
+Verification Point/s
+Capture the URL after Login to Application then compare with expected
+
+Expected URL:
+http://www.gcrit.com/build3/admin/index.php
+
+Input Data:
+i) Username: admin
+ii) Password: admin@123
+--------------------------------------------------
+WebDriver driver = new FirefoxDriver();
+driver.manage().window().maximize();
+driver.get("http://www.gcrit.com/build3/admin/");
+driver.findElement(By.name("username")).sendKeys("admina");
+driver.findElement(By.name("password")).sendKeys("admin@123");
+driver.findElement(By.id("tdb1")).click();
+
+String URL = driver.getCurrentUrl();
+
+if (URL.contains("http://www.gcrit.com/build3/admin/index.php")){
+System.out.println("Admin Login Successful -Passed"); 
+}
+else
+{
+System.out.println("Admin Login Unsuccessful - Failed"); 
+}
+driver.close();
+}
+}
+------------------------------------------------------------------
+7) Test Case: Verify Admin Login, Error Messages in gcrShop Admin Interface
+------------------------------------------------------------------
+Test Steps:
+
+i) Launch the Browser
+ii) Navigate to "www.gcrit.com/build3/admin/"
+iii) Enter "Username"
+iv) Enter "Password"
+v) Click "Login" Button
+
+Verification Point/s
+i) Capture the URL after Login to Application then compare with expected
+ii) Capture the Error Message and compare with Expected
+
+Expected URL:
+i) http://www.gcrit.com/build3/admin/index.php
+ii) Error: Invalid administrator login attempt.
+
+Test Data for Positive Scenario:
+i) Username: admin
+ii) Password: admin@123
+---------------------------------------------
+Test Data for Negative Scenario 1:
+i) Username: Valid Username
+ii) Password: Invalid Password
+---------------------------------------------
+Test Data for Negative Scenario 2:
+i) Username: Invalid Username
+ii) Password: Valid Password
+---------------------------------------------
+Test Data for Negative Scenario 3:
+i) Username: Invalid Username
+ii) Password: Invalid Password
+---------------------------------------------
+Test Data for Negative Scenario 4:
+i) Username: Blank
+ii) Password: Valid / Invalid Password
+---------------------------------------------
+Test Data for Negative Scenario 5:
+i) Username: Valid / Invalid Username
+ii) Password: Blank
+---------------------------------------------
+Test Data for Negative Scenario 6:
+i) Username: Blank
+ii) Password: Blank
+---------------------------------------------
+Selenium WebDriver Test Steps..
+WebDriver driver = new FirefoxDriver();
+driver.manage().window().maximize();
+driver.get("http://www.gcrit.com/build3/admin/");
+driver.findElement(By.name("username")).sendKeys("admin");
+driver.findElement(By.name("password")).sendKeys("admin@123a");
+driver.findElement(By.id("tdb1")).click();
+
+String URL = driver.getCurrentUrl();
+
+if (!URL.contains("http://www.gcrit.com/build3/admin/index.php")){
+ErrorMessage = driver.findElement(By.className("messageStackError")).getText();
+//System.out.println(ErrorMessage);
+}
+
+if (URL.contains("http://www.gcrit.com/build3/admin/index.php")){
+System.out.println("Admin Login Successful -Passed"); 
+}
+else if ((ErrorMessage.contains("Error: Invalid administrator login attempt."))) {
+System.out.println("Admin Login Unsuccessful, but showing Correct Error Message"); 
+}
+else {
+System.out.println("Admin Login Unsuccessful, and Not Showing Correct Error Message"); 
+}
+driver.close();
+}
+}
+------------------------------------------------------------------
+Note: Whenever we insert multiple verification points ina Test case then we use multiple Conditional statements
+or else if structure.
+------------------------------------------------------------------

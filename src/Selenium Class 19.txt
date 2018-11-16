@@ -1,0 +1,302 @@
+Selenium Class 19: Java Predefined Methods
+-------------------------------------------------
+i) String Methods
+ii) Number Methods
+iii) Character methods
+iv) Array methods Etc...
+--------------------------------------------------
+i) String Methods
+
+1) compareTo() Method
+
+Compares two strings and it supports 3-way comparison
+
+Result criteria for 2-way Comparison
+
+If string1 = string2 then true
+If string1 != string2 then False
+
+Result criteria for 3-way Comparison
+
+If String1 = String2 then 0
+If String1 > String2 then Positive value
+If String1 < String2 then Negative value
+----------------------------------------------
+Comparing two numbers based on their values.
+Comparing two Strings based on ANSI Character codes 
+
+A-Z (65 to 90)
+a-z (97 to 122)
+0-9 (48 to 57)....
+-------------------------------------
+5 > 3 - True
+"UFT" > "Selenium" - true
+--------------------------------------
+Example:
+public static void main(String[] args) {
+String str1 = "selenium";
+String str2 = "SELENIUM";
+String str3 = "seleniuma";
+String str4 = "selenium";
+
+System.out.println(str1.compareTo(str2));//Positive Value
+System.out.println(str1.compareTo(str3));//Negative Value
+System.out.println(str1.compareTo(str4));//0
+}
+}
+----------------------------------------------------------
+2) equals() Method
+
+Compares two strings and it supports 2-way comparison 
+
+Example:
+public static void main(String[] args) {
+String str1 = "selenium";
+String str2 = "SELENIUM";
+String str3 = "selenium";
+
+
+System.out.println(str1.equals(str2));//False
+System.out.println(str1.equals(str3));//True
+
+}
+}
+---------------------------------------
+3) Concat() Method
+
+It concatenates two strings
+
+String str1 = "Selenium";
+String str2 = " Testing";
+
+System.out.println(str1.concat(str2));//Selenium Testing
+------------------------------------------------------------
+4) charAt() Method
+
+Returns a character value by index...
+
+Example:
+
+String str1 = "Selenium";
+System.out.println(str1.charAt(1));//e
+System.out.println(str1.charAt(7));//m
+-------------------------------------------
+5) equalsIgnoreCase()
+
+It compares two strings and ignores letters (Upper case or Lower case...)
+
+Example:
+
+String str1 = "Selenium";
+String str2 = "SELENIUM";
+String str3 = "UFT";
+
+System.out.println(str1.equalsIgnoreCase(str2));//true
+System.out.println(str2.equalsIgnoreCase(str3));//False
+--------------------------------------------------------
+6) toUpperCase() Method
+
+It Converts values to Upper case...
+
+Example:
+
+String str1 = "Selenium";
+String str2 = "SELENIUM";
+String str3 = "SELEnium";
+String str4 = "selenium123";
+
+System.out.println(str1.toUpperCase());//SELENIUM
+System.out.println(str2.toUpperCase());//SELENIUM
+System.out.println(str3.toUpperCase());//SELENIUM
+System.out.println(str4.toUpperCase());//SELENIUM123
+}
+----------------------------------------------------
+7) toLowerCase() Method
+
+It converts values to Lower Case...
+
+Example:
+
+String str1 = "selenium";
+String str2 = "SELENIUM";
+String str3 = "SELEnium";
+String str4 = "selenium123";
+
+System.out.println(str1.toLowerCase());//selenium
+System.out.println(str2.toLowerCase());//slenium
+System.out.println(str3.toLowerCase());//selenium
+System.out.println(str4.toLowerCase());//selenium123
+-----------------------------------------------------
+8) trim() Method
+
+Removes spaces from both sides of a String...
+
+Example:
+String str1 = "                  Selenium               ";
+System.out.println(str1);
+System.out.println(str1.trim());
+---------------------------------------
+9) subString() Method
+
+Returns part of the string based on index position/s
+
+Example:
+
+String str1 = "Welcome to Selenium Testing";
+
+System.out.println(str1.substring(11));//Selenium Testing
+System.out.println(str1.substring(20));//Testing
+System.out.println(str1.substring(11, 19));//Selenium
+System.out.println(str1.substring(8, 10));//to
+---------------------------------------------------------------------
+10) endsWith() Method
+
+It checks if the string Ends with specified suffix or not? And supports 2-way comparison (True/False)
+
+String str1 = "Welcome to Selenium Testing";
+
+System.out.println(str1.endsWith("Selenium Testing")); //True
+System.out.println(str1.endsWith("Testing")); //True
+System.out.println(str1.endsWith("Selenium")); //False
+------------------------------------------------------------------
+11) length property
+
+Returns length of a String
+
+String str1 = "Selenium Testing";
+String str2 = "Testing";
+
+System.out.println(str1.length());//16
+System.out.println(str2.length());//7
+---------------------------------------------------------------------------
+ii) Number methods
+
+1) compareTo() methods
+
+// Integer Class wraps a value of primitive Data Type int is an Object
+//An Object of Integer contains a single field whose type is int...
+
+Assignment to Sirisha - Compare two numbers - Numbers with decimal places...
+
+Number1 = Number2 then 0
+Number1 > Number2 then 1
+Number1 < Number2 then -1
+
+Example:
+int x = 5;
+Integer a = x;
+System.out.println(a.compareTo(5));//0
+System.out.println(a.compareTo(4));//1
+System.out.println(a.compareTo(7));//-1
+----------------------------------------------------------
+2) equals() Method
+
+It compares two numbers and it supports 2-way comparison
+
+int a =10;
+Integer b = a;
+System.out.println(b.equals(10));//True
+System.out.println(b.equals(7));//False
+System.out.println(b.equals(14));//False
+---------------------------------------------------------
+3) abs() Method 
+Returns absolute value....
+
+double a = 10.234;
+double b = 10.789;
+double c =-20.345;
+System.out.println(Math.abs(a));//10.234
+System.out.println(Math.abs(b));//10.789
+System.out.println(Math.abs(c));//20.345
+---------------------------------------------------------------
+4) round() Method
+
+It Rounds the value to nearest Integer...
+
+double a = 10.234;
+double b = 10.789;
+double c =-20.345;
+System.out.println(Math.round(a));//10
+System.out.println(Math.round(b));//11
+System.out.println(Math.round(c));//-20
+----------------------------------------------------------------
+5) min() Method
+
+It returns minimum value between two numbers...
+
+Example:
+
+int a = 5;
+int b = 7;
+
+double c = 10.234;
+double d = 10.794;
+
+System.out.println(Math.min(a, b));//5
+System.out.println(Math.min(c, d));//10.234
+System.out.println(Math.min(10, 17));//10
+System.out.println(Math.min(1.34, 2.3));//1.34
+----------------------------------------------------------------
+6) max() Method
+
+It returns maximum vale between two numbers...
+
+Example:
+
+int a = 5;
+int b = 7;
+
+double c = 10.234;
+double d = 10.794;
+
+System.out.println(Math.max(a, b));//7
+System.out.println(Math.max(c, d));//10.794
+System.out.println(Math.max(10, 17));//17
+System.out.println(Math.max(1.34, 2.3));//2.3
+------------------------------------------------------------
+7) random() Method
+
+It generates a random Number...
+
+Example:
+
+System.out.println(Math.random());
+----------------------------------------------------------------
+iii) Character Methods
+
+1) isLetter() method
+
+Checks if the value is Alpha byte or not? And it returns Boolean Result / Logical Result (True/False)
+
+Example:
+
+char a = 'Z';
+char b = '1';
+
+System.out.println(Character.isLetter(a));//True
+System.out.println(Character.isLetter(b));//False
+System.out.println(Character.isLetter('A'));//True
+System.out.println(Character.isLetter('7'));//False
+System.out.println(Character.isLetter('*'));//False
+---------------------------------------------------------------------------
+2) isDigit() Method
+
+Checks if the value is Number or not? and it reruns Boolean / Logical Result
+
+char a = 'Z';
+char b = '1';
+
+System.out.println(Character.isDigit(a));//False
+System.out.println(Character.isDigit(b));//True
+System.out.println(Character.isDigit('A'));//False
+System.out.println(Character.isDigit('1'));//True
+System.out.println(Character.isDigit('&'));//False
+----------------------------------------------------------------
+3) isLowerCase() Method
+4) isUpperCase()
+--------------------------------------------------------------
+iv) Array Methods
+
+1) length()
+2) toString() etc...
+--------------------------------------------------------------

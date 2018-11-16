@@ -1,0 +1,461 @@
+Selenium Class 12: Java Control Flow Statements
+------------------------------------------------------
+i) Decision Making Statements
+ii) Loop Statements
+iii) Branching Statements
+-----------------------------------------------------------
+Java Logical Operators Example:
+
+boolean a= true, b= false;
+System.out.println(!(a && b));//true
+System.out.println(a && b);//false
+System.out.println(a || b);//true
+-------------------------------------------
+Example 2:
+int a =100, b=500, c=700;
+
+if ((a>b) && (a>c)) {
+System.out.println("A is a Big Number");
+}
+else
+{
+System.out.println("A is not a Big Number");
+}
+---------------------------------------------------
+if ((a>b) || (a>c)) {
+System.out.println("A is a Big Number");
+}
+else
+{
+System.out.println("A is not a Big Number");
+}
+}
+}
+----------------------------------------------------
+int a =10, b=50, c=70;
+
+if (!((a>b) && (a>c))) {
+System.out.println("A is a Big Number");
+}
+else
+{
+System.out.println("A is not a Big Number");
+}
+----------------------------------------------------
+i) Decision Making Statements
+
+a) Two types of Statements
+1) if statement
+2) switch statement
+
+b) Three Types of Conditions
+1) Single Condition (Positive, Negative)
+
+ex:
+if (a>b) {
+.
+.
+}
+-----------------
+Negative Condition
+if (b<a) {
+.
+.
+}
+--------------
+if (!(b>a)) {
+.
+.
+}
+----------------------------------
+2) Compound Condition (Positive, Negative)
+
+Ex:
+if ((a>b) && (a>c)){
+.
+.
+}
+------------
+if ((a>b) || (a>c)){
+.
+.
+}
+------------
+if ((a>b) && (a>c) && (a>d)){
+.
+.
+}
+--------------------------------
+if ((a>b) && (a>c) || (a>d)){
+.
+.
+}
+--------------------------------------
+3) Nested Condition
+if(a>b){
+ if(a>c){
+  if(a>d){
+.
+.
+}
+}
+}
+---------------------------------------------
+c) Usage of Conditional Statements / Decision Making Statements
+
+1) Execute a block of Statements when condition is true.
+
+Syntax:
+
+if (condition) {
+Statements
+---------
+--------
+}
+
+Example:
+
+int a =10, b=50;
+
+if (a>b){
+System.out.println("A is a Big Number");
+}
+---------------------------------------------
+int a =10, b=5;
+
+if (b<a){
+System.out.println("A is a Big Number");
+}
+--------------------------------
+int a =10, b=5;
+
+if (!(b>a)){
+System.out.println("A is a Big Number");
+}
+------------------------------------------------
+2) Execute a block of Statements when a compound condition is true
+
+Syntax:
+if ((condition1/Operand1/expression1) && Or || (Condition2)) {
+Statements
+.
+.
+}
+-------------------------------------
+int a =10, b=7, c=4;
+
+if ((a>b) && (a>c)){
+System.out.println("A is a Big Number");
+}
+---------------------
+int a =10, b=7, c=40;
+
+if ((a>b) || (a>c)){
+System.out.println("A is a Big Number");
+}
+------------------------------------------------------------
+3) Execute a block of Statements when condition is true otherwise execute another block of Statements
+
+if (condition) {
+Statements
+---------
+----------
+}
+else
+{
+Statements
+-------------
+------------
+}
+------------------------------------
+Example:
+
+int a =10, b=10;
+
+if (a>b) {
+System.out.println("A is a Big Number");
+}
+else{
+System.out.println("B is a Big Number");
+}
+--------------------------------------------------
+4) Decide among several alternates(else if)
+
+Syntax:
+
+if (condition) {
+Statements
+-------------
+------------
+----------
+}
+else if (condition) {
+Statements
+----------
+----------
+----------
+}
+else if (condition) {
+Statements
+----------
+----------
+----------
+}
+else 
+{
+Statements
+----------
+-----------
+}
+--------------------------------------------------
+Initialize an Integer Variable and verify the range
+
+If the number is in between 1 and 100 then display "Number is a Small Number"
+If the number is in between 101 and 1000 then display "Number is a Medium Number"
+If the number is in between 1001 and 10000 then display "Number is a Big Number"
+If the number is more than 10000 then display "Number is a High Number"
+Otherwise display "Number is a either Zero or Negative Number"
+-----------------------------------------
+Java Program:
+
+int a = -100;
+
+if ((a>0) && (a<=100)){
+System.out.println("A is a Small Number");
+}
+else if ((a>100) && (a<=1000)){
+System.out.println("A is a Medium Number");	
+}
+else if ((a>1000) && (a<=10000)){
+System.out.println("A is a Big Number");	
+}
+else if (a>10000){
+System.out.println("A is a High Number");	
+}
+else 
+{
+System.out.println("Number is either Zero or Negative Number");	
+}
+}
+}
+--------------------------------------------------
+5) Execute a block of Statements when more than one condition is true (nested if)
+
+syntax:
+if (condition){
+ if (condition){
+  if (condition){
+  Statements
+  --------------
+  --------------
+  }
+  }
+  }
+-------------------------------------------
+Example:
+Initialize a, b, c, and d variables (Integer variables), check if the a variable is bigger than other three variables or not?
+
+int a=100, b=90, c=80, d=700;
+
+if (a>b){
+	if (a>c){
+		if (a>d){
+		System.out.println("A is a Big Number");	
+		}
+	}
+}
+----------------------------------------
+int a=100, b=900, c=800, d=700;
+
+if (a>b){
+	if (a>c){
+		if (a>d){
+		System.out.println("A is a Big Number");	
+		}
+		else {
+		System.out.println("A is Not a Big Number-3rd condition is False");
+		}
+	}
+	else{
+	System.out.println("A is Not a Big Number-2nd condition is False");
+	}
+}
+else
+{
+System.out.println("A is Not a Big Number -1st condition is False");	
+}
+}
+}
+-----------------------------------------------
+Using Compound Condition
+
+int a=100, b=90, c=80, d=70;
+
+if ((a>b) && (a>c) && (a>d)){
+System.out.println("A is a Big Number");	
+}
+else
+{
+System.out.println("A is Not a Big Number");
+}
+------------------------------------------------------
+Nested if Condition vs. Compound Condition
+
+In Nested if condition we can write multiple else parts, where as in Compound Condition we can write single else part only.
+-----------------------------------------------------
+Problem: Find the biggest variable (Integer variables) among 4 variables
+
+Use Compound Condition and else if...
+
+int a=100, b=90, c=80, d=700;
+
+if ((a>b) && (a>c) && (a>d)){
+System.out.println("A is a Big Number");
+}
+else if ((b>a) && (b>c) && (b>d)){
+System.out.println("B is a Big Number");
+}
+else if ((c>a) && (c>b) && (c>d)){
+System.out.println("C is a Big Number");
+}
+else {
+System.out.println("D is a Big Number");
+}
+}
+}
+-----------------------------------------------------
+6) Decide among several alternates (using switch statement)
+
+Syntax:
+
+switch (expression) {
+
+case value:
+Statements
+-------------
+--------------
+break;
+case value:
+Statements
+-------------
+--------------
+break;
+case value:
+Statements
+-------------
+--------------
+break;
+
+default:
+Statements
+-----------
+-----------
+}
+
+Example:
+
+char grade = 'Z';
+
+switch (grade){
+
+case 'A':
+System.out.println("Excellent");
+break;
+
+case 'B':
+System.out.println("Good");
+break;
+
+case 'C':
+System.out.println("Better");
+break;
+
+default:
+System.out.println("Invalid Grade");
+}
+	
+}
+}
+-------------------------------------------------------------
+ii) Looping Statements
+------------------------------------------------
+1) for loop
+2) while loop
+3) do while loop
+4) Enhanced for loop
+----------------------------------------------------
+1) for loop
+
+Description: It repeats a block of statements for a specified number of times,
+
+Syntax:
+
+for (Stratvalue; EndValue; Increment / Decrement){
+Statements
+-------------
+-----------
+}
+--------------------------------------
+Print 1 to 10 Numbers
+Example:
+for (int i=1; i<=10; i++){
+System.out.println(i);
+}
+------------------------------
+Print 1 to 5 Numbers except 4th Number
+
+for (int i=1; i<=5; i++){
+
+if (i != 4){
+System.out.println(i);
+}
+
+}
+----------------------------------------------
+Print 1 to 10 Numbers in reverse Order
+
+for (int i=10; i>=1; i--){
+System.out.println(i);
+}
+---------------------------------
+2) while loop
+
+Description: It repeats a block of Statements while condition is true
+
+Syntax:
+initialization
+while (condition){
+Statements
+--------------
+--------------
+Increment/Decrement
+}
+---------------------------------
+Examples:
+
+1) Print 1 to 10 Numbers
+2) Print 10 to 1 Numbers
+3) Print 1 to 5 Numbers except 3rd number
+------------------------------------------------
+int i=1;
+
+while (i<=10){
+System.out.println(i);
+i++;
+}
+------------------------------------
+int i=10;
+
+while (i>=1){
+System.out.println(i);
+i--;
+}
+-------------------------------------------
+int i=1;
+while (i<=5){
+if (i != 3){
+System.out.println(i);
+}
+i++;
+}
+-------------------------------------------------------

@@ -1,0 +1,133 @@
+Selenium Class 24: Selenium WebDriver Environment Setup
+-----------------------------------------------------------------
+i) Automated Testing using Selenium WebDriver
+ii) Selenium WebDriver Environment Setup
+iii) Write first Selenium Test Case and Execute
+------------------------------------------------------------
+Drawbacks of Selenium WebDriver:
+
+1) Selenium WebDriver has no IDE, only Programming Interface 
+(Takes more Time and efforts to create Test cases)
+
+2) No other Tool Integration for Test Management
+
+3) No built-in Result Reporting facility. 
+-----------------------------------------------------------------------
+i) Automated Testing using Selenium WebDriver
+
+How we create Test Cases / Test Scripts/Tests
+
+Selenium IDE:
+
+Using Element Locators and Selenese Commands / Selenium IDE Commands
+
+Selenium WebDriver:
+
+Using Element Locators and WebDriver API Commands / Methods
+
+UFT / QTP:
+Using Objects information and Test Methods.
+---------------------------------------------------
+Elements / Objects / Software Objects
+
+Software Objects in Web Environment
+
+Link, Edit Box, Drop down box, List Box, Combo Box, Radio Button, Check box, Frame etc...
+
+Element / Software Element - in Selenium WebDriver
+Object / Software Object - UFT/QTP
+
+Command - in Selenium WebDriver
+Test Method - in UFT/QTP
+
+Element locator - To identify/recognize/locate the Element
+WebDriver Command - To perform Operation on Element
+
+Ex 1: 
+Click "Gmail" Link in Google Home page....
+
+Gmail - Element / Object
+Click - Operation on the Element
+------------------------------
+Ex 2: 
+Enter a value into Username Edit box in Rediff mail...
+
+Username (edit box) - Element /Object
+Enter - Operation on the Element
+Parameter - Username value - abcd123@rediffmail.com
+-----------------------------------------
+Click "Gmail" Link in Google Home page....
+
+UFT Test Step:
+Browser("Google").Page("Google").Link("Gmail").Click
+
+Selenium WebDriver Step:
+driverobject.findElement(By.linkText("Gmail")).Click; 
+----------------------------------------------------------
+UFT/QTP		Selenium WebDriver
+
+Object	Property	value	Operation/Method
+Button	text	OK	Click
+
+Element	Locator	value
+Button	id	OK	Click
+----------------------------------------
+Object	Property	value	Operation/method
+Dog	Color	Black	Jumping	
+--------------------------------------------------------------------
+Steps for Creating Selenium WebDriver Test Cases...
+
+1) Element Locators - To identify/recognize/Locate Elements/Objects
+
+2) WebDriver Commands - To Perform Operations on Elements
+----------------------------------------
+Edit Box - Element
+name/id - Locator
+E-Mail Address - name Locator Value
+Enter a value - Operation
+Parameter / Value / Input data/Test Data - admin123@gmail.com
+-----------------------------------------------------------------
+Inspecting Elements / Spy Objects 
+
+Spy Objects in UFT/QTP - Using Object Spy feature
+Inspecting Elements in Selenium WebDriver - 
+Mozilla Firefirefox - Page Inspector - Firebug and Firepath...
+Google Chrome - Developer Tools (F12) - Firebug Lite
+MS IE/MS Edge -Developer Tools (F12) - .....
+-----------------------------------------------------
+3) Programming / Java Programming - To Enhance Test Cases
+------------------------------------------------------------
+Framework
+
+Scenario 1: 
+Selenium is a Testing Framework to conduct Functional Testing
+Appium is Testing Framework to conduct to conduct Mobile Testing
+Testing Framework - Test Tool - To Conduct Testing
+
+Scenario 2:
+Either JUnit or TestNG testing Framework can be used with Selenium if we use Java as Programming language,
+Testing Framework - Standard Framework - To overcome limitations of Selenium/the Test Tool
+
+Scenario 3:
+In my current project, we are using keyword Driven Framework Automation Framework
+Automation Framework - Third party Framework to optimize the Test Process...
+----------------------------------------------------------
+4) Testing Framework (JUnit  / TestNG) - To Group Test Cases, Prioritize test cases, Batch Testing, and Generate Test Reports.
+-----------------------------------------------------------
+ii) Selenium WebDriver Environment Setup
+-----------------------------------------------------------
+Select Tools and Others...
+Eclipse IDE for writing Test scripts, Java for Programming, TestNG as Test Runner....
+
+Steps:
+1) Download and Install Java Software (JDK) - create and execute programs / Test scripts
+2) Set Environment Variable path (Path Variable) - To use Java from any directory 
+3) Download Eclipse IDE and Extract - To write and execute Java Programs
+------------------------------------
+4) Download Selenium WebDriver Java Language binding (from www.seleniumhq.org) and Add 
+Webdriver jar files to Java Project in Eclipse IdE
+----------------------------------------------
+5) Download Browser driver/s and (* set browser driver path in Test cases...)
+------------------------------------------------------------------------------------------
+http://www.gcreddy.com/2015/06/selenium-download.html
+----------------------------------------------------------------------

@@ -1,0 +1,270 @@
+Selenium Class 29: Elements Handling in Selenium
+-------------------------------------------------------
+Prerequisites to create Test Cases in Selenium WebDriver
+
+i) Element Locators - To identify Elements
+ii) Selenium WebDriver Commands - To perform operations on the Elements
+iii) Programming (Java or Python etc...) - To write Test scripts / To enhance Test Cases.
+iv) Testing Framework Annotations (Either JUnit or TestNG) - To group Test Cases, Execute Test Batches, and generate Detailed Test Reports...
+----------------------------------------------------------------------------------------------
+Selenium WebDriver verification Commands
+-----------------------------------------------------
+14) isDisplayed()
+
+Checks weather the Element is displayed or not in the current web page.
+
+Syntax:
+boolean variableName = driverObject.findElement(By.ElementLocator("Value")).isDisplayed();
+-------------------------------------------------------------------------
+15) isEnabled()
+
+Checks weather the Element is Enabled or not in the current web page
+
+Syntax:
+boolean variableName = driverObject.findElement(By.ElementLocator("Value")).isEnabled();
+------------------------------------------------------------------------------------
+16) isSelected()
+
+Checks weather the Element is selected or not?
+
+Syntax:
+boolean variableName = driverObject.findElement(By.ElementLocator("Value")).isSelected();
+
+Note: isDisplayed() and is Enabled() commands are applicable for all types of Elements (ex: Links, Buttons, Edit boxes etc...) but
+isSelected() is only applicable for Radio Buttons and Check boxes...
+------------------------------------------------------------------
+Example:
+
+WebDriver driver = new FirefoxDriver();
+driver.get("http://www.gcrit.com/build3/create_account.php?osCsid=gs3edjntvd3d5t3056u6ige0m2");
+WebElement checkBox = driver.findElement(By.name("newsletter"));
+boolean displauStatus = checkBox.isDisplayed();
+System.out.println(displauStatus);//true
+
+boolean enabledStatus = checkBox.isEnabled();
+System.out.println(enabledStatus);//true
+
+boolean selectedStatus = checkBox.isSelected();
+System.out.println(selectedStatus);//False
+
+checkBox.click();
+
+selectedStatus = checkBox.isSelected();
+System.out.println(selectedStatus);//true
+
+driver.close();
+}
+}
+---------------------------------------------------------------------------------
+i) Element Locators
+----------------------------------------------------------------------------------
+1) id
+2) name
+3) className
+4) tagName
+5) linkText
+6) partialLinkText
+7) cssSelector
+8) xpath
+---------------------------------------------------------------------------------
+ii) Web Elements
+
+Browser
+Page
+-------------------------
+Link
+Button
+Edit Box
+Text Box
+Text Area, Error Message, Window Popup
+Image, Image Button, Image Link,
+Radio Button,
+Check Box,
+Drop Down Box,
+List Box
+Combo Box
+Web Table / HTML Table
+Frame...
+---------------------------------------------
+iii) WebDriver Commands
+
+a) Browser Commands
+b) Browser Navigation Commands
+c) Commands on General Elements
+d) Verification Commands
+e) Others...
+-------------------------------
+a) Browser Commands
+
+1) get()
+2) getTitle()
+3) getCurrentUrl()
+4) getWindowHandle()
+5) close()
+6) quite()
+
+Example:
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.co.in/");
+String browserTitle = driver.getTitle();
+String browserUrl = driver.getCurrentUrl();
+String windowHandle = driver.getWindowHandle();
+System.out.println(browserTitle);
+System.out.println(browserUrl);
+System.out.println(windowHandle);
+
+String pageSource = driver.getPageSource();
+System.out.println(pageSource);
+
+driver.close();
+driver.quit();
+-----------------------------------------------------------------
+b) Browser Navigation Methods
+
+1) navigate().to()
+2) navigate().back()
+3) navigate().forword()
+4) navigate().refresh();
+---------------------------------------------------
+c) Commands / Methods on Elements
+
+1) findElement()
+2) findElements()
+3) sendKeys()
+4) click()
+5) clear()
+6) getText()
+7) getAttribute() ...
+
+d) Verification Methods
+
+1) isDisplayed()
+2) isEnabled()
+3) isselected()
+---------------------------
+e) Others
+
+1)manage().window().maximize()
+2) .explicitlyWait() etc...
+--------------------------------------------------------------------
+iii) Java programming.... (Java Standard Edition / Core Java)
+----------------------------------------------------------------------
+1) Comments
+2) Data Types
+3) Modifiers
+4) Variables
+5) Operators
+6) Java Control Flow Statements
+	a) Conditional Statements
+	b) Loop Statements
+	c) Branching Statements
+7) Strings
+8) Arrays, ArrayList
+9) IO Operations, and File Handling
+10) Java Methods 
+	a) Predefined Methods
+	b) User defined methods
+11) Exception Handling
+---------------------------
+Java OOPS
+
+1) Inheritance
+2) Polymorphism
+3) Abstraction
+4) Encapsulation....
+--------------------------------------------------------------
+1) Handling Browser
+
+> Launch Browser (Create browser driver instance...)
+> Navigate to specific URL
+> Return Current URL
+> Return Browser Title
+> Return Page Source
+> Return Window Handle
+> Close Focused Browser
+> Close all Browsers that opened by WebDriver during Execution.
+------------------------------------------
+> Navigate to another URL
+> Navigate back to previous URL
+> Navigate Forward
+> refresh the Browser
+> Minimize the Browser
+----------------------------------------------
+Selenium Webdriver Steps:
+
+Example:
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.co.in/");
+System.out.println(driver.getTitle());
+
+driver.navigate().to("https://in.yahoo.com/");
+System.out.println(driver.getTitle());
+
+driver.navigate().back();
+System.out.println(driver.getTitle());
+
+driver.navigate().forward();;
+System.out.println(driver.getTitle());
+
+driver.close();
+------------------------------------------
+2) Handling Edit Box
+
+> Check Displayed Status
+> Check Enabled Status
+> Enter some Value
+> Return the Value
+> Clear the Value
+--------------------------------------------
+Selenium WebDriver Steps:
+
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.gmail.com/");
+boolean displayStatus = driver.findElement(By.id("Email")).isDisplayed();
+System.out.println(displayStatus);//true
+
+boolean enabledStatus = driver.findElement(By.id("Email")).isEnabled();
+System.out.println(enabledStatus);//true
+
+driver.findElement(By.id("Email")).sendKeys("Vijay321");
+
+String Email = driver.findElement(By.id("Email")).getAttribute("value");
+System.out.println(Email);
+
+Thread.sleep(4000);
+
+driver.findElement(By.id("Email")).clear();
+//driver.close();
+--------------------------------------------------------------------
+Note: Whenever you want to perform multiple operations on the same element in a Test Script then create
+WebElement and perform operations one by one...
+
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.gmail.com/");
+String EmailValue = "Pavani123@gmail.com";
+
+WebElement email = driver.findElement(By.id("Email"));
+
+boolean a = email.isDisplayed();
+System.out.println(a);
+
+a = email.isEnabled();
+System.out.println(a);
+
+email.sendKeys(EmailValue);
+
+String emailAddress = email.getAttribute("value");
+System.out.println(emailAddress);
+
+Thread.sleep(5000);
+
+email.clear();
+
+//driver.close();
+-------------------------------------------------------------------------------------
+Major Challenges in Functional Test Automation,
+
+i) Object Identification / Element Identification
+ii) Environment Issues (OS and Browser...)
+--------------------------------------------------------------------------------------------
+Selenium 2.53

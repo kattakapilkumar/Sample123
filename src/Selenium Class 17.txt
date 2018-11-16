@@ -1,0 +1,112 @@
+Selenium Class 17: Java Methods - User defined Methods
+------------------------------------------------------
+i) Introduction to Java Methods
+ii) Types of methods
+iii) User defined Methods
+--------------------------------------------------
+//Handling multiple exceptions
+
+int a=10;
+int b=0;
+
+int c[] = new int [4];
+c[1]=100;
+try{
+c[10]=200;
+System.out.println(c[10]);
+}
+catch (ArrayIndexOutOfBoundsException e1){
+System.out.println("Array Index Error");	
+}
+System.out.println("Hello Java World");
+try
+{
+int result = a/b;
+System.out.println(result);
+}
+catch (ArithmeticException e2){
+System.out.println("Divided by zero Error");	
+}
+System.out.println("Hello Selenium");
+-------------------------------------------------
+i) Introduction to Java Methods
+
+What is method?
+
+> Java method is a set of statements/steps that are grouped together to perform an operation.
+
+Methods are also know as Functions,
+
+> In Structured programming (Ex: C Language) we use Functions (Predefined and 
+ User defined Functions)
+
+> In Object Oriented programming (ex: Java Language) we use methods (Predefined and  User defined Methods)
+------------------------------------------------------------------
+When we choose methods?
+
+Whenever we want to perform any operation multiple times then we choose methods.
+
+Advantages of methods
+
+Code Reusability, so that we can reduce the code size.
+
+Code maintenance is easy.
+---------------------------------
+Types of methods in Java?
+
+Two Types of Methods in Java,
+
+1) Predefined Methods
+2) User defined Methods
+-------------------------------------
+1) Predefined Methods
+
+Java has library of classes and methods organized in packages.
+ex:
+import java.io.Console;
+import - Java Keyword
+java - Java Project
+io - Java Package
+Console - Class
+------------------------
+import java.io.*;
+io.*; - All classes from io package
+-------------------------------------
+> In order to use predefined libraries we need to import package Or Classes
+> java.lang package is automatically imported in every Java program
+> using "import" keyword we import predefined libraries (package/s or Classes)
+------------------------------------------------
+Categories of Predefined Methods
+
+1) String Methods
+2) Array Methods
+3) Number Methods
+4) Character methods etc...
+------------------------------
+iii) User defined Methods
+
+	1) Methods with returning value
+		a) Call methods by invoking Object (Non static Methods)
+		b) Call methods without invoking Object (Static methods)
+
+	2) Methods without returning value
+		a) Call methods by invoking Object (Non static Methods)
+		b) Call methods without invoking Object (Static methods)
+------------------------------------------------------
+//Write methods before or after main Method but within the class.
+//Call Methods within main Method
+--------------------------------------
+> We call Non-static methods by Object (First we create Object then call Non-static methods using the object)
+> We call Static methods by class name or directly.
+------------------------------------------
+Examples:
+
+1) Writing Methods (with return value)
+	> Perform operation/s and return value (Non-static method)
+	> Perform operation/s and return value (Static Method)
+
+
+2) Writing Methods (without return value)
+	> Perform operation/s only (Non-Static method)
+	> Perform operation/s only (Static method)
+--------------------------------------------------------------

@@ -1,0 +1,175 @@
+Selenium Class 33: Writing Selenium Test Cases
+----------------------------------------------
+Prerequisites for writing Selenium WebDriver Test Cases...
+
+i) Test Scenario or Manual Test Case...
+
+ii) Element Locators to Locate / Recognize / Identify Elements / Objects
+
+iii) Selenium WebDriver API Commands - To perform operations on Elements
+
+iv) Programming Concepts/Features - To enhance Test Cases
+
+v) Testing Framework (JUnit / TestNG) - To Group Test cases, prioritize Test Cases, Execute Test Batches, and Generate Test Reports
+----------------------------------------------
+Types of Testing Frameworks...
+----------------------------------------------
+Scenario 1:
+Selenium is a Test Automation Framework....
+Appium is a Mobile Testing Framework....
+* Testing Framework - Test Tool
+---------------------------
+Scenario 2:
+We are using Keyword Driven Framework in our Test Automation using UFT/QTP
+We are using Hybrid Framework in our Test Automation using SilkTest....
+* Testing Framework - Process Guidelines, Maintenance of Automation Resources...
+---------------------------
+Scenario 3:
+TestNG Testing Framework is used with Selenium for Functional Testing...
+JUnit Testing Framework is used with Selenium for Functional Testing...
+* Testing Framework - Test Runner...
+--------------------------------------------------------------------
+1) Test Case: Verify Internal and External Links in wikipedia.org...
+---------------------------------------------------------------------
+Internal Link: It Redirects to another Location in the Same Page or another Page in the Same Application
+
+External Link: It Redirects to another page in Another Application
+----------------------------
+Test Steps:
+
+i) Launch the Browser
+ii) Navigate to wikipedia.org selenium page...
+iii) Click "Create Account"
+iv) Capture the URL
+v) Navigate back to Selenium Page
+vi) Click "selenium.org" Link
+vii) Capture the URL
+viii) Close the Browser
+-----------------------------------
+Verification Points:
+
+i) Verify if the 1st URL is an Internal Link...
+ii) Verify if the 2nd URL is an External Link...
+---------------------------------------------
+Input Data:
+NA
+-------------------------------------
+Expected Result / URLs
+
+1) https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&returnto=Selenium+%28software%29
+2) http://www.seleniumhq.org/
+----------------------------------------
+Selenium WebDriver Test Steps...
+
+WebDriver driver = new FirefoxDriver();
+driver.manage().window().maximize();
+driver.get("https://en.wikipedia.org/wiki/Selenium_(software)#Selenium_Grid");
+driver.findElement(By.linkText("Create account")).click();
+String url1 = driver.getCurrentUrl();
+//System.out.println(url1);
+
+if (url1.contains("wikipedia.org")){
+System.out.println("1st Verification: "+ "It is an Internal Link - Passed");
+}
+else {
+System.out.println("1st Verification: "+ "It is Not an Internal Link - Failed");
+}
+driver.navigate().back();
+Thread.sleep(5000);
+driver.findElement(By.partialLinkText("seleniumhq.org")).click();
+Thread.sleep(3000);
+String url2 = driver.getCurrentUrl();
+
+if (url2.equals("http://www.seleniumhq.org/")){
+System.out.println("2nd Verification: "+ "It is an External Link - Passed");
+}
+else {
+System.out.println("2nd Verification: "+ "It is Not an External Link - Failed");
+}	
+driver.close();
+}
+}
+----------------------------------------------
+Test Cases
+	Positive Test Case (Valid Input...)
+	Negative Test Case (Invalid Input...)
+----------------------------------------------
+Negative Test Case:
+
+Note: Generally we use Invalid input for Negative Testing, suppose ther is no input data in our Test Case, then use incorrect Expected Result for Negative Testing.
+----------------------------------------------
+public static void main(String[] args) throws InterruptedException {
+WebDriver driver = new FirefoxDriver();
+driver.manage().window().maximize();
+driver.get("https://en.wikipedia.org/wiki/Selenium_(software)#Selenium_Grid");
+driver.findElement(By.linkText("Create account")).click();
+String url1 = driver.getCurrentUrl();
+//System.out.println(url1);
+
+if (url1.contains("abcdefg.org")){
+System.out.println("1st Verification: "+ "It is an Internal Link - Passed");
+}
+else {
+System.out.println("1st Verification: "+ "It is Not an Internal Link - Failed");
+}
+driver.navigate().back();
+Thread.sleep(5000);
+driver.findElement(By.partialLinkText("seleniumhq.org")).click();
+Thread.sleep(3000);
+String url2 = driver.getCurrentUrl();
+
+if (url2.equals("http://www.seleniumhq123.org/")){
+System.out.println("2nd Verification: "+ "It is an External Link - Passed");
+}
+else {
+System.out.println("2nd Verification: "+ "It is Not an External Link - Failed");
+}	
+driver.close();
+}
+}
+----------------------------------------------------------------
+2) Test Case: Verify "Gmail" Link existence in Google Home Page.
+----------------------------------------------------------------
+Test Steps:
+i) Launch the Browser
+ii) Navigate to Google Home Page ("https://www.google.com/")
+
+Verification Point
+Verify the Existence of "Gmail" Link
+
+Input Data:
+NA
+----------------------------------------------
+Selenium WebDriver Test Case
+
+WebDriver driver = new FirefoxDriver();
+driver.manage().window().maximize();
+driver.get("https://www.google.com/");
+boolean linkPresent = driver.findElement(By.linkText("Gmail")).isDisplayed();
+
+if (linkPresent == true){
+System.out.println("Gmail Link Exists - Passed");
+}
+else {
+System.out.println("Gmail Link Not Exits - Failed");
+}
+driver.close();
+}
+----------------------------------------------
+Negative Test Case
+------------------
+WebDriver driver = new FirefoxDriver();
+driver.manage().window().maximize();
+driver.get("https://www.google.com/");
+try{
+boolean linkPresent = driver.findElement(By.linkText("Yahoo")).isDisplayed();
+
+if (linkPresent == true){
+System.out.println("Gmail Link Exists - Passed");
+}
+}
+catch (NoSuchElementException e){
+System.out.println("Gmail Link Not Exits - Failed");
+}
+driver.close();
+----------------------------------------------

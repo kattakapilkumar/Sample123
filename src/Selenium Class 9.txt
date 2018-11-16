@@ -1,0 +1,242 @@
+Selenium Class 9: Java Program Structure
+-------------------------------------------------------------------
+i) Java Program Structure
+ii) Java Program Example
+-------------------------------------------------------------------
+i) Java Program Structure
+-------------------------------------------------------------------
+1) Documentation Section
+2) Package Declaration Statement
+3) Import Statement/s
+
+We import Predefined and user defined libraries using "import" Keyword
+
+ex:
+
+import java.io.Console;
+
+java - Project Name
+io - Package
+Console - Class Name
+
+import java .io.*;
+java - Project
+io- Package
+io.* - import all classes from io package
+----------------------------------------------
+4) Class Declaration
+
+Ex:
+public class Sample{
+}
+
+public - Access Modifier
+class - Java Keyword to declare class
+Sample - Class Name
+-----------------------------------------
+5) main Method (Java Program Execution Starts from main method)
+
+public static void main (String [] args) {
+Code...
+}
+
+public - Access Modifier
+static Non -Access Modifier (use main method without invoking any object)
+object.method();
+object.method(val1, val2);
+----------------------------
+void - Returns nothing
+main - Method name
+--------------------------------
+(String [] args) - Jyothi
+----------------------------------------------------------
+6) Declaration Statements
+
+We declare Variables and Constants
+
+int a;
+a=10;
+
+int b, c, d;
+b=20, c=30, d=40;
+
+int f=60, g=70, h=80;
+-----------------------------
+final int y;
+y=100; //Incorrect
+
+final x = 200; //Correct
+----------------------------------------
+Variables vs. Constants
+
+int a=10;
+------
+------
+---------
+a=20; 
+------
+-----
+a=10;
+---------------
+final int b=100;
+----------
+----------
+b=200; //Incorrect
+---------------------------------------------
+7) Normal Statements
+
+System.out.println("Hello Java");
+System - Predefined Class
+out - Object
+println - Method
+"Hello Java" - Message
+
+a+b = d;
+--------------------------------
+8) Code Blocks
+
+Conditions, Loops, Methods....
+---------------------------------------------
+9) Object Creation Statement, etc...
+
+Syntax:
+ClassName objectName = new ClassName();
+-------------------------------------------------------------------
+ii) Java program Example
+-------------------------------------------------------------------
+//Note: We declare User defined Methods before the main method and call those methods after the main method
+
+Java Methods
+ Predefined
+ User Defined 
+  Non -Static Methods (Method with Retuning Value, Method Returns Nothing)
+  Static Methods (Method with Retuning Value, Method Returns Nothing)
+---------------------------------------------------
+//It is a Sample Program to Understand the Java Syntax and Program Structure
+package abcd;
+public class JavaProgram {
+//Create a Method with Parameters and Return value (Non Static Method)
+public int add(int a, int b){
+int result;
+result = a + b;
+return result;
+}
+//Create a Method without Parameters and Returns Nothing (Non Static Method)
+public void Comparison(){
+int a =100, b=50;
+if (a>b){
+System.out.println("A is a Big Number");
+}
+else{
+System.out.println("B is a Big Number");
+}
+}
+//Create a Method with Parameters and Return value (Static Method)
+public static int sub(int a, int b){
+int result = a-b;
+return result;
+}
+//Create a Method without Parameters and Returns Nothing (Static Method)
+public static void comparison2(){
+int a =100, b=500;
+
+if (a > b){
+System.out.println("A is a Big Number"); 
+}
+System.out.println("B is a Big Number"); 
+}
+
+public static void main(String[] args) {
+int a; //Variable Declaration 
+a=10; //Initialization
+int b=20; //Variable Declaration with Initialization
+int c, d, e; //Declaring Multiple Variables
+int f=40, g=50, h=60; //Declaring multiple Variables with Initialization
+
+double l =12.3456;
+char m= 'Z';
+boolean x = true;
+String y = "Selenium Testing";
+
+System.out.println(y); //Selenium Testing
+System.out.println(l);//12.3456
+System.out.println("Hello Java");//Hello Java
+
+int z = a+b;
+System.out.println("Value of the z Variable is: "+ z);// Value of z Variable is: 30 
+
+final int abc =100;//Declare Integer Type Constant 
+System.out.println(abc);//100
+ 
+if (a > b){
+System.out.println("A is a Big Number");
+}
+else
+{
+System.out.println("B is a Big Number");
+}//B is a Big Number
+ 
+char grade ='A';
+switch (grade) {//Decide among several alternates
+case 'A':
+System.out.println("Excellent");
+break;
+
+case 'B':
+System.out.println("Good");
+break;
+
+case 'C':
+System.out.println("Better");
+break;
+
+default:
+System.out.println("Invalid Grade");
+}//Excellent
+//Print 1 to 5 Numbers except 4th number
+for (int i = 1; i <=5; i++){
+if (i != 4){
+System.out.println(i);
+}
+}
+
+int j =1;
+while (j <=10){
+System.out.println(j);
+j++;
+}
+
+int n =1;
+do
+{
+System.out.println(n);
+n++;
+} while (n<=5);
+
+String [] tools = {"Selenium", "UFT", "RFT", "SilkTest"};
+
+for (String xyz: tools){
+System.out.println(xyz);
+}
+//Create Object in order to access /call Non-Static Methods
+
+JavaProgram smriti = new JavaProgram();
+//Call Non-static methods
+
+int r = smriti.add(10, 20);
+System.out.println(r);//30
+System.out.println(smriti.add(10, 20));//30
+
+smriti.Comparison();//A is a Big Number
+
+//Class Static Methods
+int r2= JavaProgram.sub(18, 11);
+System.out.println(r2);//7
+System.out.println(JavaProgram.sub(18, 11));//7
+
+JavaProgram.comparison2();//B is a Big Number
+
+comparison2();//B is a Big Number
+}
+}
+-------------------------------------------------------------------

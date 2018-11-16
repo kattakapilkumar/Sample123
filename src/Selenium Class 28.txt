@@ -1,0 +1,248 @@
+Selenium Class 28: Selenium WebDriver Commands / Methods
+--------------------------------------------------------
+> Selenium WebDriver Commands are used to perform operations on Web Elements
+> Using Element Locators and WebDriver Commands we can create Test Cases...
+
+Categories of WebDriver Commands:
+
+a) Browser regular commands
+b) Browser navigation commands
+c) Regular Commands on Web Elements
+d) Verification Commands on Web Elements
+e) Others
+--------------------------------------------------------
+1) get()
+
+Description: Opens a specified URL in the Browser Window.
+
+Syntax:
+driverObject.get("URL");
+
+Example:
+driver.get("https://www.google.co.in/");
+--------------------------------------------------------
+2) getTitle()
+
+Description: Returns the current Browser Title
+
+Syntax:
+String browserTitle = driver.getTitle();
+
+Example:
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.icicibank.com/");
+String browserTitle = driver.getTitle();
+System.out.println(browserTitle);
+--------------------------------------------------------
+3) getCurrentUrl()
+
+Description: Returns current URL of the Browser window
+
+Syntax:
+String browserURL = driver.getCurrentUrl();
+
+Example:
+String browserUrl = driver.getCurrentUrl();
+System.out.println(browserUrl);
+--------------------------------------------------------
+Browser navigation Methods
+
+4) navigate().to()
+
+Loads a new page in the current Browser window
+
+Syntax:
+driver.navigate().to("URL");
+
+Example:
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.co.in/");
+String browserUrl = driver.getCurrentUrl();
+System.out.println(browserUrl);
+
+driver.navigate().to("https://in.yahoo.com/");
+browserUrl = driver.getCurrentUrl();
+System.out.println(browserUrl);
+
+Or
+
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.co.in/");
+String browserUrl = driver.getCurrentUrl();
+System.out.println(browserUrl);
+
+driver.get("https://in.yahoo.com/");
+browserUrl = driver.getCurrentUrl();
+System.out.println(browserUrl);
+--------------------------------------------------------
+5) navigate().back();
+
+It moves a single item back in the browser history
+
+Syntax:
+
+driver.navigate().back();
+
+Example:
+driver.get("https://www.google.co.in/");
+driver.navigate().to("https://in.yahoo.com/");
+driver.navigate().back();
+System.out.println(driver.getCurrentUrl());
+
+Or
+driver.get("https://www.google.co.in/");
+driver.get("https://in.yahoo.com/");
+driver.get("https://www.google.co.in/");
+System.out.println(driver.getCurrentUrl());
+--------------------------------------------------------
+6) navigate().forward()
+
+It moves a single item forward in the browser history
+
+Syntax:
+
+driver.navigate().forword();
+
+Example:
+
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.co.in/");
+System.out.println(driver.getCurrentUrl());
+driver.navigate().to("http://www.rediff.com/");
+System.out.println(driver.getCurrentUrl());
+driver.navigate().back();
+System.out.println(driver.getCurrentUrl());
+driver.navigate().forward();
+System.out.println(driver.getCurrentUrl());
+-----------------------
+Or
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.co.in/");
+System.out.println(driver.getCurrentUrl());
+driver.get("http://www.rediff.com/");
+System.out.println(driver.getCurrentUrl());
+driver.get("https://www.google.co.in/");
+System.out.println(driver.getCurrentUrl());
+driver.get("http://www.rediff.com/");
+System.out.println(driver.getCurrentUrl());
+--------------------------------------------------------
+7) navigate().refresh()
+
+Syntax:
+driver.navigate().refresh();
+
+Example:
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.co.in/");
+driver.navigate().refresh();
+--------------------------------------------------------
+8) close()
+
+Closes the focused Browser
+
+Syntax:
+driver.close();
+
+Example:
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.co.in/");
+Thread.sleep(4000);
+driver.close();
+--------------------------------------------------------
+9) quit()
+
+Closes all Browsers that opened by WebDriver during Execution.
+
+Syntax:
+driver.quit();
+
+Example:
+driver.get("file:///C:/Users/gcreddy/Desktop/HTMLExamples/LoginPage.html");
+driver.findElement(By.linkText("Sign In")).click();
+driver.quit();
+--------------------------------------------------------
+UFT vs. Selenium - in case of Browser or AUT,
+
+Test Operations:
+i) Launch Browser and navigate to Google Home page
+ii) Click on "Gmail" Link
+
+UFT Script:
+System.Util "Path of the Browser"; "https://www.google.co.in/"
+Browser("Google").Page("Google").Link("Gmail").Click
+
+Or
+Launch the Browser manually and navigate to https://www.google.co.in/ (Set base State to execute UFT Test...)
+Browser("Google").Page("Google").Link("Gmail").Click
+
+Selenium Test Script
+
+WebDriver driver= new FirefoxDriver();
+driver.get("https://www.google.co.in/");
+driver.findElement(by.linkText("Gmail")).click();
+
+* In Selenium, we can't Set Base state, using seleneium Test script only we can perform operations...
+--------------------------------------------------------
+10) findElement()
+
+Finds first Element within the Current web page using give locator.
+
+Syntax:
+driverObject.findElement(By.ElementLocator("Locatorvalue")) - Partial Syntax,
+driverObject.findElement(By.ElementLocator("Locatorvalue")).WebDriverCommand();
+
+Example:
+
+driver.findElement(By.linkText("Gmail")).click();
+Or
+driver.findElement(By.partialLinkText("a")).click();
+Or
+driver.findElement(By.id("Email")).sendKeys("India123");
+--------------------------------------------------------
+11) sendkeys()
+
+Enter a value in to an Edit Box or Text Box
+
+Syntax:
+driverObject.findElement(By.ElementLocator("Locatorvalue")).sendkeys("Value / Input Data");
+Note: If the Input Data is String then use "", suppose your passing parameters then don't use "'...
+--------------------------------
+Example:
+driver.findElement(By.id("Email")).sendKeys("India123");
+Or
+String Username = "India123";
+driver.findElement(By.id("Email")).sendKeys(Username);
+--------------------------------------------------------
+12) clear()
+
+Clears the Value from edit Box
+
+Syntax:
+driverObject.findElement(By.ElementLocator("Locatorvalue")).clear();
+
+Example:
+driver.findElement(By.id("Email")).sendKeys(Username);
+Thread.sleep(5000);
+driver.findElement(By.id("Email")).clear();
+--------------------------------------------------------
+13) click()
+
+Clicks an Element (Button, Link, Radio Button, Check box...)
+
+Syntax:
+driverObject.findElement(By.ElementLocator("Locatorvalue")).click();
+
+Examples:
+
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.com/");
+Thread.sleep(3000);
+driver.findElement(By.linkText("Gmail")).click();
+Thread.sleep(3000);
+driver.findElement(By.id("next")).click();
+Thread.sleep(3000);
+driver.get("http://www.gcrit.com/build3/create_account.php?osCsid=qaoimm5l25snfen17r9a7336l3");
+driver.findElement(By.xpath(".//*[@id='bodyContent']/form/div/div[2]/table/tbody/tr[1]/td[2]/input[1]")).click();
+Thread.sleep(3000);
+driver.findElement(By.name("newsletter")).click();
+--------------------------------------------------------

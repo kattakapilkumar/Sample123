@@ -1,0 +1,123 @@
+Selenium Class 15: Java IO Operations, File Handling in Java
+-------------------------------------------------------------------
+i) Java IO Operations
+ii) File Handling in java
+----------------------------------------------------------------
+i) Java IO Operations
+
+Input and Output Operations...
+Input:
+	Input using Input devices (Keyboard & Mouse)
+	Read data from Files (Text/Excel file/Database files...)
+	*Read data from Application Objects/Elements
+Output:
+	Display Message/s on Computer Console/Eclipse IDE Console...
+	Display Variable/s values...
+	Display variable/s values and Message/s...
+	Write data to a file...
+---------------------------------------------------
+There are three ways available in Java for reading input,
+
+1) Scanner
+2) DataInputStream
+3) BufferedReader
+
+Note: using java.util.Scanner is the easier way ant it includes many methods to check input is valid or not.
+----------------------------------------
+Example for Reading Input using Input Devices:
+
+Scanner scan = new Scanner(System.in);//System.in is an Input Stream
+
+System.out.println("Enter Your Name");
+String name = scan.nextLine();
+System.out.println("Your Name is: "+name);
+
+System.out.println("Enter Your City");
+String city = scan.next();
+System.out.println("Your City is: "+city);
+
+System.out.println("Enter Your Mobile Number");
+long mobileNum = scan.nextLong();
+System.out.println("Your Mobile Number is: "+ mobileNum);
+
+System.out.println("Enter Your ID");
+int id = scan.nextInt();
+System.out.println("Your ID is: "+id);
+
+System.out.println("Enter a Value");
+boolean val = scan.nextBoolean();
+System.out.println("Your Value is: "+val);
+
+System.out.println("Enter a number with decimal places");
+double d = scan.nextDouble();
+System.out.println("Your Number is: "+d);
+
+System.out.println("Enter a Character");
+char a = scan.next().charAt(0);
+System.out.println("Your Character is: "+a);
+------------------------------------------------------------------
+Display Output on the Console:
+
+System.out.println(a);//10
+System.out.println(a+b);//30
+System.out.println("Welcome to Java World");
+System.out.println("a value is: "+a);//a value is: 10
+System.out.println("Addition of a, b is: "+(a+b));//Addition of a, b is: 30
+System.out.println("");//Blank Line
+System.out.println("Hello Selenium");//Hello Selenium
+-------------------------------------------------------------------------
+ii) File Handling in java
+------------------------------------------------------------------------
+End User point of view File means- Text File/Notepad, Excel File, Word Document, PDF etc...
+But Computer point view everything is file - Drive, Folder, File, Database....
+----------------------------
+In VBScript, IO operations & Handling Files...
+IO Operations - InputBox, MsgBox built-in Functions 
+File Handling-
+i) FileSystemObject (Drives, Folders, Files...) - Flat File/Text File/Notepad
+ii) Excel Application Object (Excel files...)
+iii) Word Application Object (Word Documents...)
+iv) Database Operations (Database Connection, Database Recordset, and Database Command)
+.......
+Note: Data Table (UFT/QTP Tool feature) is alternate for VBScript File Operations...
+-----------------------------------------------------
+In Java:
+IO Operations - Scanner, System predefined classes (libraries)
+
+File Handling:
+File class - Drive, Folder, File....
+Reading & Writing (BufferedReader, BufferedWriter...)
+ii) Excel Files - jxl jar...
+(*Import third party jar files and add to Java Project in Eclipse IDE...)
+----------------------------------------------------
+Using File Class we can handle computer files
+
+Example: 
+1) Create a Folder on Desktop
+
+File fileObject = new File ("C:/Users/gcreddy/Desktop/Smriti");
+fileObject.mkdir();
+----------------------------------------
+2) Create a Text File
+
+File fileObject = new File ("C:/Users/gcreddy/Desktop/Vijay.txt");
+fileObject.createNewFile();
+----------------------------------------------
+File fileObject = new File ("C:/Users/gcreddy/Desktop/Vijay.doc");
+fileObject.createNewFile();
+------------------------------------------------------
+Note: Using File Class we can create and delete all types of files, but we cannot perform Internal 
+Operations (ex: Reading, Writing etc...) using File Object for all types of files except Text Files...etc...
+We can conduct all types of Operations for Text Files... (Including Reading, Writing etc...)
+For Other type of files (Ex: Excel, Word, PDF etc...) we can perform External operations only 
+(Ex: Creating, Deleting...)
+--------------------------------------------------------
+File fileObject = new File ("C:/Users/gcreddy/Desktop/Smriti");
+
+File - Predefined Class (Fixed)
+fileObject - Name of the Object (User can define/Not fixed)
+new - Java Keyword (Fixed)
+File - Predefined Class (Fixed)
+("C:/Users/gcreddy/Desktop/Smriti") -File Path (Not used defined and not fixed)
+Not: User can change the File path according to requirement
+-----------------------------------------

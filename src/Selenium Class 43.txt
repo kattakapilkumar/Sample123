@@ -1,0 +1,119 @@
+Selenium Class 43: TestNG Framework for Selenium Part-4
+-------------------------------------------------------
+1) Introduction to TestNG Testing Framework
+2) Install TestNG and write first TestNG Program/Test Cases
+3) Create multiple Test Cases and Run
+4) Create and Execute multiple Programs / Classes using XML
+5) Grouping Test Cases and Run
+6) Parallel Testing 
+-------------------------------------------------------
+7) Data Driven Testing using @DataProvider Annotation
+-------------------------------------------------------
+i) Read Test Data (String Type Data) from Excel File and conduct Data driven Testing for Admin Login Functionality
+
+ii) Read Test Data (Integer Type Data) from Excel File and conduct Data Driven Testing for Addition Functionality
+-------------------------------------------------------
+i) Read Test Data (String Type Data) from Excel File and conduct Data driven Testing for Admin Login Functionality
+
+Admin Login Functionality:
+Test Steps:
+i) Launch the Browser
+ii) Navigate to gcrShop Admin Interface ("gcrit.com/build3/admin/")
+iii) Enter "Username"
+iv) Enter "Password"
+v) Click "Login" Button"
+
+Verification Point/s
+Capture the URL after Login to the application and compare with expected
+
+Input Data:
+i) Username:
+ii) Password:
+Refer: Input.xls file...
+
+Expected: http://www.gcrit.com/build3/admin/index.php
+--------------------------------------------------------
+Preparing Test Data File:
+
+> Download Excel jar file and extract
+> Add Excel jar file to Java Project in Eclipse IDE
+-------------------------------------------------------
+public class DataDriven {
+public static WebDriver driver;
+@Test (dataProvider = "testdata")
+public void adminLogin(String Username, String Password){
+System.setProperty("webdriver.chrome.driver", "D:/chromedriver.exe");
+driver = new ChromeDriver();
+driver.manage().window().maximize();
+driver.get("http://www.gcrit.com/build3/admin/");
+driver.findElement(By.name("username")).sendKeys(Username);
+driver.findElement(By.name("password")).sendKeys(Password);
+driver.findElement(By.id("tdb1")).click();
+
+String URL = driver.getCurrentUrl();
+
+if (URL.contains("http://www.gcrit.com/build3/admin/index.php")){
+System.out.println("Admin Login Successful - Passed");	
+}
+else {
+System.out.println("Admin Login Unsuccessful - Failed");
+}
+driver.close();
+}
+@DataProvider(name = "testdata")
+public Object [] [] readExcel() throws BiffException, IOException {
+File f = new File ("C:\\Users\\gcreddy\\Desktop\\Input.xls");
+Workbook w = Workbook.getWorkbook(f);
+Sheet s = w.getSheet("Sheet1");
+int columns = s.getColumns();
+int rows = s.getRows();
+//System.out.println(columns +", "+ rows);
+
+String inputData [] [] = new String [rows] [columns];
+
+for (int i=0; i<rows; i++){
+	for (int j=0; j<columns; j++){
+		Cell c = s.getCell(j,i);
+		inputData [i] [j] = c.getContents();
+		//System.out.println(inputData[i][j]);
+		
+	}
+}
+return inputData;
+}
+}
+-------------------------------------------------------
+ii) Read Test Data (Integer Type Data) from Excel File and conduct Data Driven Testing for Addition Functionality
+
+public class Vijay {
+@Test(dataProvider ="vijay")
+public void addition(String num1, String num2, String num3){
+int a = Integer.parseInt(num1);
+int b = Integer.parseInt(num2);
+int c = Integer.parseInt(num3);
+int result = a+b+c;
+System.out.println(result);
+}
+@DataProvider(name = "vijay")
+public Object [] [] readExcel() throws BiffException, IOException {
+File f = new File ("C:\\Users\\gcreddy\\Desktop\\Input.xls");
+Workbook w = Workbook.getWorkbook(f);	
+Sheet s = w.getSheet("Sheet2");
+
+int rows = s.getRows();
+int columns = s.getColumns();
+//System.out.println(rows +", "+columns);
+
+String inputData [] [] = new String [rows] [columns];
+
+for (int i=0; i<rows; i++){
+ for (int j=0; j<columns; j++){
+Cell c = s.getCell(j, i);	
+inputData [i][j] = c.getContents();
+//System.out.println(inputData[i][j]);
+}
+}
+return inputData;
+}
+}
+----------------------------------------------------------

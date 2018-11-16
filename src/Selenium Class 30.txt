@@ -1,0 +1,188 @@
+Selenium Class 30: Elements Handling in Selenium Part-2
+-------------------------------------------------------
+Part-1:
+
+1) Handling Browser
+2) Handling Edit Box
+--------------------------------------
+3) Handling Text Area, Error Message, Popup window
+4) Handling Button
+5) Handling Link
+6) Handling Radio Button
+7) Handling Drop down box
+8) Handling Check box
+-------------------------------------------------------
+3) Handling Text Area, Error Message, Popup window
+-------------------------------------------------------
+a) Handling Text Area
+
+Returning the Text....
+
+Example:
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.gmail.com/");
+String textArea = driver.findElement(By.tagName("h1")).getText();
+System.out.println(textArea);
+----------------------------------------
+b) Error Message
+
+driver.findElement(By.id("next")).click();
+Thread.sleep(3000);
+String error_Message = driver.findElement(By.id("errormsg_0_Email")).getText();
+System.out.println(error_Message);
+----------------------------------------
+c) Popup window
+
+public class Class1 {
+
+public static void main(String[] args) throws InterruptedException {
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.gmail.com/");
+String textArea = driver.findElement(By.tagName("h1")).getText();
+System.out.println(textArea);
+
+driver.findElement(By.id("next")).click();
+Thread.sleep(3000);
+String error_Message = driver.findElement(By.id("errormsg_0_Email")).getText();
+System.out.println(error_Message);
+
+driver.navigate().to("https://mail.rediff.com/cgi-bin/login.cgi");
+driver.findElement(By.name("proceed")).click();
+
+Alert popUp = driver.switchTo().alert(); // Switch the driver focus from the web page th Popup/Alert message
+String errorMessage2 = popUp.getText();
+popUp.accept();
+driver.findElement(By.id("login1")).sendKeys("Ravindra123@rediffmail.com");
+System.out.println(errorMessage2);
+
+driver.close();
+-------------------------------------------------------
+4) Handling Button (Submits)
+-------------------------------------------------------
+> Check the Displayed Status
+> Check the Enabled Status
+
+> Click
+
+> Return Name of the Object
+> Return Type of the Object
+-------------------------------------
+Selenium WebDriver Steps:
+
+public class Class1 {
+
+public static void main(String[] args) throws InterruptedException {
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.gmail.com/");
+
+boolean displayStatus = driver.findElement(By.id("next")).isDisplayed();
+boolean enabledStatus = driver.findElement(By.id("next")).isEnabled();
+
+String typeoftheElement = driver.findElement(By.id("next")).getAttribute("type");
+String nameoftheElement = driver.findElement(By.id("next")).getAttribute("value");
+
+System.out.println(displayStatus);//true
+System.out.println(enabledStatus);//true
+System.out.println(typeoftheElement);//Submit
+System.out.println(nameoftheElement);//Next
+
+driver.findElement(By.id("next")).click();
+driver.close();
+------------------------------------
+Create Web Element and conduct multiple operations...
+
+public class Class1 {
+
+public static void main(String[] args) throws InterruptedException {
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.gmail.com/");
+WebElement button = driver.findElement(By.id("next"));
+
+boolean displayStatus = button.isDisplayed();
+boolean enabledStatus = button.isEnabled();
+
+String typeoftheElement = button.getAttribute("type");
+String nameoftheElement = button.getAttribute("value");
+
+System.out.println(displayStatus);//true
+System.out.println(enabledStatus);//true
+System.out.println(typeoftheElement);//Submit
+System.out.println(nameoftheElement);//Next
+
+button.click();
+driver.close();
+----------------------------------------------
+With Different Locators....
+
+//Button with id Locator...
+driver.findElement(By.id("next")).click();
+
+//Button with name Locator...
+driver.findElement(By.name("signIn")).click();
+
+//Button with cssSelector Locator...
+driver.findElement(By.cssSelector("#next")).click();
+
+//Button with xpath Locator...
+driver.findElement(By.xpath(".//*[@id='next']")).click();
+
+Note: linkText and partialLinkText locators are not applicable for this element
+-------------------------------------------------------
+5) Handle Link
+-------------------------------------------------------
+Types of Links in the Web (UI design point of view...)
+ i) Text Link (Ex: gmail link in Google home page)
+ ii) Image Link (Ex: Selenium IDE (Image) Link in seleniumhq.org home page)
+
+Note: Redirecting to another Location / another Page or another Application
+--------------------------------
+Types of Links in the Web (Functionality Point of view...)
+ 1) Internal Link (Ex: Software Testing link in wikipedia.com)
+ * Redirects to another location or another page in the same Application
+ 2) External Link (Ex: github.com link in wikipedia.com)
+ * Redirects to another page in the Another Application
+
+Broken Links...
+-------------------------------------------------------
+Operations on Link
+-------------------------------------------------------
+> Check Displayed Status
+> Check Enabled Status
+
+> Click 
+
+> Return Link name....
+--------------------------------------------------------
+Selenium WebDriver Steps:
+
+public static void main(String[] args) throws InterruptedException {
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.google.co.in/");
+WebElement link = driver.findElement(By.linkText("Gmail"));
+
+boolean displayedStatus = link.isDisplayed();
+boolean enabledStatus = link.isEnabled();
+
+String linkName = link.getText();
+
+System.out.println(displayedStatus);//true
+System.out.println(enabledStatus);//true
+System.out.println(linkName);//Gmail
+
+link.click();
+------------------------------------------
+// Handling Link element using "linkText" locator...
+driver.findElement(By.linkText("Gmail")).click();
+
+// Handling Link element using "partialLinkText" locator...
+driver.findElement(By.partialLinkText("Gma")).click();
+
+// Handling Link element using "Class Name" locator...
+driver.findElement(By.className("gb_P")).click();
+
+// Handling Link element using "cssSelector" locator...
+driver.findElement(By.cssSelector(".gb_P")).click();
+
+// Handling Link element using "xpath" locator...
+driver.findElement(By.xpath(".//*[@id='gbw']/div/div/div[1]/div[1]/a")).click();
+---------------------------------------------------------------------------------

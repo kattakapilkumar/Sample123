@@ -1,0 +1,118 @@
+Selenium Class 3: Introduction to Selenium Part-3
+-------------------------------------------------------
+i) What is Selenium?
+ii) History of the Selenium Project
+iii) Selenium Components / Selenium's Tool suite
+		Selenium IDE
+		Selenium RC
+		Selenium WebDriver
+		Selenium Grid
+iv) Supported platforms by Selenium
+v) Selenium License
+vi) Testing Frameworks and Other tools used in Selenium
+vi) Advantages of Selenium
+vii) Disadvantages of Selenium
+ix) Selenium vs. UFT / QTP
+x) Selenium Environment Setup
+--------------------------------------------------------------------------------
+ix) Selenium vs. UFT / QTP
+* Functional Testing (Test Automation),
+Selenium, UFT/QTP, RFT, SilkTest, TestComplete, TestPartner etc...
+-------------------------------------------------------------------------------------------------------------------
+Selenium							UFT/QTP
+------------------------------------------------------------------------------------------------------------------
+1) It is an Open Source					Vendor / Commercial Tool
+------------------------------------------------------------------------------------------------------------------
+2) Selenium supports various programming platforms
+   (Java/C#/Python/Perl/PHP/Ruby)				UFT supports VBScript only
+----------------------------------------------------------------------------------------------------------------------
+3) Selenium Supports Web based /Browser based applications only	UFT supports Desktop and Web Applications
+--------------------------------------------------------------------------------------------------------------------
+4) It uses less Hardware resources 				It uses more Hardware resources
+-----------------------------------------------------------------------------------------------------------------
+5) New features may not work properly				New features will work properly
+-----------------------------------------------------------------------------------------------------------------
+6) Difficult to setup Test environment				Easy to setup Test Environment
+-----------------------------------------------------------------------------------------------------------------
+7) Difficult to use (create Test Cases)				Easy to use (create Tests)
+--------------------------------------------------------------------------------------------------------------------
+8) Limited support for Image based Testing			Rich support for Image based Testing
+---------------------------------------------------------------------------------------------------------------------
+9) No built-in Result Reporting facility				UFT provides test Result for every Test Iteration
+-------------------------------------------------------------------------------------------------------------------------
+10) Limited support for error popup/windows			Rich support for error popup/windows
+-------------------------------------------------------------------------------------------------------------------------
+11) No other tool integration for Test management		UFT integrates with ALM / QC for Test management
+-------------------------------------------------------------------------------------------------------------------
+12) Selenium supports various Operating environments		UFT supports MS Windows only
+(MS Windows/Linux/Macintosh etc...)
+--------------------------------------------------------------------------------------------------------------------
+13) Supports Parallel Testing					It doesn't support Parallel Testing
+---------------------------------------------------------------------------------------------------------------------
+14) It has Programming Interface only				UFT has IDE as well as Programming Interface
+(* Selenium IDE has IDE, but no Programming Interface)
+------------------------------------------------------------------------------------------------------------------
+15) No authorized Certification program				HP Conducts Certification programs
+------------------------------------------------------------------------------------------------------------
+Suggestion 1: Test Certifications
+
+Vendor Certifications			Vendor Neutral Certifications
+HP - UFT, ALM, Loadrunner etc...	ISTQB
+IBM - RFT, RPT etc....		CSTE, CSQE, etc...
+
+Note: Try to get one vendor Certification and one Vendor Neutral Certification for Software Testing Career,
+-----------------------------------------------------------------------------------------
+Suggestion:
+
+Focus on:
+
+1) Selenium WebDriver - To write Test Cases using Element Locators and WebDriver Commands/methods
+2) Java Standard Edition Or Core Java - To enhance Test cases
+3) Testing Framework (TestNG) - Grouping Test Cases, Prioritizing Test Cases, Batch Testing, Parallel Testing, 
+Generate Test Repots (html report).
+------------------------------
+x) Selenium Environment Setup
+
+Select Selenium Tools and Others for Test Automation,
+
+1) Eclipse IDE Software - To Create and Run Java programs, add selenium webDriver jar files, install TestNG etc...
+2) Selenium WebDriver for creating Test Scripts/Test Cases
+3) Java Standard edition / Core Java
+4) TestNG Testing Framework
+Etc...
+
+Configure / Setup Selenium Environment
+Steps to Setup:
+-----------------
+1) Download and Extract Eclipse IDE Software (based on our OS Environment, ex: Windows 7 - 32 bit OS)
+
+2) Download (JDK) software (either from Java.com or oracle.com) and Install iny our computer
+---------------------------------------------
+a) JDK - Java Development kit (It has JRE, JVM) (Full software) - To develop Java programs / applications
+b) JRE - Java Run-time Environment (It has JVM) - to provide Java Run Time,
+c) JVM - Java Virtual Michine - To complie Java Code (It provides Java Byte code/Java Class file)
+---------------------------------------------
+3) Setup Path Variable (Environment Variable)
+(In Oder to access Java software from any directory)
+
+4) Download Selenium WebDriver Java language binding from seleniumhq.org, and Add to Java Project
+in Eclipse IDE.
+
+5) Download TestNG Testing Framework Software and Install from Eclipse IDE.
+------------------------------------------------------
+Download Browser drivers and instantiate browser driver in our Test cases for Test execution
+(You can use various browser drivers to conduct Cross Browser Testing)
+---------------------------------------------------------------------------
+Software Test Process / Software Test Life Cycle
+	i) Test Planning
+	ii) Test Design
+	iii) Test Execution
+	iv) Test Closure
+
+Selenium Test Life Cycle / Selenium Test Process
+	i) Test Planning
+	ii) Generate Basic Test Cases
+	iii) Enhance Test Cases
+	iv) Running & Debugging Test Cases
+	v) Analyzing Test Result & Reporting Defects
+-----------------------------------------------------------------------------------

@@ -1,0 +1,159 @@
+Selenium Class 4: Software Test Life Cycle / Software Test Process
+--------------------------------------------------------------------------
+Phases of Software Test Process:
+
+i) Test Planning
+ii) Test Design
+iii) Test Execution
+iv) Test Closure
+--------------------------------------------------------------------------
+Software Testing Job Roles:
+------------------------------
+Test Lead: Test Plan Documentation, Configuration Management Planning, Anylyzing Test Requirements, Risk Analysis, Test Estimations, Team Formation, Guidance, Monitoring Test process, and Test Control
+
+Testers / Team Members:: Understanding Requirements, Derive Test Scenarios, Test Case Documentation, Test Data Collection, Test Execution (Smoke, Comprehensive, Sanity, Regression Testing...), Reporting & Tracking Defects, and Closing Defects,
+------------------------------------------------------------------
+Development Team: Track Defects, Fixing Defects, Communicating with Testing Team, Post-phone Defects etc...
+
+Business Analyst: Explaining Requirements, Mediator in between Customer and Development and Testing Teams
+
+SME: Providing Domain Knowledge (Ex: Banking / ERP/Telecom/Retail Market etc...)
+Subject Matter Expert:
+
+Technical Support People: Test Environment Setup, and Trouble Shooting....
+System Administrator
+
+Project Management: Monitoring Test Process, and Guidance Etc...
+--------------------------------------------------------------------------
+i) Test Planning phase of STLC
+--------------------------------------------------------------------------
+a) References / Input:
+Requirements,
+Project Plan,
+Test Strategy,
+------------------
+Software Design Docs,
+Industry Standard docs,
+Corporate Standard docs,
+----------------------------
+Test Plan Template
+
+b) Test Planning phase Tasks
+		Understanding and Analyzing Requirements
+		Risk Analysis
+		Test Strategy Implementation
+		Test Estimations (Scope of the Project, Resources, Time, and Budget etc...)
+		Team Formation
+		Test Plan Documentation
+		Configuration Management Planning
+		Traceability matrices document creation
+		Define Test Environment / Test Lab Setup
+c) Output:
+Test Plan Document
+Configuration Management plan
+--------------------------------------------------------------------------
+ii) Test Design
+--------------------------------------------------------------------------
+a) References / Input
+Requirements,
+Test Plan Doc,
+-----------------
+Test Case Template
+-----------------------------
+Software Design Docs,
+Industry Standard docs,
+Corporate Standard docs,
+
+b) Tasks in Test Design Phase
+	Understanding Test Requirements,
+	Derive Test Scenarios,
+	Test Case Documentation,
+	Test Data Collection	
+
+c) Output:
+Test Scenarios,
+Test Case Documents,
+Test Data,
+----------------------------------------------------------------------------------
+iii) Test Execution phase in Software Test process / Software Test Life Cycle
+----------------------------------------------------------------------------------
+a) References / Input:
+Requirements,
+Test Planning,
+Test Case, and Test Data Docs,
+--------------------------------------------
+Readiness of Test Environment / Test Lab
+Readiness of AUT
+-----------------------------------
+Defect Report Template
+-----------------------------------
+Software Design Docs,
+Industry Standard docs,
+Corporate Standard docs,
+----------------------------------
+b) Tasks in Test Execution phase:
+
+	Verify Test Environment Setup
+	Creating Test batches
+	Test Execution
+		Smoke Testing / BVT / BAT
+		Comprehensive Testing
+		Defect Reporting & Tracking
+		Regression Testing Cycle 1 (General Regression)
+		Select Test Cases for Regression Cycle 1
+		Sanity Testing / BVT/BAT
+		Execute Regression Cycle 1 Test cases,
+		Defect Reporting & Tracking
+		Select Test Cases for Regression Cycle 2
+		Sanity Testing / BVT/BAT
+		Execute Regression Cycle 1 Test cases,
+		Defect Reporting & Tracking
+		.
+		.
+		.
+		Final Regression
+-----------------------		
+Smoke Testing: Verifying weather the initial Software build / 1st Software build is acceptable or not
+by executing basic functionality Tests,
+
+Sanity Testing: Verifying weather the modified Software build is acceptable or not by executing basic functionality Tests,
+-------------------------------------
+Relation between Functionality Testing and Comprehensive Testing,
+Functionality Testing is a Test Type, where as Comprehensive Testing is a Test Execution Level,
+We conduct Comprehensive Testing in Functionality Testing, and also in Non-Functional Testing (performance Testing....)
+
+> Non-Functional Testing (Test Type
+	Performance Testing (Test Type...)
+		(Load Testing, Stress Testing, Spike Testing etc.. (Test Types)
+	
+* Load Testing... is sub-set of Performance Testing
+
+> Functional Testing (Test Type) and Database Testing (Test Type),
+
+Database Testing is a part of Functional Testing, also part of Performance Testing,
+----------------------------------
+c) Output:
+
+Opened and Closed Defect Reports
+Tested Software
+--------------------------------------------------------------------------
+iv) Test Closure
+--------------------------------------------------------------------------
+a) References / Input
+Requirements,
+Test Plan Document
+Opened and Closed Defect Reports,
+---------------------------
+Test Plan Summary Report Template
+---------------------------------------
+Software Design Docs,
+Industry Standard docs,
+Corporate Standard docs,
+
+b) Tasks 
+	Evaluation of Exit criteria,
+	Collect all arty facts (documents) from all Team members
+	Create Test Summary Report
+	Send all Test Deliverables to Customer
+	Improvement Suggestions to future projects
+--------------------------------------------------------------------------

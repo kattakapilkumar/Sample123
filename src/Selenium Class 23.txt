@@ -1,0 +1,135 @@
+Selenium Class 23: Introduction to Selenium WebDriver
+-------------------------------------------------------------
+i) Introduction to Selenium WebDriver
+ii) Selenium WebDriver Environment Setup
+iii) Write first Selenium Test Case
+-------------------------------------------------------------
+Encapsulation
+-----------------------------
+> It is a process of wrapping code and data into a single unit.
+
+Ex: Capsule (Mixer of several medicines)
+
+> Encapsulation is the technique making the fields in a class private and providing access via public methods
+
+> It provides control over the data
+> By providing getter and setter methods we can make a call read only or write only.
+--------------------------------------------------------------------
+Example:
+
+Class 1:
+public class Class1 {
+private String name = "Test Automation";
+
+public String getName (){
+return name;
+}
+
+public void setName (String newName){
+name = newName; 
+}
+public static void main(String[] args) {
+Class1 obj = new Class1();
+String a = obj.getName();
+System.out.println(a);//Test Automation
+
+obj.setName("Selenium Testing");
+a = obj.getName();
+System.out.println(a);//Selenium Testing}
+}
+}
+----------------------------------------
+Class 2:
+
+public static void main(String[] args) {
+Class2 obj2 = new Class2();
+String str = obj2.getName();
+System.out.println(str);
+
+obj2.setName("Selenium, Java, and TestNG");
+str = obj2.getName();
+System.out.println(str);
+}
+}
+----------------------------------------------------------------------------
+i) Introduction to Selenium WebDriver
+
+Selenium Components or Selenium Tool's Suite
+			1) Selenium IDE
+			2) Selenium RC (*Out Dated)
+			3) Selenium WebDriver
+			4) Selenium Grid 
+
+Versions of Selenium:
+
+Selenium 1.0 -
+(Selenium IDE + Selenium RC + Selenium Grid)
+
+Selenium 2.0 - Selenium 1. + Selenium WebDriver
+(Selenium IDE + Selenium RC + Selenium WebDriver + Selenium Grid)
+
+Selenium 3.0 (Sep 2016)
+(Selenium IDE + Selenium WebDriver + Selenium Grid)
+-----------------------------------------------------------------
+Selenium WebDriver:
+
+> In 2006 Selenium WebDriver was launched at Google,
+
+> In 2008, the whole Selenium Team decided to merger Selenium WebDriver with Selenium RC in order to form more powerful tool called selenium 2.0
+--------------------------------------
+Selenium WebDriver Features:
+
+> Selenium WebDriver is a most important Tool in Selenium Suite.
+> Selenium WebDriver has Programming Interface, no IDE
+------------------------------
+Selenium IDE - has Integrated development Environment - Tool Features - (No Programming...)
+
+Selenium WebDriver - has Programming Interface but no IDE (No Tool Features...)
+----------
+UFT / QTP - has both IDE as well as Programming Interface....
+-------------------------------------
+C vs. VB 
+UI Design....
+Functionality....
+----------------------------------------------------------------------------
+> Selenium WebDriver supports various programming languages to write Test scripts.
+Java
+Python
+C#.NET
+Ruby
+Perl
+PHP
+> Selenium WebDriver supports various browsers to create and execute Test cases.
+
+Google Chrome
+Mozilla Firefox
+MS IE / MS Edge
+Safari
+Opera Etc...
+
+> Selenium WebDriver supports various Operating Environments to conduct Testing
+
+MS Windows
+Linux
+Macintosh etc...
+------------------------------------------------------
+> Selenium WebDriver supports Batch Testing, Data Driven Testing, Cross Browser Testing, and Database Testing.
+
+> Selenium WebDriver is faster in Execution over other tools in Selenium's suite and UFT/QTP also.
+
+> Selenium WebDriver supports Parallel Testing with the help of Testing Frame (either JUnit or TestNG...)
+
+Parallel Testing
+Scenario 1: Created 400 Test Cases (each Test case takes 2 minutes for execution) - 800 Minutes
+Parallel Testing (Using Selenium Grid) - Taking 2 Computers - (200 on 1st Computer, remaining Test Cases on 2nd Computer) - 400 Minutes
+--------------------
+Scenario 2 - Create 100 Test Cases (each case requires 3 minutes), Cross browser Testing on Chrome, Firefox  and IE -900 minutes
+Parallel Testing - Using 3 Computers - (100 Test cases using IE on computer 1, Mozilla Firefox Computer2, and Chrome on Computer3) - 300 Minutes
+---------------------------------------------------------------
+Parallel Testing - Selenium WebDriver + Testing Framework (Single Computer)
+Parallel Testing - Selenium Grid (Multiple Computers)
+--------------------------------------------------------------
+Scenario 1: Created 400 Test Cases (each Test case takes 2 minutes for execution) - 800 Minutes
+Parallel Testing (Using Selenium Grid) - Taking 2 Computers - (200 on 1st Computer, remaining in on 2nd Computer) - 400 Minutes
+Parallel Testing (Using Selenium Webdriver) - use 2 Nodes in the Computer (200 on 1st Node, remaining on 2nd Node) - 550 to 600 Minutes
+---------------------------------------------------------------------------

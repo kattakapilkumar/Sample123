@@ -1,0 +1,166 @@
+Selenium Class 6: Overview of Java
+----------------------------------------------------------------
+Selenium Learning / Training:
+
+1) Selenium Fundamentals (10 hours)
+2) Java for Selenium (24 Hours)
+3) Selenium WebDriver (24 Hours)
+4) TestNG Testing Framework for Selenium (8 hours)
+5) Selenium IDE (2 hours)
+6) selenium Live Project (10 to 12 Hours...)
+----------------------------------------------------------
+Overview of Java
+
+i) What is Java?
+ii) Java Editions
+3) Why Java for Selenium?
+4) Java Language Fundamentals
+-----------------------------------------
+Why Java for Selenium?
+
+> Majority of Selenium Testers (nearly 77%) using Java, so knowledge sharing is easy,
+> Good support for Java (For Selenium), you can get more Help Documentation, and 
+Code implementations from Internet,
+> Java is platform indipendent, we can use Java code on all popular Operating environments
+----------------------------------------------------------------------
+Overview of Java
+-----------------------------------------------------------
+1) What is Java?
+2) Editions of Java (Parts of Java)
+3) Java Language Fundamentals
+----------------------------------------
+1) What is Java?
+
+> Java is a Programming Language and a Platform (Software Platform)
+> Java is used as a Programming Language to develop Software Applications, and It is used as Software platform
+to run Java Applications,
+
+For Development (Software Application Development) use JDK (Java Development Kit (JRE (JVM))
+For Software Platform use JRE (JVM) 
+--------------------------------------------------------------------
+2) Editions of Java (Parts of Java)
+
+Java has 3 important Editions,
+i) Java Standard Edition (JSE) Or Core Java (* Old name is J2SE)
+ii) Java Enterprise Edition Or Advanced Java (* Old name is J2EE)
+iii) Java Micro Edition (* Old name is J2ME)
+------------------------------------------------------------
+* Java Standard Edition or Core Java is sufficiant for Selenium (Test Automation)
+-----------------------------------------------------------------------------------------
+3) Java Language Fundamentals
+
+	i) Comments
+	ii) Data Types
+	iii) Modifiers
+	iv) Variables
+	v) Operators
+	vi) Control Flow Staements
+		a) Conditional Statements
+		b) Loop Statements
+		c) Branching Statements
+	vii) Strings
+	viii) Arrays
+	ix) IO Operations, and File Handling
+	x) Java Methods (Predefined or Built-in Methods, and User defined Methods)
+	xi) Exception handling
+	xii) Java OOPS (Object Oriented Programming System)
+		a) Inheritance
+		b) Polymorphism
+		c) Abstraction
+		d) Encapsulation
+		Object, Class, Interface, Package, Project....
+------------------------------------------------------------------------	
+Java Language Fundamentals
+
+i) Comments in Java
+	> To make the code Readable
+	> To make the code disable from Execution
+Note: Java supports single line comment and multiple line comments
+-------------------------------------------
+ii) Data Types in Java
+
+A Data Type is a classification of the Type of Data that a variable or Object can hold in Computer programming,
+
+Examples:
+	Character,
+	Integer,
+	String,
+	Float,
+	Boolean etc...
+Java supports 2 Categories of Data Types,
+i) Primitive Data Types,
+ii) Non Primitive Data Types / Reference Data Types
+-----------------------------------------------------------
+iii) Java Modifiers
+
+Modifiers are used to set access levels for Classes, Variables, and Methods....
+
+Java supports two categories of modifiers
+
+i) Access Modifiers (default, public, private, and protected)
+ii) Non - Access Modifiers (static, final, abstract,....)
+-----------------------------------------------------------------
+iv) Variables in Java
+
+A named memory llocation to hold / store temporary data within a program,
+
+Java supports 3 types of Varaibles,
+i) Local Variables
+ii) Instance Variables
+iii) Static / Class Variables
+Note: Java supports explicit declaration of Variables.
+------------------------------------------------------------
+In Java
+
+int a;
+a=100; 
+----------------------
+b=200; //Error in Java
+----------------------------------
+In VBScript
+
+Dim a
+a =100
+----------------------------------------
+b=200 'Correct in VBScript
+--------------------------------------------------------------------
+v) Operators in Java
+
+1) Operators are used to perform Mathematical, Comparison, and Logical operations
+
+Categories of Operators
+
+i) Arithmetic Operators
+ii) Assignment Operators
+iii) Relational Operators
+iv) Logical Operators
+v) Bitwise Operators
+vi) Miscellaneous Operators
+etc...
+-----------------------------------------------------------------------------
+vi) Java Control Flow Statements
+	a) Conditional Statements (Ex: if...)
+	b) Loop Statements (Ex: for...)
+	c) Branching Statements (Ex: break...)
+------------------------------------------
+vi) a. 
+Java Condtional Statements
+1) Two Types of Conditional Statements
+i) if statement
+ii) switch statement
+---------------------------------
+2) Three Types of Conditions
+
+i) Single Condition (Positive/Negative Condition)
+ii) Compound / Muliple Condition (Positive/Negative Condition)
+iii) Nested Condition (Positive/Negative Condition)
+
+3) Usage of Conditional Statements
+
+i) Execute a block of Statements when condition is true
+ii) Execute a block of statements when condition is true otherwise execute another block of statements
+iii) Execute a block of statements when a compound condition is true otherwise execute another block of statements
+iv) Decide among several alternates (else if)
+v) Execute a block of statements when more than one condition is true (nested if)
+vi)  Decide among several alternates (using switch statement)
+---------------------------------------------------------------------------------------------

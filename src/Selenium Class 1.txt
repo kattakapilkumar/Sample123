@@ -1,0 +1,113 @@
+---------------------------------------------------------------------
+Selenium 1: Introduction to Selenium
+---------------------------------------------------------------------
+  i) What is Selenium?
+ ii) History of the Selenium Project
+ iii) Selenium Components / Selenium's Tools suite
+                       Selenium IDE
+                       Selenium RC
+                       Selenium WebDriver
+                       Selenium Grid
+ iv) Platforms supported by Selenium
+ v) Selenium License
+ vi) Advantages of Selenium
+ vii) Disadvantages of Selenium
+ viii) Testing Frameworks and other tools used in Selenium
+ ix) Selenium vs. UFT/QTP
+ x) Selenium Environment Setup
+---------------------------------------------------------------------
+i) What is Selenium?
+---------------------------------------------------------------------
+> Selenium is mainly used for Functional & Regression Testing.
+
+(We have different types of Test Automation or Automated Testing, ex: Functional Test Automation, Performance Test Automation, and Test Management etc..., Our Selenium is used for Functional Test Automation and Other Test Tools in this category are UFT / QTP, RFT, SilkTest, Test Complete, Test Partner etc...)
+
+> Selenium is an Open Source Software to automate Web Browsers.
+
+(Open Source means, Source code available on Internet and anybody can download & use with free of cost. Selenium can automate Web based Applications only, it doesn't automate Desktop or Windows based Applications, where as UFT (other tool in this category) can automate desktop and Web Applications.)
+
+> Selenium supports various Operating Environments.
+
+(Suppose our AUT (Application Under Test installed on Windows then we use Selenium for Functional Test Automation, Our Software Application installed on Linux operating environment then we can use Selenium, Our Software Application deployed on Macintosh then we can use Selenium for Automation. UFT formerly QTP supports Windows operating environment only.)
+
+MS Windows,
+Linux,
+Macintosh etc...
+
+> Selenium supports various Browsers to create and execute Tests/Test Cases/Test Scripts
+
+We can use various browsers to launch our Web Application, and Selenium supports various browsers for Test Automation, Test Steps in Test Cases are common for all browsers, and browser driver only various from one browser to another.)
+
+Mozilla Firefox
+Google Chrome
+Internet Explorer /MS Edge
+Opera
+Safari etc...
+
+> Selenium supports various programming languages to write programs (Test Scripts)
+
+(Selenium supports various Programming environment to write Test scripts (programs) but you can use any one of those programming languages, and most of the Selenium Testers using Java for selenium. UFT/QTP supports only VBScript for writing Tests/Test Scripts)
+
+Java,
+Python
+C#.Net
+Perl
+Ruby
+PHP
+
+Note: Selenium IDE doesn't support any programming to write Test cases.
+---------------------------------------------------------------------
+ii) History of the Selenium Project
+---------------------------------------------------------------------
+> Selenium was launched in 2004,
+> In 2006, Selenium WebDriver was launched at Google,
+> In 2008, the whole Selenium Team decided to merge Selenium WebDriver with Selenium RC in order to form a powerful tool called selenium 2.0
+
+Selenium 1.0
+(Selenium IDE + Selenium RC + Selenium Grid)
+
+Selenium 1.0 + Selenium WebDriver = Selenium 2.0
+
+Selenium 2.0
+(Selenium IDE + Selenium RC + Selenium WebDriver + Selenium Grid)
+
+* Selenium 3.0 (2016)
+
+(Less feature enhancements and More new product environments in Selenium 3.0, in Selenium 2.0 default browser is Mozilla Firefox, but no default browser in Selenium 3.0. Selenium IDE doesn't support Mozilla Firefox browser only, and Selenium WebDriver supports various browsers to create and execute test cases.)
+--------------------------------------------------------------------------------
+iii) Selenium Components / Selenium's Tools Suite (seleniumhq.org)
+--------------------------------------------------------------------------------
+(Selenium RC was removed from Selenium 3.0 (latest version of Selenium)   
+  Selenium IDE
+  Selenium WebDriver
+  Selenium Grid
+
+a) Selenium IDE (Integrated Development Environment)
+
+Selenium IDE Features:
+> It is a Firefox browser plug-in and Prototype type tool.
+> It is used to create and execute test cases using Mozilla Firefox browser
+(* Record Test Steps / Type Test Steps using Element locators and Selenese commands/Selenium IDE Commands)
+> User can edit Test Steps in Test Case(Add/Update/Delete)
+> Using Selenium IDE we can create Test Cases and form Test Bathes /suites/set...
+> We can export Selenium IDE Test Cases to other supported formats (Java/Ruby...)
+Note: Selenium IDE Test Case default format / Native format is .html
+> User can debug Test Cases, and insert comments in Test Cases.
+
+selenium IDE Disadvantages:
+> It supports Mozilla Firefox browser only to execute / run Test Cases
+> It doesn't support Programming to enhance Test Cases, so it not suitable for complex Test case design.
+> It doesn't support Parameterization/Data driven Testing
+> No centralized maintenance of Elements / Objects
+> It doesn't generate detailed Test Reports but generates Test summary only.
+-----------------------------------------------------
+b) Selenium WebDriver 
+
+Features:
+> Selenium WebDriver is a powerful tool in this suite of Tools (Selenium)
+> Selenium WebDriver doesn't have IDE, but having programming Interface only.
+
+Selenium IDE - has IDE but no Programming Interface
+Selenium WebDriver - has Programming Interface but no IDE
+UFT/QTP - has IDE as well as Programming Interface
+---------------------*Incomplete*--------------------------------------------------------------

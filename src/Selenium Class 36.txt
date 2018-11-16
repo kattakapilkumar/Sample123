@@ -1,0 +1,157 @@
+Selenium Class 36: Writing Selenium Test Cases Part-4
+-----------------------------------------------------
+i) Data Driven Testing
+ii) Batch Testing
+-----------------------------------------------------
+8) Data Driven Testing for Admin Login in gcrShop Admin Interface (By Reading Test data from a from Text File)
+
+Test Steps:
+i) Launch the Browser
+ii) Navigate to "http://www.gcrit.com/build3/admin/"
+iii) Enter "Username"
+iv) Enter "Password"
+v) Click "Login" Button
+---------------------------------------
+Verification Points:
+
+Capture the URL and Compare with expected
+
+Expected URL:
+http://www.gcrit.com/build3/admin/index.php
+
+Input Data:
+Ref: input.txt file
+-----------------------------------------------------
+Assignment: Verify the Admin Functionality wit failed attempts 
+(* After 3 failed attempts, it has to stop the Admin Functionality for 5 Minutes)
+-----------------------------------------------------
+Selenium WebDriver Data Driven Test Case:
+
+public class DataDriven {
+
+public static void main(String[] args) throws IOException {
+FileReader file = new FileReader("C:\\Users\\gcreddy\\Desktop\\input.txt"); 
+BufferedReader br = new BufferedReader(file);
+
+int Count =0;
+int Iteration =-1;
+String line;
+
+while ((line = br.readLine()) != null){
+Count = Count +1;
+Iteration = Iteration + 1;
+
+if (Count > 1){
+String [] inputData = line.split(", ", 2); 
+WebDriver driver = new FirefoxDriver(); 
+driver.manage().window().maximize();
+driver.get("http://www.gcrit.com/build3/admin/");
+driver.findElement(By.name("username")).sendKeys(inputData[0]);
+driver.findElement(By.name("password")).sendKeys(inputData[1]);
+driver.findElement(By.id("tdb1")).click();
+
+String URL = driver.getCurrentUrl();
+
+if (URL.contains("http://www.gcrit.com/build3/admin/index.php")){
+System.out.println(Iteration +" Admin Login Successful - Passed");
+}
+else {
+System.out.println(Iteration +" Admin Ligin Unsuccessful - Failed");
+}
+driver.close();
+}
+}
+br.close();
+file.close();
+}
+}
+-----------------------------------------------------
+9) Write Selenium WebDriver Test Batch (Using User defined Methods / Reusable Components)
+
+Test Case 1: Verify Admin Login (Positive Test Case)
+Test Case 2: Verify Error Message in Admin Ligin Functionality (Negative Test Case)
+Test Case 3: Verify Redirect Functionality form Admin Interface to user Interface
+-----------------------------------------------------
+What is Batch Testing?
+Executing Series of Tests...
+
+Purpose of Batch Testing?
+Executing Series of Tests without User interaction...
+---------------------------------------
+Steps:
+i) Select Test Cases...
+ii) Identify common Functionality among those Test Cases (* So that we can reduce the code size)
+iii) Create Reusable Components/User Defined Methods for Common Functionality...
+iii) Create Test Cases using Reusable Components / User Defined Methods....
+-----------------------------------------------------
+Selenium WebDriver Test Batch:
+
+public class BatchTesting {
+public static WebDriver driver;
+//Launch Browser 
+public void launchBrowser(){
+driver = new FirefoxDriver();
+driver.manage().window().maximize();
+}
+//Admin Login with Parameters
+public void login(String Username, String Password){
+driver.get("http://www.gcrit.com/build3/admin/");
+driver.findElement(By.name("username")).sendKeys(Username);
+driver.findElement(By.name("password")).sendKeys(Password);
+driver.findElement(By.id("tdb1")).click();
+}
+//Close Browser
+public void closeBrowser(){
+driver.close();
+}
+public static void main(String[] args) {
+BatchTesting obj = new BatchTesting();
+//Test Case 1: Verify Admin Login (Positive Test Case)
+obj.launchBrowser();
+obj.login("admin", "admin@123");
+String URL = driver.getCurrentUrl();
+
+if (URL.contains("http://www.gcrit.com/build3/admin/index.php")){
+System.out.println("Test Case 1:" +" Admin Login Successful - Passed");
+}
+else {
+System.out.println("Test Case 1:"+" Admin Login Unsuccessful - Failed"); 
+}
+obj.closeBrowser();
+//Test Case 2: Verify Error Message in Admin Login Functionality (Negative Test Case)
+obj.launchBrowser();
+obj.login("admin1", "admin@123");
+String ErrorMessage = driver.findElement(By.className("messageStackError")).getText();
+
+if (ErrorMessage.contains("Invalid administrator login attempt.")){
+System.out.println("Test Case 2: " + "Admin Login Unsuccessful & Showing Correct Error Message -Passed");
+}
+else {
+System.out.println("Test Case 2: " + "Admin Login Unsuccessful & Not Showing Correct Error Message -Failed");
+}
+obj.closeBrowser();
+//Test Case 3: Verify Redirect Functionality form Admin Interface to user Interface
+obj.launchBrowser();
+obj.login("admin", "admin123");
+driver.findElement(By.linkText("Online Catalog")).click();
+
+String URL2 = driver.getCurrentUrl();
+
+if (URL2.equals("http://www.gcrit.com/build3/")){
+System.out.println("Test Case 3: "+ "Redirected from Admin to User Interface - Passed");
+}
+else
+{
+System.out.println("Test Case 3: "+ "Not Redirected from Admin to User Interface - Failed"); 
+}
+obj.closeBrowser(); 
+}
+}
+-----------------------------------------------------
+Selenium WebDriver with Java - 1 Class - multiple Test Cases/ 3 Test Cases.
+Selenium WebDriver with Java and TestNG Testing Framework - Multiple Classes - multiple Test Cases/ 3 Test Cases.
+ex: 
+Class1 - 4 Test Cases
+Class2 - 3 Test Cases
+Class3 - 4 Test Cases - Total 11 Test Cases...
+-----------------------------------------------------

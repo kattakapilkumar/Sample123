@@ -1,0 +1,336 @@
+Selenium Class 11: Java Variables, and Operators
+-------------------------------------------------------
+i) Java Variables
+ii) Java Operators
+-------------------------------------------------------
+i) Java Variables
+-------------------------------------------------------
+1) What is Variable?
+
+A named memory location to store the temporary data within a program,
+
+Two types of memory in Computer Environment
+a) Primary Memory (RAM)
+b) Secondary Memory (ROM- CD, DVD, HDD, USB etc...)
+------------------------------------------------
+2) Declaration of Variables
+
+Java supports Explicit Declaration of Variables,
+
+In Java;
+
+dataType VariableName;
+dataType Variable1Name, Variable2Name, Variable3Name;
+dataType variableName= value;
+dataType Variable1Name=value, Variable2Name=value, Variable3Name=value;
+
+Example:
+int a;
+char b;
+boolean c;
+double d;
+String e;
+a=10;
+b='X';
+c= false;
+d= 12.345;
+e="Selenium Testing";
+
+int f, g, h;
+f=50; g=60; h=70;
+
+int i=100;
+
+int j=12, k=13, l=14;
+---------------------------------------------
+3) Assign values to Variables
+
+Two types of Assign values to Variables
+a) Initialization
+	int a =100;
+	or
+	int b;
+	b=200;
+b) Reading 
+	Read Input (Using Input Devices)
+	Read from Files (Text/Excel/Database file...)
+	*Read from Application Objects
+---------------------------------------------------------------------
+4) Variable naming Restrictions
+
+a) Variables are case sensitive
+
+in Java
+int a;
+int B;
+a=100;
+B=200;
+System.out.println(A); //Incorrect
+System.out.println(a); //Correct
+System.out.println(B); //Correct
+System.out.println(b); //Incorrect
+--------------------------------------
+Dim a
+.
+.
+A=100
+.
+.
+Msgbox a'100 (Correct Syntax)
+-------------------------------------------------------------------
+b) Java Variable names should start with a letter or $ or _
+
+Ex:
+myvar
+MYVAR
+$myvar
+_myvar
+7myvar //Incorrect
+*myvar //Incorrect
+myvar7
+------------------------------------
+c) Variable names should not match with Java Keywords and Reserved words
+
+if, for, import, while, new.....(Keywords)
+true, false.....(Reserved Words)
+
+int a;//Correct
+int for; //Incorrect
+--------------------------------------------------------------
+d) Must be unique in the scope of declaration (No duplicate variables in a program)
+----------------------------------------
+e) Must not exceed 255 characters
+------------------------------------------
+Three types of variables in Java,
+
+a) Local Variables
+Local Variables are declared in methods, or blocks.
+
+b) Instance Variables
+Instance Variables are declared in a class but outside of a method or any block.
+
+c) Class / Static Variables
+Static Variables are declared as static, these can’t be local
+--------------------------------------------------------------------------
+If you declare Instance variable before main method then it can be used before main method only.
+If you declare Instance variable after main method then it can be used after main method only.
+
+Example:
+public class VariablesOperators {
+static int a =10;
+
+public int salary(){
+int mySalary = 10000 +2000+1500;
+mySalary = mySalary +a;
+return mySalary;
+}
+public static void main(String[] args) {
+//Static / Class Variable
+int b=20; //Instance variable
+System.out.println(b);//20
+VariablesOperators obj= new VariablesOperators();
+int e = obj.salary();
+System.out.println(e);//13510
+
+if (b>a){
+int x=123;
+System.out.println(a);//10
+System.out.println(b);//20
+System.out.println(x);//123
+}
+System.out.println(a);//10
+System.out.println(b);//20
+//System.out.println(x);//123//Error
+}
+}
+--------------------------------------------------------------------------
+//Calling methods
+obj.salary();
+obj - Object
+salary - Method
+---------------------------------------------------------
+ii) Java Operators
+Operators are used to perform Arithmetic, Comparison, and Logical Operations,
+
+Categories of Java Operators,
+
+a) Arithmetic Operators
+
+b) Comparison Operators
+
+c) Assignment Operators
+
+d) Logical Operators
+-------------------------------------------
+a) Arithmetic Operators
+
+ Arithmetic Operations,
+
+Addition, Subtraction, Multiplication, Division, Modules, Exponentiation etc...
+
+How to conduct Exponentiation in Java? -Jyothi
+----------------------------------------------------
+1) Addition + (Addition, String Concatenation)
+int a=10, b=20;
+int c = a+b; //Addition
+--------------
+String d = "Selenium";
+String e = " Testing";
+String f = d+e; //"selenium Testing"
+--------------------------------------------
+2) Subtraction -  (Subtraction, Negation)
+
+int a=20, b=10;
+int c = a-b;//10 (Subtraction)
+
+int d = -100;//negation
+-------------------------------------------------
+3) Multiplication *
+
+4) Division /
+
+5) Modules %
+
+6) Increment ++
+
+7) Decrement --
+-----------------------------------------------------
+public class VariablesOperators {
+public static void main(String[] args) {
+int a=10, b=5;
+String c= "Selenium", d= "Testing";
+
+System.out.println("Addion of a, b is: " + (a+b));//Addition of a, b is: 15
+System.out.println(a+b);//15
+System.out.println(c+d);//SeleniumTesting
+System.out.println(a-b);//5
+System.out.println(a*b);//50
+System.out.println(a/b);//2
+System.out.println(a%b);//0
+}
+}
+------------------------------------------------------
+Note: Arithmetic Operators return value based Result
+---------------------------------
+b) Relational / Comparison Operators 
+
+1) ==
+
+2) !=
+
+3) >
+
+4) >=
+
+5) <
+
+6) <=
+------------------------------------------------
+Note: Relational Operators return Boolean / Logical (true/false) Result
+---------------------------------
+Example:
+public class VariablesOperators {
+public static void main(String[] args) {
+int a=10, b=20;
+
+System.out.println(a>b);//false
+System.out.println(a>=b);//false
+
+System.out.println(a<b);//true
+System.out.println(a<=b);//true
+
+System.out.println(a==b);//false
+System.out.println(a!=b);//true
+}
+}
+-------------------------------------------------------------
+c) Assignment Operators
+
+1) Assignment =
+
+2) Add and Assign +=
+
+3) Subtract and Assign -=
+
+4) Multiply and Assign *=
+--------------------------------------------
+Example:
+
+public class VariablesOperators {
+public static void main(String[] args) {
+int a=10;
+
+System.out.println(a);//10
+a= a+10;
+System.out.println(a);//20
+
+a=10;
+a += 10;
+System.out.println(a);//20
+
+a -=10;
+System.out.println(a);//10
+
+a *= 10;
+System.out.println(a);//100
+}
+}
+--------------------------------------------------------------
+d) Logical Operators
+
+
+1) Logical Not Operator !
+2) Logical And operator &&
+3) Logical Or Operator ||
+
+Result Criteria for Not Operator:
+
+Operand 1	Operand 2	Result
+-----------------------------------------------------------
+true		true		false
+true		false		true
+false 		true		true
+false		false		true
+------------------------------------------------------------------------
+public class VariablesOperators {
+public static void main(String[] args) {
+boolean a =true, b=false;
+
+System.out.println(! (a && b));//true
+System.out.println(a && b);//false
+System.out.println(a || b);//true
+}
+}
+----------------------------------------------------
+Result Criteria for And Operator:
+
+Operand 1	Operand 2	Result
+-----------------------------------------------------------
+true		true		true
+true		false		false
+false 		true		false
+false		false		false
+------------------------------------------------------------------------
+Result Criteria for Or Operator:
+
+Operand 1	Operand 2	Result
+-----------------------------------------------------------
+true		true		true
+true		false		true
+false 		true		true
+false		false		false
+------------------------------------------------------------------------
+Example:
+
+int a =1000, b=500, c=900;
+
+if ((a>b) && (a>c)){
+System.out.println("A is a Big Number");
+}
+else
+{
+System.out.println("A is Not a Big Number");
+}
+}
+}
+------------------------------------------------------------------------------------

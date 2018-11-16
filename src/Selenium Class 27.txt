@@ -1,0 +1,163 @@
+Selenium Class 27: Element Locators in Selenium 
+-------------------------------------------------------
+Object / Element  Property / Locator  Value  Operation/ Method
+---------------------------------------------------------------
+Dog   color   Black  Run, Jump etc...
+      height
+      weight
+---------------------------------------------------------------
+Man   name   Prithi  Reading, Watching etc...
+      surname
+      height
+      color 
+---------------------------------------------------------------
+> Important task in Functional Testing (Test Automation) is Object identification / Element identification
+
+Note: No Front-end object reference is required for Database Testing...
+---------------------------------------------------------------
+In UFT/QTP:
+
+Object Property  value
+page title  Google
+Button text  OK
+Edit box attached text Username
+--------------------------------------------------
+In Selenium:
+
+Element Locator  value
+Edit box name  Username
+Button id  tdb1
+---------------------------------------------------------------
+What is Element Locator?
+
+It is an address that identifies a web element uniquely within the web page
+
+Selenium supports 8 element locators to identify elements in web pages,
+
+id,
+name,
+className,
+tagName,
+linkText,
+partialLinkText,
+cssSelecor,
+xpath
+-----------------------------------------------------------
+Why we need to use different locators?
+
+> Developers may not provide all locators for every element,
+> Some locators not applicable for all elements
+ex: linkText, partialLinkText...
+> Some Locators may be duplicated
+--------------------------------------------------------------------------
+How to inspect Elements?
+
+Element Locators are common for all browsers,
+
+Mozilla Firefox:
+Page Inspector - Built-in Feature
+Firebug and Firepath - Plug in (need to download and Install)
+
+Google Chrome 
+Developer Tools (F12) - Built-in
+
+MS IE / MS Edge
+Developer Tools (F12) - Buil-in
+---------------------------------------------------------------
+Elements Locators
+
+1) id 
+
+Syntax:
+
+driverObject.WebDriverCommand(By.ElementLocator/id("Locator value"));
+
+Example:
+driver.findElement(By.id("Email"));
+driver.findElement(By.id("Email")).sendKeys("India123");
+--------------------------------------------------------
+driver - Browser Object
+findElement - WebDriver Command - to identify the element based on given locator...
+By - Predefined Class
+id - Locator
+Email - Locato value 
+sendkeys - WebDriver Command - To perform operation on the Element
+India123 - Input Data
+---------------------------------------------------------------
+2nd Syntax:
+
+WebElement elementName = driverObject.WebDriverCommand(By.ElementLocator("Locatot value"));
+
+elementName.WebDriverCommand();
+
+Example:
+WebDriver driver = new FirefoxDriver();
+driver.get("https://www.gmail.com");
+WebElement ebox = driver.findElement(By.id("Email"));
+ebox.sendKeys("VijayB");
+Thread.sleep(5000);
+ebox.clear();
+Thread.sleep(5000);
+ebox.sendKeys("BVijayBangalore");
+-------------------------------------------------
+Note: Whenever we want perform multiple operatons on any Element then choose this 2nd Syntax...
+---------------------------------------------------------------
+2) name
+
+Syntax:
+driverObject.WebDriverCommand(By.ElementLocator/name("Locatot value"));
+
+Example:
+driver.findElement(By.name("username")).sendKeys("Pavani123");
+---------------------------------------
+2nd Sysntax:
+
+WebElement Username = driver.findElement(By.name("username"));
+Username.sendKeys("123Pavani");
+---------------------------------------------------------------
+3) className
+
+driver.get("http://www.google.com");
+driver.findElement(By.className("gb_P")).click();
+--------------------------------------------
+4) tagName
+
+driver.get("file:///C:/Users/gcreddy/Desktop/HTMLExamples/LoginPage.html");
+driver.findElement(By.tagName("input")).sendKeys("Jyothi");
+---------------------------------------------------------------
+5) linkText
+
+Sytax:
+
+driverObject.WebDriverCommand(By.ElementLocator/linkText("Locatot value"));
+
+Example:
+driver.get("https://www.google.co.in");
+driver.findElement(By.linkText("Images")).click();
+---------------------------------------------------------------
+6) partialLinkText
+
+driver.get("https://www.google.co.in");
+driver.findElement(By.partialLinkText("a")).click();
+---------------------------------------------------------------
+7) cssSelector 
+
+Sysntax:
+driverObject.WebDriverCommand(By.ElementLocator/cssSelector("cssSelector Value"));
+
+Example:
+driver.get("https://www.google.co.in");
+driver.findElement(By.cssSelector(".gb_P")).click();
+---------------------------------------------------------------
+8) xpath
+
+xpath is defined as XML path, It is a syntax for identifying any element on the web page using XML path expression.
+xpath is used to find the location of any element on a web page using HTML DOM structure.
+
+Syntax:
+driverObject.WebDriverCommand(By.ElementLocator/xpath("xpath Value"));
+
+Example:
+driver.get("https://www.google.co.in");
+driver.findElement(By.xpath(".//*[@id='gbw']/div/div/div[1]/div[1]/a")).click();
+---------------------------------------------------------------

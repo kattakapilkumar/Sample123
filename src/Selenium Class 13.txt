@@ -1,0 +1,280 @@
+Selenium Class 13: Java Control Flow Statements Part-2, String Handling
+--------------------------------------------------------------------------------
+i) Java Control Flow Statements Part-2
+ii) String Handling in Java
+-----------------------------------------------------
+i) Java Control Flow Statements Part-2
+		i) Decision Making Statements (if, switch statements)
+		ii) Looping Statements (for, while, do while, and enhanced for loop)
+		iii) Branching Statements (break, continue, and return)
+---------------------------------
+Looping Statements
+	1) for loop
+	2) while loop
+--------------------------------------------
+3) do while loop
+
+It repeats a block of statements while condition is true
+It executes statements at least once irrespective of the condition
+
+Syntax:
+
+Initialization
+do
+{
+Statements
+-----------
+----------
+Increment/Decrement
+} while (condition);
+------------------------------------
+Print 1 to 10 Numbers
+Print 10 to 1 Numbers
+Print 1 to 5 Numbers except 4th number,
+----------------------------------------
+int i=1;
+do
+{
+System.out.println(i);
+i++;
+} while (i<=10);
+-------------------------------------------
+int i=10;
+do
+{
+System.out.println(i);
+i--;
+} while (i>=1);
+--------------------------------------
+int i=10;
+do
+{
+System.out.println(i);
+i--;
+} while (i>=1);
+---------------------------------------
+int i=1;
+do
+{
+if (i != 4){
+System.out.println(i);
+}
+i++;
+} while (i<=5);
+---------------------------------------------------------
+4) Enhanced for loop
+------------------------------------------
+Syntax:
+
+It executes all elements in an Array
+
+Array Declaration;
+for (declaration: Expression/Array){
+Statements
+--------------
+--------------
+-------------
+}
+
+Example:
+String [] languages = {"C", "COBOL", "Java", "VBScript"};
+
+for (String lang: languages){
+System.out.println(lang);
+}
+---------------------------------------------
+int a=10, b=20;
+int [] mathOperations = new int[3];
+mathOperations[0]=a+b;
+mathOperations[1]=a-b;
+mathOperations[2]=a*b;
+
+for (int operation: mathOperations){
+System.out.println(operation);
+}
+---------------------------------
+int [] mathOperations = new int[3];
+mathOperations[0]=a+b;
+
+for (int operation: mathOperations){
+System.out.println(operation);
+}
+------------------------------------------------
+3) Branching Statements
+
+> Branching Statements are used to transfer control from one point to another in the code
+> Branching Statements are defined by the three keywords- break, continue, and return.
+
+1) break
+
+> break statement is used to stop the execution and comes out of loop.
+> Mostly break statement used in switch, and in loops also we can use it.
+
+Example:
+for (int i=1; i<=10; i++){
+System.out.println(i);
+if (i == 4){
+break;
+}
+------------------------------
+2) continue
+
+continue statement is also same as break statement, the only difference is when break statement executes it comes out of loop, whereas continue statement comes out from the loop temporarily.
+
+Example:
+for (int i=1; i<=10; i++){
+if (i%2 == 0){
+continue;
+}
+System.out.println(i);
+}
+-----------------------------------
+3) return 
+
+return statement is used in user defined methods (methods with return value), which returns a value or statement from current to calling return statement must be always last statement in the method.
+
+Example:
+public int add(int a, int b){
+int result = a+b;
+return result;
+}
+public static void main(String[] args) {
+VariablesOperators sirisha = new VariablesOperators();
+int d= sirisha.add(10, 30);
+System.out.println(d);//40
+System.out.println(sirisha.add(10, 40));//50
+--------------------------------------------
+public class VariablesOperators {
+public static void main(String[] args) {
+VariablesOperators sirisha = new VariablesOperators();
+int d= sirisha.add(10, 30);
+System.out.println(d);//40
+System.out.println(sirisha.add(10, 40));//50
+}
+public int add(int a, int b){
+int result = a+b;
+return result;
+}
+
+}
+-----------------------------------------------
+Note: 
+> Write user defined methods before main method or after main method (with in class only)
+> Call user defined (Non-static) methods within main method only
+> Don't write user defined methods within main method.
+---------------------------------------------------------------------
+ii) String Handling in Java
+
+What is String?
+
+String is a sequence of characters written in double quotes
+
+Syntax:
+
+String stringName = "value";
+
+String may have Alphabets, Numbers, and Special Characters
+
+String a="India";
+String b= "100";
+String c ="India123";
+String d ="*&%$";
+String e = "123*&%$";
+String f ="India123*&%$";
+String g="Selenium With Java"
+---------------------------------------------
+In VBScript:
+Dim a 
+a=100 'Internally VBScript considers this data as Integer type data
+.
+.
+a=12.345 'Internally VBScript considers this data as Double type data
+.
+.
+.
+a=#10/10/201# 'Internally VBScript considers this data as Date type data
+.
+.
+.
+a="Vijaya" 'Internally VBScript considers this data as String type data
+------------------------------------------------
+Operations on Strings
+
+1) Concatenating Strings
+----------------------
+String + String - Concatenation
+String + Integer - Concatenation
+Integer + Integer - Addition
+------------------------------------
+String str1 = "Selenium";
+String str2="Testing";
+
+System.out.println(str1 + str2);//SeleniumTesting
+System.out.println(str1.concat(str2));//SeleniumTesting
+
+System.out.println("Selenium" + "Testing");//SeleniumTesting
+System.out.println("Selenium"+1+1);//Selnium11
+System.out.println(1+1+"Selenium");//2Selenium
+System.out.println(10+20);//30
+--------------------------------------------------------
+2) String Comparison
+
+In Computer programming we have two types of comparison,
+
+1) 2-way Comparison (true/false)
+2) 3-way Comparison (0, Greater than 0, Less than 0)
+--------------------------------
+Ways of String Comparison
+
+a) String Comparison using Relational operator (==)
+It supports 2-way Comparison
+
+b) String Comparison using equals() method
+It supports 2-way Comparison
+
+c) String Comparison using compareTo() method
+It supports 3-way Comparison
+-------------------------------------------------
+Result Criteria for 3 way comparison
+if string1 = string2 then 0
+if string1 > string2 then Positive value
+if string1 < string2 then Negative value
+-------------------------------
+Comparing 2 Numbers - based on their values (3 > 2)
+Comparing 2 Strings - based on ANSI values 
+
+ANSI character codes
+
+A to Z (65 to 90)
+a to z (97 to 122)
+0-9 (48 to 57)
+---------------------------------------
+Example:
+String str1 ="SELENIUM";
+ String str2 = "selenium";
+ String str3="SELENIUM";
+ String str4="zabc";
+ 
+ //String Comparison using Relational (==) Operator
+ System.out.println(str1 == str2);//false
+ System.out.println(str1 == str3);//true
+ 
+//String Comparison using equals() method
+ System.out.println(str1.equals(str2));//false
+ System.out.println(str1.equals(str3));//true
+ 
+//String Comparison using compareTo() method
+System.out.println(str1.compareTo(str2));//Negative value
+System.out.println(str1.compareTo(str3));//0
+System.out.println(str4.compareTo(str1));//Positive Value
+}
+}
+-------------------------------------------------------
+3) Find String Length
+String str ="SELENIUM";
+ System.out.println(str.length());
+---------------------------------
+ String str ="SELENIUM";
+int size = str.length();
+System.out.println(size);
+-------------------------------------------------------

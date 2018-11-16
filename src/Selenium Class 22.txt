@@ -1,0 +1,305 @@
+Selenium Class 22: Java Polymorphism, Abstraction
+---------------------------------------------------------
+ Java Object Oriented Programming - OOPS
+		i) Inheritance
+		ii) Polymorphism
+		iii) Abstraction
+		iv) Encapsulation
+----------------------------------------------------------------
+ii) Polymorphism
+-----------------------------------------------------------------
+Existence of Object behavior in many forms
+
+Two types of Polymorphism
+
+1) Compile Time Polymorphism / Method OverLoading
+2) Run Time Polymorphism / Method Overriding
+--------------------------------------------
+1) Compile Time Polymorphism / Method OverLoading
+
+If two or more Methods with same name in the same class but differ in the following ways,
+
+a) Number of Arguments
+b) Types of Arguments
+--------------------------------------------
+Example:
+
+public class MethodOverloading {
+public void add(int a, int b){
+System.out.println(a+b);	
+}
+public void add(int a, int b, int c){
+System.out.println(a+b+c);	
+}
+public void add(double a, double b){
+System.out.println(a+b);
+}
+
+public static void main(String[] args) {
+MethodOverloading obj = new MethodOverloading();
+obj.add(1, 2);	
+obj.add(1, 2, 3);
+obj.add(1.31, 2.23);
+}
+}
+--------------------------------------------------------------
+2) Run Time Polymorphism / Method Overriding
+
+If two or more methods with same name that available in the Parent Class and Child Class
+
+Example:
+Class 1:
+
+public class Class1 {
+int a=10, b=20;
+public void add(){
+System.out.println(a+b);
+}
+public static void main(String[] args) {
+Class1 obj = new Class1();
+obj.add();
+}
+}
+-----------------------------------------
+Class2:
+
+public class Class2 extends Class1 {
+int a=12, b=23;
+public void add(){
+System.out.println(a+b);
+}
+public static void main(String[] args) {
+Class2 obj2 = new Class2();
+obj2.add();
+}
+}
+------------------------------------------------
+Class3:
+public class Class3 extends Class2{
+int a=100, b=200;
+public void add(){
+System.out.println(a+b);
+}
+public static void main(String[] args) {
+Class3 obj3 = new Class3();
+obj3.add();
+}
+}
+-----------------------------------------------------------
+iii) Abstraction
+
+It is a process of hiding the implementation details and showing only functionality to the user.
+
+Two types of Methods
+i) Concrete Methods (The Methods which are having body)
+
+Example:
+public void add(){
+Statements
+------------
+------------
+----------
+}
+
+ii) Abstract Methods (The Methods which are not having the body)
+
+Example:
+
+public abstract void add();
+--------------------------------------------------------
+When we go for Abstract Methods?
+
+> If we know the method name but don't know the method functionality then we go for Abstract methods.
+
+> Java Class contains 100% concrete methods.
+
+> Abstract Class contains one or more Abstract Methods
+------------------------------------------------------------------------------
+Class 1 (having 10 Methods)
+
+10 Methods are Concrete Methods 
+It is a Java Class
+---------------------------------
+Class 2 (having 10 Methods)
+
+9 Methods are Concrete Methods and One Method is Abstract Method
+It is a Java Abstract Class
+---------------------------------
+Class 3 (having 10 Methods)
+
+All 10 Methods are Abstract Methods
+It is a Java Abstract Class
+-----------------------------------------------------------------------
+Example for Abstract Class:
+
+public abstract class Bikes {
+	
+public void handle(){
+System.out.println("Bikes have Handle");
+}
+public void seat(){
+System.out.println("Bikes Have Seat");
+}
+
+public abstract void engine();
+public abstract void wheels();
+
+public static void main(String[] args) {
+//Bikes obj = new Bikes();
+}
+}
+-------------------------------------------------
+Note: We Cannot create Object in Abstract Class
+---------------------------------------------------------------
+Inherit Abstract Class (Class Members)
+
+public class HeroHonda extends Bikes{
+public void engine() {
+System.out.println("Bikes have Engine");	
+}
+public void wheels() {
+System.out.println("Bikes have Wheels");
+}
+public static void main(String[] args) {
+
+HeroHonda obj = new HeroHonda();
+obj.seat();
+obj.handle();
+obj.engine();
+obj.wheels();
+}
+}
+-------------------------------------------------------------
+public void handle(){
+System.out.println("Bikes have Handle");
+}
+public void seat(){
+System.out.println("Bikes Have Seat");
+}
+
+public abstract void engine();
+public abstract void wheels();
+
+public static void main(String[] args) {
+HeroHonda obj2 = new HeroHonda();
+obj2.handle();
+obj2.engine();
+}
+}
+-------------------------------------------------------------------
+How to call methods in Home Class/Abstract Class?
+
+Create Object using Child Class name (We complete implementation in Child Class), then call methods.
+-----------------------------------------------------------------
+Java Interfaces
+
+Interface is a Java type definition block which is 100% abstract
+
+1) Class vs. Interface
+
+> Java Classes have 100% Concrete Methods.
+
+> Java Interfaces have 100% Abstract Methods
+--------------------------------------------------------
+2) Abstract Class Vs. Interface
+
+>Java Abstract Classes have one or more/all Abstract Methods.
+
+> Java Interfaces have 100% Abstract Methods
+--------------------------------------------------
+3) Class vs. Abstract Class
+
+>  Java Classes have 100% Concrete Methods.
+
+> Java Abstract Classes have one or more/all Abstract Methods.
+---------------------------------------------------------
+> All the Interface Methods are by default public and abstract.
+> static and final modifiers are not allowed in Interface Methods
+> In Interfaces Variables have to initialized at time of declaration only.
+
+ex:
+int a;
+a=100; //Incorrect
+
+int a=100; //Correct
+------------------------------------------------
+> In Interfaces variables are public and final by default.
+
+> Interfaces are going to be used using "implements" keyword
+-----------------------------------------------------------------
+Create Interface
+
+Java Project
+	Java Package
+		Java Interface / Java Class
+Note: In Java Classes and Interface we write Java Code...
+------------------------------------------------------
+Create Interface
+
+Reuse Interface Methods to Class
+
+Interface:
+
+public interface Interface1 {
+public void engine();
+public void seat();
+public void wheels();
+public void handle();
+}
+--------------------------------------
+Class:
+
+public class Class1 implements Interface1{
+
+public void engine() {
+System.out.println("Bikes have Engine");
+}
+public void seat() {
+System.out.println("Bikes have Seat");
+}
+public void handle() {
+System.out.println("Bikes have Handle");
+}
+public void wheels() {
+System.out.println("Bikes have Wheels");
+}
+public static void main(String[] args) {
+Class1 obj = new Class1();
+obj.engine();
+obj.wheels();
+}
+}
+------------------------------------------------------------
+public interface Interface1 {
+public void engine();
+public void seat();
+public void wheels();
+public void handle();
+public static void main (String[] args){
+Class1 abc = new Class1 ();
+abc.engine();
+abc.wheels();
+abc.handle();
+abc.seat();
+}
+}
+-------------------------------------------------
+Reuse Java Methods:
+1) Class to Class (use "extends" keyword)
+
+2) Abstract class to Class (use "extends" keyword)
+Note: First complete Abstract methods then use all methods.
+
+3) Interface to Class (use "implements" keyword)
+Note: First complete/implement all methods then you can use all methods
+--------------------------------------------------------------
+Assignment:
+Reuse Methods from One Interface to another...
+----------------------------------------------------------------
+
+Class to Class.....
+Abstract Class to Class....
+Interface to Class....
+--------------------------
+Check Interface to Interface....
+---------------------------------------------------------------------

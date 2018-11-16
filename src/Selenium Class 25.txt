@@ -1,0 +1,85 @@
+Selenium Class 25: Write first Selenium Test Case
+---------------------------------------------------
+Manual Test Case:
+
+Test Case ID: gcrshop_admin_TC001
+
+Test Case Name: Verify Admin Login in GCR Shop web portal.
+
+Test Steps:
+i) Launch the Browser
+ii) Navigate to gcr Shop Admin Interface ("http://www.gcrit.com/build3/admin/")
+iii) Enter "Username"
+iv) Enter "Password"
+v) Click "Login" Button
+
+Input Data / Test Data
+
+Username = "admin"
+Password = "admin@123"
+
+Verification Point: 
+Capture the URL after Login and compare with expected
+
+Expected URL: http://www.gcrit.com/build3/admin/index.php
+
+Actual:
+
+Rest Result: Pass/Fail
+------------------------------------------------------
+Selenium WebDriver Test Case,
+
+Download Browser driver (Mozilla Firefox)- gecko driver and extract
+
+Gecko is a web browser engine used in many application developed by Mozilla Foundation, and the Mozilla Corporation.
+
+Gecko driver is the link between our Test Cases in Selenium and the Firefox browser,
+
+Note: In previous versions of WebDriver, no Gecko Driver, Firefox Browser is the default Browser.
+But in selenium 3.0, no default browser, we need ti instantiate and create the Browser driver (Any browser),
+--------------------------------------------------------------
+Admin Login to GCR Shop Admin Interface
+
+Elements in this Navigation:
+
+i) Username - Edit box - name - username
+ii) Password - Edit box - name - password
+iii) Login - Button - id - tdb1
+-------------------------------
+If It is Mozilla Firefox Browser then we can use,
+Built-in Feature - Page Inspector
+Or
+Download and Add Plug ins in Mozilla Firefox Browser...
+Firebug, Firepath
+-----------------------------------
+Selenium was developed in Java,
+UFT/QTP was developed in VC++.NET
+------------------------------------------------
+WebDriver Test case
+
+WebDriver driver = new FirefoxDriver()
+
+public class AdminLogin {
+
+public static void main(String[] args) {
+//Instantiate Gecko driver (It provides link between Selenium Test Case and Mozilla Firefox Browser)
+//System.setProperty("webdriver.gecko.driver", "D:/geckodriver.exe");
+//Create Firefox browser driver in Selenium WebDriver interface...
+WebDriver driver = new FirefoxDriver();//It launches Firefox browser with blank url
+driver.get("http://www.gcrit.com/build3/admin/");
+driver.findElement(By.name("username")).sendKeys("admin1");
+driver.findElement(By.name("password")).sendKeys("admin@123");
+driver.findElement(By.id("tdb1")).click();
+
+String URL = driver.getCurrentUrl();
+
+if (URL.equals("http://www.gcrit.com/build3/admin/index.php")){
+System.out.println("Admin Login Successful - Passed");
+}
+else {
+System.out.println("Admin Login Unsuccessful - Failed"); 
+}
+driver.close();
+}
+}
+--------------------------------------------------------------

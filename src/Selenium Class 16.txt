@@ -1,0 +1,173 @@
+Selenium Class 16: Java File Handling, Exception Handling
+---------------------------------------------------------
+i) Java File Handling part-2
+ii) Exception handling in Java
+---------------------------------------------------------
+Example:
+
+4) Create a Text File
+
+public static void main(String[] args) throws IOException {
+File fileObject = new File ("C:/Users/user/Desktop/Vijaya.txt");
+fileObject.createNewFile();
+-------------------------------------
+5) Check the existance of Vijaya Text file, if not exists then create the file.
+File fileObject = new File ("C:/Users/user/Desktop/Vijaya.txt");
+boolean b = fileObject.exists();
+
+if (b == true){
+System.out.println("File Exists");
+}
+else {
+fileObject.createNewFile();
+System.out.println("File Created.");
+}
+------------------------------------------------------
+6) Delete a Folder
+
+File abc = new File ("C:\\Users\\user\\Desktop\\ABC");
+abc.delete();
+------------------------------------------------------
+7) Read a Text File
+String line;
+FileReader file = new FileReader("C:\\Users\\user\\Desktop\\Vijaya.txt");
+BufferedReader br = new BufferedReader(file);
+
+while ((line = br.readLine()) != null){
+System.out.println(line);	
+}
+br.close();
+file.close();	
+}
+}
+-----------------------------------
+8) Write data to a Text file
+FileWriter file = new FileWriter ("C:/Users/user/Desktop/Vijaya.txt");
+BufferedWriter bw = new BufferedWriter (file);
+
+String data = "Welcome to Selenium";
+bw.write(data);
+bw.close();
+file.close();
+}
+}
+--------------------------------------------------
+9) Read a Text File and write to another file.
+
+String line;
+FileReader file1 = new FileReader("C:\\Users\\user\\Desktop\\abcd.txt");
+FileWriter file2 = new FileWriter("C:/Users/user/Desktop/xyz.txt");
+
+BufferedReader br = new BufferedReader(file1);
+BufferedWriter bw = new BufferedWriter(file2);
+
+while ((line = br.readLine()) != null){
+bw.write(line);
+bw.newLine();
+}
+bw.close();
+br.close();
+file2.close();
+file1.close();
+}
+}
+-------------------------------------------
+Assignment to Priti
+
+Read a Text File (Range of Lines/Read from 3rd line to 8th line) and write to 
+another file.
+--------------------------------------------------------
+ii) Exception Handling in Java
+------------------------------------------------------
+> An Exception is an event that occurs during execution of a program when normal execution of the program is interrupted.
+
+> Exception handling is a mechanism to handle errors,
+
+In Test Automation using Selenium & Java we may face two types of Exceptions,
+
+1) Global Exception (ex: NullPointerException...)
+2) Local Exception (ex: NoSuchElementException...)
+--------------------------------------
+Common scenarios where Exceptions may occur
+
+1) Scenario where ArithmeticException may occur
+
+If we divide any number by zero then ArithmeticException occurs
+
+Ex: 
+int a=10/0;
+---------------------------------------------
+2) Scenario where NumberFormatException Occurs
+
+The wrong format of any value.
+
+String s1 = "abc";
+String s2 ="123";
+
+int a= Integer.parseInt(s1);
+int b= Integer.parseInt(s2);
+.
+.
+System.out.println(a); //NumberFormatException
+---------------------------------------------
+3) Scenario where NullPointerException occurs
+
+The wrong formatting/usage of any value
+
+String s = null;
+.
+system.out.println(s.length());//NullPointerException
+-------------------------------------------------------
+4) Scenario where ArrayIndexOutofBoundsException occurs
+
+If we assign any value in the worng index of an Array
+
+Ex:
+int [] a = new int[4];
+.
+.
+.
+int a[10] =100;
+system.out.println(a[10]);ArrayIndexOutofBoundsException
+-------------------------------------------------------
+Example:
+//Java program without exception handling code.
+
+int a=10;
+int b=0;
+
+int result = a/b;
+System.out.println(result);
+System.out.println("Hello Java");
+System.out.println("Hello Selenium");
+------------------------------------------------------
+Use try catch block.
+
+Syntax:
+
+try{
+Statements
+------------
+----------
+---------
+catch (ExceptionName name){
+exception Handling code
+}
+--------------------------------------------
+public static void main(String[] args) {
+int a=10;
+int b=0;
+
+try
+{
+int result = a/b;
+System.out.println(result);
+}
+catch (ArithmeticException e){
+System.out.println("Divided by zero Error");	
+}
+System.out.println("Hello Java");
+System.out.println("Hello Selenium");
+}
+}
+-------------------------------------------------

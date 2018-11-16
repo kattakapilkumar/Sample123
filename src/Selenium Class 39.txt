@@ -1,0 +1,204 @@
+Selenium Class 39: Introduction to Selenium IDE
+------------------------------------------------
+Selenium IDE (Integrated Development Environment)
+-----------------------------------------
+1) Introduction to Selenium IDE:
+-----------------------------------------
+> It is a Test Tool in Selenium suite to create and execute Test Cases
+> It is a Firefox Browser plug in, works only on Firefox Browser
+> It Provides GUI for Recording user actions on AUT using Firefox Browser, and user can edit (Insert/Update/Delete) Test Steps.
+> Using "Page Inspector" feature we can inspect elements, or using Firebug and Firepath plug in also we can inspect elements.
+> Selenium IDE only used as prototyping tool.
+(* we can't develop complex Test Cases using Selenium IDE, It doesn't support any programming language)
+
+Creating Test Cases / Test Steps in Selenium WebDriver,
+
+Using Element Locators and WebDriver API Commands we can create Test Cases...
+
+One Sample Step...
+Click "Gmail" Link in "Google" Home Page...
+
+Syntax:
+driverObject.findElement(By.ElementLocator("Locator Value")).WebDriver Command/method();
+
+Example:
+driver.findElement(By.linkText("Gmail")).click();
+---------------------------
+Selenium IDE:
+
+Using Element Locators and Selenese Commands / Selenium IDE Commands.
+
+Syntax:
+Command + Target + Value
+
+Command - Forms the Functionality of the Step
+Target - Identified the Element on the Web page
+Value -Input Data (This is applicable for a few commands)
+
+Example:
+Type id=Email  abcdef@gmail.com
+
+Note: Selenium IDE Test Script default format is .html
+---------------------------
+Click "Gmail" Link in "Google" Home Page...
+
+clickAndWait link=Gmail
+-----------------------------------------
+2) Selenium IDE Installation
+-----------------------------------------
+> Launch "Firefox" Browser, and navigate to Google.com
+> In Google home page, type "Selenium IDE Download"
+> Go to "seleniumhq.org download page
+> Go to Selenium IDE Download area
+> Download and Install Selenium IDE
+> Restart the Browser...
+-----------------------------------------
+3) Selenium IDE Drawbacks
+-----------------------------------------
+> It supports Mozilla Firefox Browser only for creating and executing test Case
+> Data driven Testing is not possible
+> No Programming support, so we can't use programming features to enhance Test Cases...
+> Selenium IDE is not suitable for Complex test Design
+-----------------------------------------
+4) Selenium IDE Features
+-----------------------------------------
+> Create Test Cases / Test Suites...
+> Manipulating Test Cases (Insert / Update / Delete Test Steps)
+> Execute Test Cases/Test Suites
+> Export Test Cases using any supported format
+> Debug Test Cases using Breakpoints
+> Insert Comments
+.......
+-----------------------------------------
+5) Menus of Selenium IDE Tool
+-----------------------------------------
+a) File Menu:
+
+File menu has commands/options for Test Case and Test Suite...
+
+> Create New Test Case
+> Open existing Test Case
+> Save Test case
+> Add Test Case
+> Export Test case in a language of our choice
+Note: All these options are available for Test Suite also...
+> Close Selenium IDE
+....
+-------------------------
+b) Edit Menu:
+
+It has Editor Commands
+
+Copy,
+Cut,
+Paste,
+Delete,
+Undo,
+Redo,
+Etc...For editing Test Steps
+Insert New Command / Step
+Insert New Comment
+....
+---------------------------
+c) Actions Menu:
+
+It has options for Record and Run Test Case, and Execute Test Suite
+
+Record & Run...
+Insert / Remove Breakpoint
+Pause / Resume Test execution
+Etc....
+---------------------------
+d) Options Menu:
+
+Options menu allows us to configure tool settings,
+Ex: 
+Change tool timeout value...
+Record Option etc...
+---------------------------
+e) Help Menu:
+
+It provides help documentation for Selenium IDE
+---------------------------
+Test Case Pane:
+
+Our Test Script / Test case is displayed in the Test Case pane.
+
+It has 2 tabs...
+
+1) Table Format (It displays Commands and Parameters)
+2) Source Format (Displays Test Case in the native format (.html))
+-----------------------------------------
+6) Create Test cases in Selenium IDE
+-----------------------------------------
+a) Recording
+
+During Test Recording It generates Test Steps (Command + Target + value) for every User Action
+on AUT (Application Under Test).
+
+Note: User can Edit Test Steps (Insert/Modify/Delete) 
+
+b) Type Test Steps manually
+
+Using Element Locators and Selenese Commands / Selenium IDE Commands 
+User / Tester can generate verification points using verification commands.
+---------------------------------------------
+Two important types of Selenese Commands,
+a) General Commands (Ex: type, click...)
+b) Verification Commands (assert, verify...)
+-----------------------------------------------------------
+> When an "assert" fails, then Test Case execution will be aborted.
+> Where is "verify" fails, The Test Case execution will continue and It logs the failure.
+> So when Assertion fails all Test Steps after that line of code are skipped.
+---------------------------------------------------------------
+Note: If there is any Functionality dependency then choose "assert" command otherwise choose
+"verify" command to execute the entire Test case...
+
+Note 2: If only single verification point in our Test Case then we can choose either "assert" or
+"verify" commands to insert verification point.
+-----------------------------------------
+Writing Test Cases...
+
+1) Test Case: verify "Gmail" Link Existence in Google Home Page
+
+Test Steps:
+i) Navigate to Google Home page (https://www.google.co.in/)
+
+Verification 
+Verify the Existence of "Gmail" Link
+
+Input Data:
+None
+------------------------------------------------------------
+2) Verify "Admin Login" Functionality in gcrshop Admin Interface
+
+Test Steps:
+i) Navigate to "http://www.gcrit.com/build3/admin/"
+ii) Enter "Username"
+iii) Enter "Password"
+v) Click ""Login" Button
+------------------
+
+Verification Point
+Check the existence of "Log Off" Link, if exists then Pass otherwise fail
+
+Input Data:
+i) Username: admin
+ii) Password: admin@123
+--------------------------------------------------------
+3) Verify "User Login" Functionality in gcrShop User Interface
+
+Steps:
+i) Navigate to ("http://www.gcrit.com/build3/")
+ii) Click "login" Link
+iii) Enter "Email Address"
+iv) Enter "Password"
+v) Click "Sing In Button"
+
+Verification:
+Capture the conformation message and verify...
+
+Input Data:
+Email Address: asdfzxc123b@gmail.com
+Password: abcdxyz321
+--------------------------------------------------------

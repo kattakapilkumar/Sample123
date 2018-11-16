@@ -1,0 +1,203 @@
+Selenium Class 37: Writing Selenium Test Cases Part-5
+-----------------------------------------------------
+10) Write a Test Case for Positive and Negative Testing
+
+Test Steps:
+i) Launch the Browser
+ii) Navigate to "http://www.gcrit.com/build3/admin/"
+iii) Enter "Username"
+iv) Enter "Password"
+v) Click "Login" Button
+---------------------------
+Verification Point/s
+Capture the URL after Login to Application then compare with expected.
+
+Expected URL:
+"http://www.gcrit.com/build3/admin/index.php"
+--------------------------------------
+Input for Positive Testing:
+
+i) Username: admin
+ii) Password: admin@123
+---------------------------------------
+Input for Negative Testing:
+
+i) Username: admin1
+ii) Password: admin@1234
+---------------------------------------
+public static WebDriver driver;
+public static String Username;
+public static String Password;
+public static int Iteration;
+public static void main(String[] args) throws InterruptedException {
+for (int i =1; i <=2; i++){
+if (i == 1) {
+Username= "admin";
+Password= "admin@123";
+Iteration =1;
+}
+else if (i == 2) {
+Username= "admin";
+Password= "admin@123";
+Iteration =2;
+}
+System.setProperty("webdriver.chrome.driver", "D:/chromedriver.exe");
+WebDriver driver = new ChromeDriver();
+driver.manage().window().maximize();
+driver.get("http://www.gcrit.com/build3/admin/");
+driver.findElement(By.name("username")).sendKeys(Username);
+driver.findElement(By.name("password")).sendKeys(Password);
+driver.findElement(By.id("tdb1")).click();
+Thread.sleep(5000);
+String URL = driver.getCurrentUrl();
+
+if (URL.contains("http://www.gcrit.com/build3/admin/index.php")){
+System.out.println(Iteration + " Admin Ligin Successful - Passed"); 
+}
+else {
+System.out.println(Iteration + " Admin Login Unsuccessful - Failed");
+}
+driver.close(); 
+}
+}
+}
+------------------------------------------------------
+Cross Browser Testing
+------------------------------------------------------
+1) What is Cross Browser Testing?
+
+Cross Browser Testing is a Type of Test to check that our web application works as expected in different browsers.
+
+Software Testing
+i) Software Development Life Cycle and SDLC Models
+ii) Test Levels
+iii) Test Types...
+iv) Software Test Process
+.....
+----------------------------------------------------
+2) Why Cross Browser Testing?
+
+A Web Application can be opened in any web browser by the end user, so we need to ensure that the web Application will work as 
+expected in all popular browsers.
+-----------------------------------------------------------------
+3) Popular Browsers in the IT Industry...
+
+i) Google Chrome: It was launched in 2008, Its market share approximately 67%
+ii) Mozilla Firefox: It was launched in 2004, Its market share approximately 19%
+iii) Microsoft IE or Edge: It was launched in 1995, Its market share approximately 6.5%
+-------------------------------------------------------------------------------------------------------
+4) Working with different Browsers (Using Selenium WebDriver)
+
+i) Element Locators - Same for all Browsers
+ii) WebDriver API Commands - Same for all Browsers
+iii) Programming Features - Same for all Browsers
+iv) Testing Framework - Same for all Browsers
+* Testing Framework depends on Programming Environment
+-------------------------------
+Note: Browser driver only various from one Browser to another...
+------------------------------------------------------
+Note: In Selenium 2.0, default Browser is Mozilla Firefox, for Chrome, IE etc..., we need to instantiate the browser driver and create driver instance...
+Note 2: In Selenium 3.0, All Browsers need to be Instantiated externally.
+--------------------------------------------------------------------
+5) Instantiate and Create Browser Drivers
+
+i) Mozilla Firefox
+System.setproperty ("webdriver.gecko.driver", "Path of the gecko driver file");
+WebDriver driver = new FirefoxDriver();
+
+ii) Google Chrome
+System.setproperty ("webdriver.chrome.driver", "Path of the chrome driver file");
+WebDriver driver = new ChromeDriver();
+
+iii) Microsoft IE / Edge
+System.setproperty ("webdriver.ie.driver", "Path of the IE driver file");
+WebDriver driver = new InternetExplorerDriver();
+-------------------------------------------------------------------------
+Test Case: Verify the Title of Google Home Page 
+
+Test Steps:
+i) Launch the Browser
+ii) Navigate to "https://www.google.co.in"
+
+Verification Point:
+Capture the Page Tile after launching the application and compare with expected.
+
+Expected: Google
+
+Input Data:
+NA
+---------------------------------------------------------------------------
+i) Selenium WebDriver Test Case for Google Chrome Browser...
+
+System.setProperty("webdriver.chrome.driver", "D:/chromedriver.exe");
+WebDriver driver = new ChromeDriver();
+driver.manage().window().maximize();
+driver.get("https://www.google.co.in");
+String PageTitle = driver.getTitle();
+
+if (PageTitle.equals("Google")){
+System.out.println("Page Title is Google - Passed");
+}
+else {
+System.out.println("Page Title is Not Google - Failed");
+}
+driver.close(); 
+}
+}
+--------------------------------------------------------------------------------
+ii) Selenium WebDriver Test Case for Mozilla Firefox Browser
+
+ 
+System.setProperty("webdriver.gecko.driver", "D:/geckodriver.exe");
+WebDriver driver = new FirefoxDriver();
+
+driver.manage().window().maximize();
+driver.get("https://www.google.co.in");
+String PageTitle = driver.getTitle();
+
+if (PageTitle.equals("Google")){
+System.out.println("Page Title is Google - Passed");
+}
+else {
+System.out.println("Page Title is Not Google - Failed");
+}
+driver.close(); 
+}
+}
+----------------------------------------------------------------------
+iii) Selenium WebDriver Test Case for Microsoft IE Browser
+
+System.setProperty("webdriver.ie.driver", "D:/IEDriverServer.exe");
+WebDriver driver = new InternetExplorerDriver();
+
+driver.manage().window().maximize();
+driver.get("https://www.google.co.in");
+String PageTitle = driver.getTitle();
+
+if (PageTitle.equals("Google")){
+System.out.println("Page Title is Google - Passed");
+}
+else {
+System.out.println("Page Title is Not Google - Failed");
+}
+driver.close(); 
+}
+}
+-------------------------------------------------------------------------
+System.setProperty("webdriver.ie.driver", "D:/IEDriverServer.exe");
+WebDriver driver = new InternetExplorerDriver();
+
+driver.manage().window().maximize();
+driver.get("https://www.google.co.in");
+String PageTitle = driver.getTitle();
+
+if (PageTitle.equals("Google")){
+System.out.println("Page Title is Google - Passed");
+}
+else {
+System.out.println("Page Title is Not Google - Failed");
+}
+driver.close(); 
+}
+}
+-------------------------------------------------------------------------

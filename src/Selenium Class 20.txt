@@ -1,0 +1,160 @@
+Selenium Class 20: Java Methods, Java ArrayList
+-----------------------------------------------------
+i) String Methods
+ii) Number Methods
+iii) Character Methods
+iv) Array Methods
+-----------------------------------------------------
+iii) Character Methods
+1) isLetter()
+2) isDigit()
+-----------------
+3) isLowerCase()
+
+It checks if the character is Lower Case or not? And it returns Logical Result (True/False)
+
+Example:
+
+char a ='Z';
+char b = 'a';
+
+System.out.println(Character.isLowerCase(a));//False
+System.out.println(Character.isLowerCase(b));//True
+
+System.out.println(Character.isLowerCase('A'));//False
+System.out.println(Character.isLowerCase('z'));//True
+System.out.println(Character.isLowerCase('1'));//False
+-----------------------------------------------------------------------
+4) isUpperCase()
+
+It checks if the character is Upper Case value or not?
+
+Example:
+char a ='Z';
+char b = 'a';
+
+System.out.println(Character.isUpperCase(a));//True
+System.out.println(Character.isUpperCase(b));//False
+
+System.out.println(Character.isUpperCase('A'));//True
+System.out.println(Character.isUpperCase('z'));//False
+System.out.println(Character.isUpperCase('1'));//False
+---------------------------------------------------------------------
+iv) Array Methods
+
+1) length() - Returns Length of an Array
+
+Ex:
+
+int [] array1 = {10, 20, 30, 40, 50};
+System.out.println(array1.length);//5
+----------------------------------------------------
+2) Copy Array to String (Print an Array)
+
+String [] array1 = {"Selenium", "UFT", "RFT", "SlikTest", "LoadRunner"};
+
+String str = Arrays.toString(array1);
+System.out.println(str);
+--------------------------------------------------------------------------
+Print an Array using for loop, and enhanced for loop
+
+Using for loop...
+
+String [] array1 = {"Selenium", "UFT", "RFT", "SlikTest", "LoadRunner"};
+int [] array2 = {10, 20, 30, 40};
+
+for (int i=0; i <array1.length; i++){
+System.out.println(array1[i]);
+}
+System.out.println("");
+
+for (int j=0; j < array2.length; j++){
+System.out.println(array2[j]);
+}
+----------------------------------------
+Using enhanced for loop...
+
+for (String str: array1){
+System.out.println(str);
+}
+
+System.out.println("");
+for (int num: array2){
+System.out.println(num);	
+}
+----------------------------------------------------------
+3) Check if an Array contains certain value or not?
+
+String [] array1 = {"Selenium", "UFT", "RFT", "SlikTest", "LoadRunner"};
+boolean b = Arrays.asList(array1).contains("UFT");
+boolean c = Arrays.asList(array1).contains("Java");
+System.out.println(b);//true
+System.out.println(c);//false
+---------------------------------------------------------------
+4) Concatenate two arrays
+
+5) Remove an Element of an Array
+-------------------------------------------------------
+Java ArrayList
+
+
+Variables...
+
+VBScript			Perl				Java
+---------------------------------------------------------------------------------------
+Scalar Variables		Scalar Variables			Scalar Variables
+Array Variables		Array Variables			Arrays (Objects)
+Dictionary Object		Hash Variables / Associated Arrays	AarrayList
+-----------------------------------------------------------------------------------------------
+Array vs. Hash Variables/Associated Arrays
+
+Or
+
+Array vs. ArrayList
+-------------------------------
+Array size is fixed, and static
+ArrayList is Dynamic...
+
+int [] a= new a[4];
+a[0]=10;
+a[1]=200;
+a[2]=300;
+a[3]=400;
+a[5]=450; //Error
+0, 1, 2, 3 are indexes (System defined)
+10, 200, 300, 400 are values (User defined)
+
+In genral Arrays user can define values only, Indexes are predefined/System defined.
+In ArrayList user can define values dynamically....
+ArrayList is Dynamic Data Structure....
+You can Add or Remove Elements....
+
+ArrayList is predefined class that we have to import from java.util package...
+----------------------------------------
+Example:
+
+ArrayList abc = new ArrayList();
+
+abc.add("Selenium");
+abc.add("UFT");
+abc.add("SilkTest");
+abc.add(100);
+abc.add(1.23);
+abc.add("*");
+
+Object a= abc.get(0);
+Object b= abc.get(3);
+Object c= abc.get(4);
+Object d= abc.get(5);
+
+System.out.println(a);
+System.out.println(b);
+System.out.println(c);
+System.out.println(d);
+
+System.out.println(abc.get(3));
+
+System.out.println(abc.get(0));
+abc.remove(0);
+System.out.println(abc.get(0));
+-----------------------------------------------------------------

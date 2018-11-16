@@ -1,0 +1,279 @@
+Selenium Class 41: TestNG Framework for Selenium Part-2
+-------------------------------------------------------
+In TestNG Framework for Selenium Part-1
+
+1) Introduction to TestNG Testing Framework
+2) Install TestNG and write first TestNG Program/Test case...
+3) Create Multiple Test case and Run
+----------------------------------------
+In TestNG Framework for Selenium Part-2
+
+4) Executing multiple programs / classes using XML
+5) Grouping Test Cases...
+-----------------------------------
+Prioritizing Test Cases...
+-----------------------------------
+> Using "priority", "dependsOnMethods", and "alwaysRun" Attributes we can prioritize Test Cases...
+> If there is no Functionality Depandancy among Test Cases in the TestNG Program then choose "priority" Attribute.
+> If there is any Functionality Depandancy among Test Cases in the TestNG Program then choose "dependsOnMethods" Attribute
+> If there is any Functionality Depandancy among some Test Cases in the TestNG Program then choose "dependsOnMethods" and "alwaysRun" Attributes
+-----------------------------------
+@Test
+Priority
+dependsOnMethods
+alwaysRun...
+-----------------------------------
+Important TestNG Annotations...
+
+@Test - The annotated method is a part of Test Case
+
+@BeforeMethod: The annotated method will be run before each Test Case in the current class is invoked
+@AfterMethod: The annotated method will be run after each Test Case in the current class have been run
+
+Example:
+Test Cases...
+i) launchBrowser()
+ii) verifygoogleTitle()
+iii) verifyyahooTitle()
+iv) verifybankofAmericaTitle()
+iv) closeBrowser()
+--------------------------------
+Test Execution Flow...
+
+i) launchBrowser()
+ii) verifygoogleTitle()
+iii) closeBrowser()
+
+i) launchBrowser()
+ii) verifyyahooTitle()
+iii) closeBrowser()
+
+i) launchBrowser()
+ii) verifybankofAmericaTitle()
+iii) closeBrowser()
+-----------------------------------
+@BeforeClass: The annotated method will be run the first Test Method in the current class is invoked
+@AfterClass: The anootated method will be run after all the Test methods in the current class have been run
+
+
+Example:
+Test Cases...
+i) launchBrowser()
+ii) verifygoogleTitle()
+iii) verifyyahooTitle()
+iv) verifybankofAmericaTitle()
+iv) closeBrowser()
+--------------------------------
+Test Execution Flow....
+
+i) launchBrowser()
+
+ii) verifygoogleTitle()
+iii) verifyyahooTitle()
+iv) verifybankofAmericaTitle()
+
+iv) closeBrowser()
+-----------------------------------
+@BeforeTest: The annotated method will be run before any Test Method belonging to the classes inside the tag is run.
+@AfterTest: The annotated method will be run after all the Test Methods belonging to classes inside the tag 
+
+Example:
+Test Cases in Class 1...
+i) launchBrowser()
+ii) verifygoogleTitle()
+iii) verifyyahooTitle()
+iv) verifybankofAmericaTitle()
+iv) closeBrowser()
+--------------------------------
+Test Cases in Class 2...
+
+i) launchBrowser()
+ii) verifyabcdeTitle()
+iii) verifyxyzaTitle()
+iv) verifysdfghjTitle()
+iv) closeBrowser()
+--------------------------------
+Test Execution Flow...
+
+i) launchBrowser()
+ii) verifygoogleTitle()
+iii) verifyyahooTitle()
+iv) verifybankofAmericaTitle()
+v) verifyabcdeTitle()
+vi) verifyxyzaTitle()
+vii) verifysdfghjTitle()
+viii) closeBrowser()
+-----------------------------------
+Example 1: TestNG Program with "priority" Attribute
+
+Test Cases....
+i) launchBrowser()
+ii) verifygoogleTitle()
+iii) verifyyahooTitle()
+iv) verifygcreddy()
+iv) closeBrowser()
+--------------------------------
+Test Execution as per Alphabetical order...
+
+i) closeBrowser()
+ii)  launchBrowser()
+iii) verifygcreddyTitle()
+iv) verifygoogleTitle()
+v) verifyyahooTitle()
+-------------------------------------
+public class Class3 {
+public static WebDriver driver;
+
+@Test (priority = 1)
+public void launchBrowser(){
+System.setProperty("webdriver.chrome.driver", "D:/chromedriver.exe");
+driver = new ChromeDriver();
+driver.manage().window().maximize();
+}
+@Test (priority = 2)
+public void verifygoogleTitle(){
+driver.get("https://www.google.co.in/");
+String pageTitle = driver.getTitle();
+Assert.assertEquals("Google", pageTitle);
+}
+@Test (priority = 3)
+public void verifyyahooTitle(){
+driver.get("https://in.yahoo.com/");
+String pageTitle = driver.getTitle();
+Assert.assertEquals("Yahoo", pageTitle);
+}
+@Test (priority = 4)
+public void verifygcreddyTitle(){
+driver.get("http://www.gcreddy.com/");
+String pageTitle = driver.getTitle();
+//System.out.println(pageTitle);
+Assert.assertEquals("Software Testing", pageTitle);
+}
+@Test (priority = 5)
+public void closeBrowser(){
+driver.close();
+}
+}
+-----------------------------------
+Example 2: TestNG Program with "BeforeMethod, AfterMethod Annotations and "priority" Attribute
+
+
+Test Execution Flow...
+
+i) launchBrowser()
+ii) verifygoogleTitle()
+iii) closeBrowser()
+
+i) launchBrowser()
+iii) verifyyahooTitle()
+iii) closeBrowser()
+
+i) launchBrowser()
+iii) verifygcreddy()
+iii) closeBrowser()
+--------------------------------
+@BeforeMethod
+public void launchBrowser(){
+System.setProperty("webdriver.chrome.driver", "D:/chromedriver.exe");
+driver = new ChromeDriver();
+driver.manage().window().maximize();
+}
+@Test (priority = 1)
+public void verifygoogleTitle(){
+driver.get("https://www.google.co.in/");
+String pageTitle = driver.getTitle();
+Assert.assertEquals("Google", pageTitle);
+}
+@Test (priority = 2)
+public void verifyyahooTitle(){
+driver.get("https://in.yahoo.com/");
+String pageTitle = driver.getTitle();
+Assert.assertEquals("Yahoo", pageTitle);
+}
+@Test (priority = 3)
+public void verifygcreddyTitle(){
+driver.get("http://www.gcreddy.com/");
+String pageTitle = driver.getTitle();
+//System.out.println(pageTitle);
+Assert.assertEquals("Software Testing", pageTitle);
+}
+@AfterMethod
+public void closeBrowser(){
+driver.close();
+}
+}
+-----------------------------------
+public class Class3 {
+public static WebDriver driver;
+
+@BeforeMethod
+public void launchBrowser(){
+System.setProperty("webdriver.chrome.driver", "D:/chromedriver.exe");
+driver = new ChromeDriver();
+driver.manage().window().maximize();
+System.out.println("Application Launched - Passed");
+}
+@Test (priority = 1)
+public void verifygoogleTitle(){
+driver.get("https://www.google.co.in/");
+System.out.println("Title is Google - Passed");
+}
+@Test (priority = 2)
+public void verifyyahooTitle(){
+driver.get("https://in.yahoo.com/");
+System.out.println("Title is Yahoo - Passed");
+}
+@Test (priority = 3)
+public void verifygcreddyTitle(){
+driver.get("http://www.gcreddy.com/");
+System.out.println("Title is Software Testing - Passed");
+}
+@AfterMethod
+public void closeBrowser(){
+driver.close();
+System.out.println("Application Closed - Passed");
+}
+}
+-----------------------------------
+Example 3: TestNG Program with "BeforeClass, AfterClass Annotations and "priority" Attribute
+
+Test Execution Flow...
+
+launchBrowser()
+i) verifygoogleTitle()
+ii) verifyyahooTitle()
+iii) verifygcreddy()
+closeBrowser()
+-----------------------------------
+public class Class3 {
+public static WebDriver driver;
+
+@BeforeClass
+public void launchBrowser(){
+System.setProperty("webdriver.chrome.driver", "D:/chromedriver.exe");
+driver = new ChromeDriver();
+driver.manage().window().maximize();
+System.out.println("Application Launched - Passed");
+}
+@Test (priority = 1)
+public void verifygoogleTitle(){
+driver.get("https://www.google.co.in/");
+System.out.println("Title is Google - Passed");
+}
+@Test (priority = 2)
+public void verifyyahooTitle(){
+driver.get("https://in.yahoo.com/");
+System.out.println("Title is Yahoo - Passed");
+}
+@Test (priority = 3)
+public void verifygcreddyTitle(){
+driver.get("http://www.gcreddy.com/");
+System.out.println("Title is Software Testing - Passed");
+}
+@AfterClass
+public void closeBrowser(){
+driver.close();
+System.out.println("Application Closed - Passed");
+}
+}
+-----------------------------------------------------------------

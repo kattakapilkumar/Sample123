@@ -1,0 +1,329 @@
+Selenium Class 21: Java Inheritance
+-----------------------------------------------------
+Java Object Oriented Programming (OOPS)-
+		i) Inheritance
+		ii) Polymorphism
+		iii) Abstraction
+		iv) Encapsulation
+-----------------------------------------------------
+i) Inheritance
+-----------------------------------------------------
+> It is a process of Inheriting (reusing) class members (variables and methods) from one class to another
+
+> The Class where the class members are getting inherited is called Super Class/Parent Class / Base Class
+
+> The Class to which the class members are getting inherited is called Sub Class/Child Class/Derived Class.
+
+> The Inheritance between Parent Class and Child Class is achieved using "extends" keyword.
+-----------------------------------------------------
+Two Types of Class members in Java 
+
+Static and Non static Class Members.
+
+How to Call Non-static Class members...
+
+	Using Object / Instance of the Class.
+
+How to Call Static Class members...
+
+	using Class Name or Directly.
+-----------------------------------------------------
+Example:
+
+public class Inheritance {
+//Declare Static Variables
+public static int a=10, b=20;
+
+//Declare Non Static variables
+int c=30, d=40;
+
+//Create a Static Method with return value
+public static int add(){
+int result = a+b;
+return result;
+}
+
+//Create a Non-static method with return value
+public int multiply(){
+int result = c*d;
+return result;
+}
+
+public static void main(String[] args) {
+System.out.println(a);
+//Call Static Method
+int x = add();
+System.out.println(x);	
+
+//Call Non-static Method
+Inheritance obj = new Inheritance();
+int y = obj.multiply();
+System.out.println(y);
+System.out.println(obj.c);	
+
+}
+}
+-----------------------------------------------------
+public static int add(){
+int result = a+b+c;//Error
+return result;
+}
+
+//Create a Non-static method with return value
+public int multiply(){
+int result = a*c*d;
+return result;
+}
+
+public static void main(String[] args) {
+System.out.println(a);
+//Call Static Method
+int x = add();
+System.out.println(x);	
+
+//Call Non-static Method
+Inheritance obj = new Inheritance();
+int y = obj.multiply();
+System.out.println(y);
+System.out.println(obj.c);	
+
+}
+}
+-----------------------------------------------------
+Note: We can use Static and Non-static variables in Non-static methods, but we can't use Non-static variables in Static methods...
+-----------------------------------------------------
+Types of Inheritance:
+----------------------------
+i) Single Inheritance 
+
+ex:
+Class2 extends Class1
+--------------------------------
+ii) Multi Level Inheritance
+
+Ex:
+Class2 extends Class1
+Class3 extends Class2
+--------------------------------------
+iii) Multiple Inheritance (* Java doesn't support)
+
+Ex:
+Class2 extends Class1
+Class2 extends Class7 (* Impractical)
+-----------------------------------------------------
+1) Reuse Class Members without inheritance
+-----------------------------------------------------
+Class 1
+
+public class Class1 {
+int a=10;
+int b=20;
+public static int e=123;
+
+public void add(){
+System.out.println(a+b);
+}
+
+public static void add2(){
+System.out.println(30+40);
+}
+
+public static void main(String[] args) {
+Class1 obj = new Class1();
+obj.add();//30
+System.out.println(obj.b);//20
+
+add2();//70
+System.out.println(e);
+}
+}
+----------------------------------------------------------
+public class Class2  {
+
+public static void main(String[] args) {
+Class1 obj2 = new Class1();
+obj2.add();
+System.out.println(obj2.b);
+
+Class1.add2();
+int x =Class1.e;
+System.out.println(x);
+System.out.println(Class1.e);
+}
+}
+-----------------------------------------------------
+2) Reuse Class Members with Inheritance
+-----------------------------------------------------
+public class Class1 {
+int a=10;
+int b=20;
+public static int e=123;
+
+public void add(){
+System.out.println(a+b);
+}
+
+public static void add2(){
+System.out.println(30+40);
+}
+
+public static void main(String[] args) {
+Class1 obj = new Class1();
+obj.add();//30
+System.out.println(obj.b);//20
+
+add2();//70
+System.out.println(e);
+}
+}
+-------------------------------------------------
+public class Class2 extends Class1 {
+
+public static void main(String[] args) {
+Class2 xyz = new Class2();
+xyz.add();
+System.out.println(xyz.b);
+
+Class2.add2();
+int x =Class2.e;
+System.out.println(x);
+System.out.println(Class2.e);
+}
+}
+-----------------------------------------------------
+3) Example for Multi Level Inheritance
+-----------------------------------------------------
+Class 1:
+public class Class1 {
+public void add(){
+int a=10, b=20;
+System.out.println(a+b);
+}
+
+public static void main(String[] args) {
+Class1 obj1 = new Class1();
+obj1.add();
+}
+}
+------------------------------------------------
+Class 2:
+
+public class Class2 extends Class1 {
+public void comparison(){
+int a = 100, b=50;
+if (a > b){
+System.out.println("A is a Big Number");
+}
+else {
+System.out.println("B is a Big Number");
+}
+}
+public static void main(String[] args) {
+Class2 obj2 = new Class2();
+obj2.comparison();
+obj2.add();
+
+}
+}
+---------------------------------------------------
+Class 3:
+
+public class Class3 extends Class2 {
+public void sub(){
+int a=10, b=8;
+System.out.println("Subtraction of a, b :" + (a-b));
+}
+public static void main(String[] args) {
+Class3 obj3 = new Class3();
+obj3.sub();
+obj3.comparison();
+obj3.add();
+}
+}
+-----------------------------------------------------------------
+4) Two Classes in the Same Project but in different packages
+------------------------------------------------------------------
+Class1 in Package 1 (Project 1 only)
+
+public class Class1 {
+public void add(){
+int a=10, b=20;
+System.out.println(a+b);
+}
+
+public static void main(String[] args) {
+Class1 obj1 = new Class1();
+obj1.add();
+}
+}
+------------------------------------------------
+Class2 in Package 2 (Project 1 only)
+
+import package1.Class1;
+
+public class Class2 {
+
+public static void main(String[] args) {
+Class1 obj2 = new Class1();
+obj2.add();
+}
+}
+-----------------------------------------------------
+Class2 in Package 2 (Project 1 only)
+
+import package1.Class1;
+
+public class Class2 extends Class1 {
+
+public static void main(String[] args) {
+Class2 obj2 = new Class2();
+obj2.add();
+}
+}
+-----------------------------------------------------------------------
+5) Two Classes in different packages as well as different Projects
+-----------------------------------------------------------------------
+Class1 in Package1 under Project1
+
+package package1;
+
+public class Class1 {
+public void add(){
+int a=123, b=34;
+System.out.println(a+b);
+}
+public static void main(String[] args) {
+Class1 obj1 = new Class1();
+obj1.add();
+	
+}
+}
+-------------------------------------------------
+Class2 in Package2 under Project2
+
+package package2;
+
+import package1.Class1;
+
+public class Class2 {
+
+public static void main(String[] args) {
+Class1 obj2 = new Class1();
+obj2.add();
+}
+}
+----------------------------------------------------
+import java.util.Scanner;
+import package1.Class1;
+
+public class Class2 {
+
+public static void main(String[] args) {
+Class1 obj2 = new Class1();
+obj2.add();
+Scanner xyz = new Scanner(System.in);
+------------------------------------------------------------
+> Reuse Class members between two or more classes in the same package (Same Project)
+> Reuse Class Members between two or more classes from different packages in Same Project.
+> Reuse Class Members between two or more classes from different packages in different projects.
+------------------------------------------------------------------------------------------------------------
